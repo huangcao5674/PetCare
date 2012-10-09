@@ -1,0 +1,155 @@
+﻿/*
+******************************************
+* Style of PETs, copyright (c) PETs Team.*
+* Version: 1.0                           *
+* Design by Hope_XW                      * 
+******************************************
+*/
+
+/*Global parts*/
+body,h1,h2,h3,h4,h5,h6,span,p,img,a,ul,ol,li,div,form,header,aside,article,footer
+{
+    margin:0;
+    border:0;
+    padding:0;
+}
+ul,ol,li
+{
+    list-style-type:none;
+}
+a
+{
+    text-decoration:none;
+}
+body
+{
+    width:100%;
+    font-size:62.5%;/*Define: 1em = 10px;*/
+    font-family:黑体,Arial, Helvetica, 微软雅黑, sans-serif，宋体;
+}
+.clear
+{
+    clear:both;
+}
+header
+{
+    width:100%;
+    height:50px;
+    background:#004A88;
+    box-shadow:0px 1px 1px rgba(0,74,136,0.3);
+}
+#header
+{
+    width:100%;
+    height:50px;
+    background:#004A88;
+    box-shadow:0px 1px 1px rgba(0,74,136,0.3);
+}
+#top
+{
+    width:1000px;
+    height:100%;
+    margin:0 auto;
+}
+
+#logo
+{
+    width:100px;
+    height:100%;
+    float:left;
+    display:block;
+    font-size:30px;
+    color:#FFF;
+    line-height:46px;
+    text-shadow:0px 2px 2px rgba(0,0,0,0.75);
+}
+.userNav
+{
+    width:auto;
+    height:100%;
+    float:right;
+    font-size:16px;
+    color:#91C0E9;
+    line-height:46px;
+    display:block;
+}
+
+.userNav a
+{
+    padding:20px;
+    color:#91C0E9;
+}
+.userNav a:hover
+{
+    text-decoration:underline;
+    color:#FFF;
+}
+.userNav span
+{
+    font-size:14px;
+    letter-spacing:-6px;
+}
+#wrapper
+{
+    width:1000px;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:30px;
+}
+
+#content
+{
+    width:700px;
+    height:auto;
+    float:left;
+}
+#tabView
+{
+    width:630px;
+    height:30px;
+    margin-left:70px;
+    border-bottom:1px solid #DAE7F2
+}
+#mostRecent
+{
+    color:#262626;
+    font-size:14px;
+    float:left;
+    line-height:30px;
+}
+#tabFilter
+{
+    float:right;
+    font-size:14px;
+    line-height:30px;
+    color:#999;
+}
+#tabFilter a
+{
+    font-size:14px;
+    line-height:30px;
+    color:#999;
+}
+#tabFilter .linkActive
+{
+    color:#199FF2;
+}
+.article
+{
+    width:700px;
+    height:auto;
+}
+
+#aside
+{
+    width:220px;
+    height:auto;
+    float:right;
+}
+aside
+{
+    width:220px;
+    height:auto;
+    float:right;
+}
