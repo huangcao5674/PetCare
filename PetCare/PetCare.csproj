@@ -53,6 +53,8 @@
   <ItemGroup>
     <Content Include="BackManage\BackMain.aspx" />
     <Content Include="HomeDemo.aspx" />
+    <Content Include="Images\DefaultUserThumb.PNG" />
+    <Content Include="Images\imageTest.PNG" />
     <Content Include="Scripts\GlobalStyle.css" />
     <Content Include="PetMain.aspx" />
     <Content Include="Web.config" />

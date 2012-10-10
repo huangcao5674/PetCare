@@ -21,6 +21,7 @@ a
 {
     text-decoration:none;
 }
+
 body
 {
     width:100%;
@@ -81,7 +82,7 @@ header
 }
 .userNav a:hover
 {
-    text-decoration:underline;
+    /*text-decoration:underline;*/
     color:#FFF;
 }
 .userNav span
@@ -137,10 +138,115 @@ header
 }
 .article
 {
+	margin-top:20px;
     width:700px;
     height:auto;
 }
+article
+{
+	margin-top:20px;
+    width:700px;
+    height:auto;	
+}
+.userThumb
+{
+    width:48px;
+    height:48px;
+	float:left;
+    border:1px solid #FFF;
+    /*ackground-image:url("../Images/DefaultUserThumb.png");*/
+}
+.userPush
+{
+	width:630px;
+	height:auto;
+	float:right;
+	padding-bottom:20px;
+	border-bottom:1px solid #DAE7F2;
+}
+.userNickName
+{
+	color:#199FF2;
+	font-size:14px;
+	font-weight:bold;
+	line-height:18px;
+}
+.userPushTime
+{
+	color:#999;
+	font-weight:normal;
+}
+.contentTitle
+{
+	font-size:16px;
+	font-weight:bold;
+	line-height:24px;
+	color:#333;
+}
+.contentBody
+{
+	font-size:16px;
+	line-height:20px;
+	color:#666;
+}
+.contentBody a
+{
+	color:#199FF2;
+}
+.contentBody a:hover
+{
+	text-decoration:underline;
+}
+.contentImage
+{
+	border:1px solid #91C0E9;
+	margin-top:5px;
+}
+.articleFunction
+{
+	margin-top:10px;
+	width:100%;
+	height:auto;
+}
 
+.userTopic
+{
+	float:left;
+}
+.userTopic a
+{
+	color:#8FB0CC;
+	font-size:14px;
+	line-height:20px;
+	padding:0 5px;
+}
+.userTopic a:hover
+{
+    text-decoration:underline;
+}
+.social
+{
+	float:right;
+	color:#8FB0CC;
+	display:block;
+}
+.social a
+{
+	color:#8FB0CC;
+	font-size:14px;
+	line-height:20px;
+}
+
+.social a:hover
+{
+    text-decoration:underline;
+}
+.social span
+{
+	padding:0 5px;
+	font-size:14px;
+	line-height:20px;
+}
 #aside
 {
     width:220px;
