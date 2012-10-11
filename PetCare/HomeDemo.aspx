@@ -338,9 +338,22 @@
             </div>
         </div>
         <div id="aside">
-        <!--Html5，未经测试-->
+        <!--Html5预留，未经测试-->
         <!--<aside>-->
-
+            <input id="publish" type="button" value="我要发布" />
+            <div id="sideNav">
+                <ul>
+                   <li><a class="sideNavActive" href="#">最新动态</a></li>
+                   <li><a href="#">寻找宠物</a></li>
+                   <li><a href="#">领养宠物</a></li>
+                   <li><a href="#">宠物知识</a></li>
+                   <li><a href="#">我的关注</a></li>
+                </ul>
+                <div id="searchArea">
+                    <input id="searchBox" type="text" />
+                    <input id="searchBtn" type="button"  /> 
+                </div>            
+            </div>
         <!--</aside>-->
         </div>   
         <div class="clear"></div>
