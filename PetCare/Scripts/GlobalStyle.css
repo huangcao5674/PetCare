@@ -21,6 +21,10 @@ a
 {
     text-decoration:none;
 }
+a:hover
+{
+    text-decoration:underline;
+}
 
 body
 {
@@ -82,7 +86,7 @@ header
 }
 .userNav a:hover
 {
-    /*text-decoration:underline;*/
+    text-decoration:none;
     color:#FFF;
 }
 .userNav span
@@ -132,6 +136,7 @@ header
     line-height:30px;
     color:#999;
 }
+
 #tabFilter .linkActive
 {
     color:#199FF2;
@@ -173,6 +178,7 @@ article
 }
 .userPushTime
 {
+    font-size:14px;
 	color:#999;
 	font-weight:normal;
 }
@@ -180,9 +186,11 @@ article
 {
 	font-size:16px;
 	font-weight:bold;
-	line-height:24px;
+	line-height:26px;
+	letter-spacing:0.1em;
 	color:#333;
 }
+
 .contentBody
 {
 	font-size:16px;
