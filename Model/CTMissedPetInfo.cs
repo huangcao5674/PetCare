@@ -1,4 +1,11 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////
+//这个类代表了用户发表丢失宠物信息信息的类
+//misseId代表 每一篇文章的主键ID
+//userID  代表是哪个用户发表的这篇文章
+//addressID 代表 这篇文章关联的地区
+//petcategory 代表这篇文章涉及到的宠物的种类
+////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

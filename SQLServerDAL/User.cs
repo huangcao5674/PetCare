@@ -20,12 +20,15 @@ namespace PetCare.SQLServerDAL
 
         private const string PARM_USER_ID = "@UserId";
 
+
+        //得到所有的用户的信息
         public List<CTUserInfo> GetAllUserInfo()
         {
             List<CTUserInfo> userInfoList = new List<CTUserInfo>();
             return userInfoList;
         }
 
+        //根据用户的ID得到用户的信息
         public List<CTUserInfo> GetUserInfoByUserID(int UserID)
         {
             List<CTUserInfo> userInfoList = new List<CTUserInfo>();
