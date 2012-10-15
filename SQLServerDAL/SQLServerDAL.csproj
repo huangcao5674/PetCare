@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}</ProjectGuid>
+    <ProjectGuid>{CE9E102F-F6AF-4E61-95C2-1A4586102649}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Model</RootNamespace>
-    <AssemblyName>Model</AssemblyName>
+    <RootNamespace>SQLServerDAL</RootNamespace>
+    <AssemblyName>SQLServerDAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,17 +40,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CTCommentWeiBo.cs" />
-    <Compile Include="CTContentWeiBo.cs" />
-    <Compile Include="CTPetDetail.cs" />
-    <Compile Include="CTAddress.cs" />
-    <Compile Include="CTAdoptPet.cs" />
-    <Compile Include="CPetCareConfiguration.cs" />
-    <Compile Include="CTKnowledgePet.cs" />
-    <Compile Include="CTMissedPetInfo.cs" />
-    <Compile Include="CTUserInfo.cs" />
+    <Compile Include="KnowledgePet.cs" />
+    <Compile Include="MissedPetInfo.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{FD208CA8-EDF0-4975-A996-4873EE6AFE0D}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{F3369493-9172-40B3-8AEB-ED87FD529BC6}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{7EF1BFF6-BDFE-45B7-A16C-B46904135507}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

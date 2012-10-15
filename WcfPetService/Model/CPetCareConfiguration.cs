@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PetCare.Model
+namespace WcfPetService.Model
 {
     /// <summary>
     /// 从配置文件读取信息类

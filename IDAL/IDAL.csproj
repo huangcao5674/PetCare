@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}</ProjectGuid>
+    <ProjectGuid>{7EF1BFF6-BDFE-45B7-A16C-B46904135507}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Model</RootNamespace>
-    <AssemblyName>Model</AssemblyName>
+    <RootNamespace>IDAL</RootNamespace>
+    <AssemblyName>IDAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,17 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CTCommentWeiBo.cs" />
-    <Compile Include="CTContentWeiBo.cs" />
-    <Compile Include="CTPetDetail.cs" />
-    <Compile Include="CTAddress.cs" />
-    <Compile Include="CTAdoptPet.cs" />
-    <Compile Include="CPetCareConfiguration.cs" />
-    <Compile Include="CTKnowledgePet.cs" />
-    <Compile Include="CTMissedPetInfo.cs" />
-    <Compile Include="CTUserInfo.cs" />
+    <Compile Include="IAdoptPet.cs" />
+    <Compile Include="IKnowledgePet.cs" />
+    <Compile Include="IMissedPetInfo.cs" />
+    <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

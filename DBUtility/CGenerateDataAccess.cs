@@ -9,7 +9,7 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 
-namespace Model
+namespace PetCare.DBUtility
 {
     /// <summary>
     /// 包含通用数据库访问功能的类，业务逻辑层会用到它
@@ -45,6 +45,31 @@ namespace Model
             return comm;
         }
 
+        /// <summary>
+        /// 为command添加参数
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="commandParameters"></param>
+        public static void AttachParameters(DbCommand command, DbParameter[] commandParameters)
+        {
+            if (command == null)
+                throw new ArgumentNullException("command");
+            if (commandParameters != null)
+            {
+                foreach (DbParameter p in commandParameters)
+                {
+                    if (p != null)
+                    {
+                        if ((p.Direction == ParameterDirection.InputOutput || p.Direction == ParameterDirection.Input) && (p.Value == null))
+                        {
+                            p.Value = DBNull.Value;
+                        }
+                        command.Parameters.Add(p);
+                    }
+                }
+            }
+        }
+
 
         //执行dbcommand 并返回一个datatable
         public static DataTable ExecuteSelectCommand(DbCommand command)
@@ -60,7 +85,7 @@ namespace Model
             }
             catch (Exception ex)
             {
-                CUtilities.LogError(ex);
+               // CUtilities.LogError(ex);
                 throw;
             }
             finally
@@ -86,7 +111,7 @@ namespace Model
             }
             catch (Exception ex)
             {
-                CUtilities.LogError(ex);
+               // CUtilities.LogError(ex);
                 throw;
             }
             finally
@@ -113,7 +138,7 @@ namespace Model
             }
             catch (Exception ex)
             {
-                CUtilities.LogError(ex);
+               // CUtilities.LogError(ex);
                 throw;
             }
             finally
