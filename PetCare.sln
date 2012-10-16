@@ -1,14 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetCare", "PetCare\PetCare.csproj", "{686871F9-FB7C-411E-BC2D-CA53C21BD32E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F3369493-9172-40B3-8AEB-ED87FD529BC6} = {F3369493-9172-40B3-8AEB-ED87FD529BC6}
-		{FD208CA8-EDF0-4975-A996-4873EE6AFE0D} = {FD208CA8-EDF0-4975-A996-4873EE6AFE0D}
-		{EBAAFDBD-27E5-4B9F-AB21-43D79061490C} = {EBAAFDBD-27E5-4B9F-AB21-43D79061490C}
-		{7EF1BFF6-BDFE-45B7-A16C-B46904135507} = {7EF1BFF6-BDFE-45B7-A16C-B46904135507}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBUtility", "DBUtility\DBUtility.csproj", "{F3369493-9172-40B3-8AEB-ED87FD529BC6}"
@@ -21,16 +13,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLServerDAL", "SQLServerDA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALFactory", "DALFactory\DALFactory.csproj", "{FC3A58B8-470E-482B-9600-45BBCE26ABAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pet", "Pet\Pet.csproj", "{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{686871F9-FB7C-411E-BC2D-CA53C21BD32E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{686871F9-FB7C-411E-BC2D-CA53C21BD32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{686871F9-FB7C-411E-BC2D-CA53C21BD32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{686871F9-FB7C-411E-BC2D-CA53C21BD32E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +45,10 @@ Global
 		{FC3A58B8-470E-482B-9600-45BBCE26ABAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC3A58B8-470E-482B-9600-45BBCE26ABAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC3A58B8-470E-482B-9600-45BBCE26ABAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
