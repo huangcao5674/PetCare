@@ -1,6 +1,6 @@
 ﻿define(function (require, exports, module) {
     var _ = require("underscore");
-    var Backbone = require("backbone");
+    var backbone = require("./backbone");
     var AppView = Backbone.View.extend({
         el: $("body"),
         initialize: function () {

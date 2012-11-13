@@ -13,5 +13,11 @@ namespace PetCare.IDAL
 
         //根据用户ID 得到用户发布的丢失宠物的文章的信息
         List<CTMissedPetInfo> GetMissedPetInfoListByUser(int UserID);
+
+        //增加丢失宠物的信息
+        void InsertMissedPet(CTMissedPetInfo MissedPetInfo);
+
+        //删除宠物的丢失的信息
+        void DeleteMissedPet();
     }
 }

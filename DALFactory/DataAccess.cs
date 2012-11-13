@@ -21,6 +21,13 @@ namespace PetCare.DALFactory
             return (PetCare.IDAL.IUser)Assembly.Load(path).CreateInstance(className);
         }
 
+        public static PetCare.IDAL.IKnowledgePet CreateKnowledgePet()
+        {
+            string className = path + ".PetCare.SQLServerDAL.KnowledgePet";
+            return (PetCare.IDAL.IKnowledgePet)Assembly.Load(path).CreateInstance(className);
+            
+        }
+
     }
 
 }

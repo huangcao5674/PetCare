@@ -8,7 +8,7 @@
     <ProjectGuid>{CE9E102F-F6AF-4E61-95C2-1A4586102649}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SQLServerDAL</RootNamespace>
+    <RootNamespace>PetCare.SQLServerDAL</RootNamespace>
     <AssemblyName>SQLServerDAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdoptPet.cs" />
     <Compile Include="KnowledgePet.cs" />
     <Compile Include="MissedPetInfo.cs" />
     <Compile Include="User.cs" />

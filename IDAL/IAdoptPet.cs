@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using PetCare.Model;
 
-namespace PetCare.DALFactory
+namespace PetCare.IDAL
 {
     public  interface IAdoptPet
     {
@@ -14,6 +14,9 @@ namespace PetCare.DALFactory
 
         //根据用户ID得到用户的发布的领养宠物的信息
         List<CTAdoptPet> GetAdoptPetListByUser(int UserID);
+
+        //增加用户领养宠物的信息
+        void InsertAdoptPet(CTAdoptPet AdoptPetInfo);
 
     }
 }

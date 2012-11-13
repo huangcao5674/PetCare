@@ -68,6 +68,7 @@
     <Compile Include="Controllers\Common\CommonController.cs" />
     <Compile Include="Controllers\PetAdoption\AdoptController.cs" />
     <Compile Include="Controllers\PetBussiness\BussinessController.cs" />
+    <Compile Include="Controllers\PetKnowledge\KnowledgeController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -30,7 +30,6 @@ namespace PetCare.Model
             AddressID = addressID;
             PetCaretegoryID = petCategoryID;
             WeiBoID = weiboID;
-            KnowledgeID = knowledgeid;
             KnowledgeTime = KnowledgeTime;
             KnowledgeInfo = knowledgeInfo;
             PriorityScore = priorityScore;

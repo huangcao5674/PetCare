@@ -8,7 +8,7 @@
     <ProjectGuid>{F3369493-9172-40B3-8AEB-ED87FD529BC6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DBUtility</RootNamespace>
+    <RootNamespace>PetCare.DBUtility</RootNamespace>
     <AssemblyName>DBUtility</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
