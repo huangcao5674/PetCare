@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLServerDAL", "SQLServerDA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALFactory", "DALFactory\DALFactory.csproj", "{FC3A58B8-470E-482B-9600-45BBCE26ABAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pet", "Pet\Pet.csproj", "{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetCare", "PetCare\PetCare.csproj", "{C6AFE43B-D97D-4940-A609-DDBB0402FA07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +45,10 @@ Global
 		{FC3A58B8-470E-482B-9600-45BBCE26ABAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC3A58B8-470E-482B-9600-45BBCE26ABAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC3A58B8-470E-482B-9600-45BBCE26ABAE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C66E8DF4-2E1F-4BB4-B49F-41658AA5F247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6AFE43B-D97D-4940-A609-DDBB0402FA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6AFE43B-D97D-4940-A609-DDBB0402FA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6AFE43B-D97D-4940-A609-DDBB0402FA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6AFE43B-D97D-4940-A609-DDBB0402FA07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

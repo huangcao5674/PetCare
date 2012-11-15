@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Pet.Controllers.Common
+namespace PetCare.Controllers.Common
 {
     public class CommonController : Controller
     {
@@ -13,7 +13,7 @@ namespace Pet.Controllers.Common
 
         public JsonResult Index()
         {
-            return Json("This is a message from CommonController",JsonRequestBehavior.AllowGet);
+            return Json("This is a message from CommonController", JsonRequestBehavior.AllowGet);
         }
 
     }

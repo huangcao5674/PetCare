@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Pet.Controllers.PetKnowledge
+namespace PetCare.Controllers.PetKnowledge
 {
     public class KnowledgeController : Controller
     {
@@ -13,7 +13,7 @@ namespace Pet.Controllers.PetKnowledge
 
         public JsonResult Index()
         {
-            return Json("knowledge message",JsonRequestBehavior.AllowGet);
+            return Json("knowledge message", JsonRequestBehavior.AllowGet);
         }
 
     }

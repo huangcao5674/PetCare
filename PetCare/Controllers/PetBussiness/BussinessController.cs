@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Pet.Controllers.PetBussiness
+namespace PetCare.Controllers.PetBussiness
 {
     public class BussinessController : Controller
     {
@@ -13,7 +13,7 @@ namespace Pet.Controllers.PetBussiness
 
         public JsonResult GetBasicMessage()
         {
-            return Json("This is a message from BussinessController",JsonRequestBehavior.AllowGet);
+            return Json("This is a message from BussinessController", JsonRequestBehavior.AllowGet);
         }
 
     }

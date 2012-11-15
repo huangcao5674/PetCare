@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 using System.Reflection;
+using PetCare.IDAL;
 
 namespace PetCare.DALFactory
 {
     public sealed class DataAccess
     {
-        private static readonly string path = ConfigurationManager.AppSettings["WebDAL"];
+        private static readonly string path = ConfigurationManager.AppSettings["AdoptPet"];
 
         private DataAccess()
         {
@@ -23,7 +24,7 @@ namespace PetCare.DALFactory
 
         public static PetCare.IDAL.IKnowledgePet CreateKnowledgePet()
         {
-            string className = path + ".PetCare.SQLServerDAL.KnowledgePet";
+            string className = path + ".KnowledgePet";
             return (PetCare.IDAL.IKnowledgePet)Assembly.Load(path).CreateInstance(className);
             
         }

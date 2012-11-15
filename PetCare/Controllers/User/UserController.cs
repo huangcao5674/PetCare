@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Pet.Controllers.User
+namespace PetCare.Controllers.User
 {
     public class UserController : Controller
     {
@@ -13,7 +13,7 @@ namespace Pet.Controllers.User
 
         public JsonResult Index()
         {
-            return Json("This is a message from UserController",JsonRequestBehavior.AllowGet);
+            return Json("This is a message from UserController", JsonRequestBehavior.AllowGet);
         }
 
     }
