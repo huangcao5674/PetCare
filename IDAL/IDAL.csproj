@@ -41,8 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdoptPet.cs" />
+    <Compile Include="IAdoptPetComment.cs" />
     <Compile Include="IKnowledgePet.cs" />
+    <Compile Include="IKnowledgePetComment.cs" />
     <Compile Include="IMissedPetInfo.cs" />
+    <Compile Include="IMissedPetInfoComment.cs" />
+    <Compile Include="IPetCategory.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

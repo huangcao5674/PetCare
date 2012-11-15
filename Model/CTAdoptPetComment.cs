@@ -8,12 +8,12 @@ namespace PetCare.Model
 {
     [Serializable]
     [Table(Name="DB_CommentWeiBo")]
-    public class CTCommentWeiBo
+    public class CTAdoptPetComment
     {
-        public CTCommentWeiBo()
+        public CTAdoptPetComment()
         {
         }
-        public CTCommentWeiBo(int userID,string commentContent)
+        public CTAdoptPetComment(int userID,string commentContent)
         {
             UserID = userID;
             CommentContent = commentContent;
