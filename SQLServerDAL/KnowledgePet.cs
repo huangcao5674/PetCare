@@ -12,7 +12,7 @@ namespace PetCare.SQLServerDAL
 {
     public class KnowledgePet:IKnowledgePet
     {
-        private const string ConnectionString = @"Server=I264G68GORRHRTN;Initial Catalog=GCR_INC_CLIN;User ID=IncentiveUser;Password=password01!;TimeOut=200";
+        private const string ConnectionString = @"Server=I264G68GORRHRTN;Initial Catalog=PETCAREDB;User ID=honkcal;Password=huang123;TimeOut=200";
 
         private const string SQL_SELECT_KNOWLEDGEPET_BY_USERID = "";
 

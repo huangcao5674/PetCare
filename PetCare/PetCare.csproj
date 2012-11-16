@@ -97,7 +97,9 @@
     <Content Include="js\sea-debug.js" />
     <Content Include="js\sea.js" />
     <Content Include="js\underscore.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -124,18 +126,21 @@
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DALFactory\DALFactory.csproj">
-      <Project>{FC3A58B8-470E-482B-9600-45BBCE26ABAE}</Project>
-      <Name>DALFactory</Name>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{FD208CA8-EDF0-4975-A996-4873EE6AFE0D}</Project>
+      <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IDAL\IDAL.csproj">
-      <Project>{7EF1BFF6-BDFE-45B7-A16C-B46904135507}</Project>
-      <Name>IDAL</Name>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}</Project>
+      <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\SQLServerDAL\SQLServerDAL.csproj">
       <Project>{CE9E102F-F6AF-4E61-95C2-1A4586102649}</Project>
       <Name>SQLServerDAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

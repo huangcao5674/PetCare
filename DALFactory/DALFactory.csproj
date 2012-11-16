@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PetCare.DALFactory</RootNamespace>
-    <AssemblyName>DALFactory</AssemblyName>
+    <AssemblyName>PetCare.DALFactory</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,6 +48,10 @@
     <ProjectReference Include="..\IDAL\IDAL.csproj">
       <Project>{7EF1BFF6-BDFE-45B7-A16C-B46904135507}</Project>
       <Name>IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
