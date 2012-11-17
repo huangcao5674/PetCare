@@ -12,6 +12,15 @@ namespace PetCare.IDAL
         List<CTUserInfo> GetAllUserInfo();
 
         //根据用户的ID 获取用户的个人信息
-        List<CTUserInfo> GetUserInfoByUserID(int UserID);
+        List<CTUserInfo> GetUserInfoByUserID(string UserID);
+
+        //增加用户信息
+        int InsertUser(CTUserInfo userInfo);
+
+        //删除用户信息
+        int DeleteUserInfo(string UserID);
+
+        //编辑用户信息
+        int EditUserInfo(string UserID, CTUserInfo userInfo);
     }
 }

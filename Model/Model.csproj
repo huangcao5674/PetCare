@@ -52,6 +52,7 @@
     <Compile Include="CTKnowledgePet.cs" />
     <Compile Include="CTMissedPetInfo.cs" />
     <Compile Include="CTPetInfo.cs" />
+    <Compile Include="CTUserFocus.cs" />
     <Compile Include="CTUserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CUtilities.cs" />

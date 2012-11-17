@@ -14,9 +14,9 @@ namespace PetCare.DBUtility {
 
         //Database connection strings
         public static readonly string ConnectionStringLocalTransaction = ConfigurationManager.ConnectionStrings["SQLConnString1"].ConnectionString;
-        public static readonly string ConnectionStringInventoryDistributedTransaction = ConfigurationManager.ConnectionStrings["SQLConnString2"].ConnectionString;
-        public static readonly string ConnectionStringOrderDistributedTransaction = ConfigurationManager.ConnectionStrings["SQLConnString3"].ConnectionString;
-		public static readonly string ConnectionStringProfile = ConfigurationManager.ConnectionStrings["SQLProfileConnString"].ConnectionString;		
+        public static readonly string ConnectionStringInventoryDistributedTransaction = ConfigurationManager.ConnectionStrings["SQLConnString1"].ConnectionString;
+        public static readonly string ConnectionStringOrderDistributedTransaction = ConfigurationManager.ConnectionStrings["SQLConnString1"].ConnectionString;
+        public static readonly string ConnectionStringProfile = ConfigurationManager.ConnectionStrings["SQLConnString1"].ConnectionString;		
 		
         // Hashtable to store cached parameters
         private static Hashtable parmCache = Hashtable.Synchronized(new Hashtable());
@@ -117,6 +117,31 @@ namespace PetCare.DBUtility {
                 return rdr;
             }
             catch {
+                conn.Close();
+                throw;
+            }
+        }
+
+
+        public static DataTable ExecuteReaderTable(string connectionString, CommandType cmdType, string cmdText, params SqlParameter[] commandParameters)
+        {
+            SqlCommand cmd = new SqlCommand();
+            SqlConnection conn = new SqlConnection(connectionString);
+            DataTable table = new DataTable();
+
+            // we use a try/catch here because if the method throws an exception we want to 
+            // close the connection throw code, because no datareader will exist, hence the 
+            // commandBehaviour.CloseConnection will not work
+            try
+            {
+                PrepareCommand(cmd, conn, null, cmdType, cmdText, commandParameters);
+                SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                cmd.Parameters.Clear();
+                table.Load(rdr);
+                return table;
+            }
+            catch
+            {
                 conn.Close();
                 throw;
             }
@@ -227,5 +252,21 @@ namespace PetCare.DBUtility {
                     cmd.Parameters.Add(parm);
             }
         }
+
+        //public static int ExecuteNonQuery(SqlConnection conn, CommandType commandType, System.Text.StringBuilder sbInsert, SqlParameter[] parms)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public static int ExecuteNonQuery(SqlConnection connection, CommandType cmdType, string cmdText, params SqlParameter[] commandParameters)
+        //{
+
+        //    SqlCommand cmd = new SqlCommand();
+
+        //    PrepareCommand(cmd, connection, null, cmdType, cmdText, commandParameters);
+        //    int val = cmd.ExecuteNonQuery();
+        //    cmd.Parameters.Clear();
+        //    return val;
+        //}
     }
 }

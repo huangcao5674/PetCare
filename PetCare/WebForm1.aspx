@@ -9,10 +9,25 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" 
-            style="height: 21px" />
+    <table>
+    <tr>
+    <td>
+        <asp:LinkButton ID="User" runat="server" PostBackUrl="~/ManageMent/WebUserManage.aspx">用户管理</asp:LinkButton>
+    </td>
+    <td>
+        <asp:LinkButton ID="AdoptPet" runat="server" PostBackUrl="~/ManageMent/WebAdoptManage.aspx">AdoptPet管理</asp:LinkButton></td>
+    <td>
+        <asp:LinkButton ID="KnowledgePet" runat="server" PostBackUrl="~/ManageMent/WebKnowledgeManage.aspx">KnowledgePet管理</asp:LinkButton>
+    </td>
+    <td>
+        <asp:LinkButton ID="MissedPet" runat="server" PostBackUrl="~/ManageMent/WebMissedPetManage.aspx">MissedPet管理</asp:LinkButton>
+    </td>
+    </tr>
+    </table>
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
+        <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" 
+            style="height: 21px" />
     </div>
     </form>
 </body>

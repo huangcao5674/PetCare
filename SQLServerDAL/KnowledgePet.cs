@@ -7,16 +7,15 @@ using PetCare.Model;
 using System.Data.SqlClient;
 using System.Data;
 using PetCare.DBUtility;
+using System.Data.Common;
 
 namespace PetCare.SQLServerDAL
 {
     public class KnowledgePet:IKnowledgePet
     {
-        private const string ConnectionString = @"Server=I264G68GORRHRTN;Initial Catalog=PETCAREDB;User ID=honkcal;Password=huang123;TimeOut=200";
-
         private const string SQL_SELECT_KNOWLEDGEPET_BY_USERID = "";
 
-        private const string SQL_SELECT_KNOWLEDGEPET="SELECT KnowledgeID,UserID,AddressID,PetCategoryID,WeiBoID,KnowledgeTitle,KnowledgeTime,KnowledgeInfo,PriorityScore,IP,FocusNum,IsVisible from DB_KnowledgePet";
+        private const string SQL_SELECT_KNOWLEDGEPET = "SELECT KnowledgeID,UserID,AddressID,PetCategoryID,WeiBoID,KnowledgeTitle,KnowledgeTime,KnowledgeInfo,PriorityScore,IP,FocusNum,IsVisible from [PETCAREDB].[dbo].[DB_KnowledgePet]";
 
         private const string SQL_INSERT_KNOWLEDGEPET = "";
 
@@ -27,20 +26,18 @@ namespace PetCare.SQLServerDAL
        public List<CTKnowledgePet> GetAllKnowledgePetList()
        {
            List<CTKnowledgePet> KnowledgePetList = new List<CTKnowledgePet>();
-
-
-           //Execute the query against the database
-           using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text,SQL_SELECT_KNOWLEDGEPET,null))
+           using(SqlDataReader reader=SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, SQL_SELECT_KNOWLEDGEPET, null))
            {
-               // Scroll through the results
-               while (rdr.Read())
+               while(reader.Read())
                {
-                   CTKnowledgePet item = new CTKnowledgePet(rdr.GetString(0), int.Parse(rdr.GetString(1)), rdr.GetValue(2).ToString(), rdr.GetString(3), rdr.GetString(4), rdr.GetString(5), rdr.GetString(6), rdr.GetString(7),rdr.GetString(8),int.Parse(rdr.GetString(9)),bool.Parse(rdr.GetValue(10).ToString()));
-                   //Add each item to the arraylist
-                   KnowledgePetList.Add(item);
+                   CTKnowledgePet ONE=new CTKnowledgePet();
+                   ONE.KnowledgeID=reader["KnowledgeID"].ToString();
+                   ONE.UserID=int.Parse(reader["UserID"].ToString());
+                   ONE.AddressID=reader["AddressID"].ToString();
+                   ONE.KnowledgeInfo = reader["KnowledgeInfo"].ToString();
+                   KnowledgePetList.Add(ONE);
                }
            }
-
            return KnowledgePetList;
        }
 
@@ -51,8 +48,9 @@ namespace PetCare.SQLServerDAL
         }
 
         //实现接口的函数
-        public void InsertKnowledgePet(CTKnowledgePet KnowledgePetInfo)
+        public int InsertKnowledgePet(CTKnowledgePet KnowledgePetInfo)
         {
+            int isTrue = 0;
             StringBuilder strSQL = new StringBuilder();
 
             //得到所有的参数数组
@@ -82,6 +80,7 @@ namespace PetCare.SQLServerDAL
                 int i = 0;
                 
             }
+            return isTrue;
 
             
         }

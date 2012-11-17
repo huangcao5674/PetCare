@@ -15,6 +15,6 @@ namespace PetCare.IDAL
         List<CTKnowledgePet> GetKnowledgePetListByUser(int UserID);
 
         //增加宠物知识的所有信息
-        void InsertKnowledgePet(CTKnowledgePet KnowledgePetInfo);
+        int InsertKnowledgePet(CTKnowledgePet KnowledgePetInfo);
     }
 }

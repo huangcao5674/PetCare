@@ -73,6 +73,34 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\WebAdoptManage.aspx.cs">
+      <DependentUpon>WebAdoptManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\WebAdoptManage.aspx.designer.cs">
+      <DependentUpon>WebAdoptManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMent\WebKnowledgeManage.aspx.cs">
+      <DependentUpon>WebKnowledgeManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\WebKnowledgeManage.aspx.designer.cs">
+      <DependentUpon>WebKnowledgeManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMent\WebMissedPetManage.aspx.cs">
+      <DependentUpon>WebMissedPetManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\WebMissedPetManage.aspx.designer.cs">
+      <DependentUpon>WebMissedPetManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMent\WebUserManage.aspx.cs">
+      <DependentUpon>WebUserManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\WebUserManage.aspx.designer.cs">
+      <DependentUpon>WebUserManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -97,6 +125,10 @@
     <Content Include="js\sea-debug.js" />
     <Content Include="js\sea.js" />
     <Content Include="js\underscore.js" />
+    <Content Include="ManageMent\WebAdoptManage.aspx" />
+    <Content Include="ManageMent\WebKnowledgeManage.aspx" />
+    <Content Include="ManageMent\WebMissedPetManage.aspx" />
+    <Content Include="ManageMent\WebUserManage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

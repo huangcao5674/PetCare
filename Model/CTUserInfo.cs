@@ -13,10 +13,11 @@ namespace PetCare.Model
         public CTUserInfo()
         {
         }
-        public CTUserInfo(string userName, string userPass, string userRealName, int userAge, string userSex,
+        public CTUserInfo(string userID,string userName, string userPass, string userRealName, int userAge, string userSex,
             string userAddress, string userEmail, string userPhoneNumber, string userQQNum, string userInfo,
             int complainNum)
         {
+            this.UserID = userID;
             this.UserName = userName;
             this.UserPass = userPass;
             this.UserRealName = userRealName;
@@ -28,6 +29,12 @@ namespace PetCare.Model
             this.UserQQNum = userQQNum;
             this.UserInfo = userInfo;
             this.ComplainNum = complainNum;
+        }
+
+        public string UserID
+        {
+            get;
+            set;
         }
 
         //写出所有的userinfo属性
