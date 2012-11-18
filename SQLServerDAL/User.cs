@@ -18,8 +18,6 @@ namespace PetCare.SQLServerDAL
 
         private const string SQL_SELECT_USERS = @"SELECT  [UserID],[UserName],[UserPass],[UserRealName],[UserAge],[UserSex],[UserAddress],[UserEmail],[UserPhoneNumber],[UserQQNum],[UserInfo] ,[ComplaintNum] FROM [PETCAREDB].[dbo].[DB_UserInfo]";
 
-        private const string PARM_USER_ID = "@UserId";
-
         private const string SQL_INSERT_USER = @"INSERT INTO [PETCAREDB].[dbo].[DB_UserInfo]([UserName],[UserPass],[UserRealName],[UserAge],[UserSex],[UserAddress],[UserEmail],[UserPhoneNumber],[UserQQNum],[UserInfo],[ComplaintNum]) VALUES"
             + "(@UserName,@UserPass,@UserRealName,@UserAge,@UserSex,@UserAddress,@UserEmail,@UserPhoneNumber,@UserQQNum,@UserInfo,@ComplaintNum)";
 
@@ -29,6 +27,7 @@ namespace PetCare.SQLServerDAL
             + ",[UserSex] @UserSex,[UserAddress]=@UserAddress,[UserEmail]=@UserEmail,[UserPhoneNumber]=@UserPhoneNumber"
             + " ,[UserQQNum]=@UserQQNum,[UserInfo]= @UserInfo,[ComplaintNum]=@ComplaintNum WHERE UserID=@UserID";
 
+        private const string PARM_USER_ID = "@UserId";
 
         //得到所有的用户的信息
         public List<CTUserInfo> GetAllUserInfo()
