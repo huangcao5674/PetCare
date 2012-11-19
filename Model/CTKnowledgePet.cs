@@ -21,9 +21,9 @@ namespace PetCare.Model
         public CTKnowledgePet()
         {
         }
-        public CTKnowledgePet(string knowledgeid,int userID,string addressID,string petCategoryID,
-            string weiboID,string knowledgeTitle,string knowledgeInfo,string priorityScore,
-            string ip,int focusNum,bool isVisible)
+        public CTKnowledgePet(string knowledgeid,string userID,string addressID,string petCategoryID,
+            string weiboID,string knowledgeTitle,string knowledgeInfo,int priorityScore,DateTime lastEditTime,
+            string ip,int focusNum,bool isVisible,int complatinNum)
         {
             KnowledgeID = knowledgeid;
             UserID = userID;
@@ -36,13 +36,26 @@ namespace PetCare.Model
             IP = ip;
             FocusNum = focusNum;
             IsVisible = isVisible;
+            LastEditTime = lastEditTime;
+            ComplaintNum = complatinNum;
+        }
+        public int ComplaintNum
+        {
+            get;
+            set;
+        }
+            
+        public DateTime LastEditTime
+        {
+            get;
+            set;
         }
         public string KnowledgeID
         {
             get;
             set;
         }
-        public int UserID
+        public string UserID
         { 
             get; 
             set; 
@@ -77,7 +90,7 @@ namespace PetCare.Model
             get;
             set;
         }
-        public string PriorityScore
+        public int PriorityScore
         { 
             get; 
             set; 

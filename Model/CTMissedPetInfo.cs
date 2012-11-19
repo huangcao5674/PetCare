@@ -22,7 +22,7 @@ namespace PetCare.Model
         {
         }
         public CTMissedPetInfo(string misseId, string userID, string addressID, string petCategory, string weiBoID, string missTitle,
-            DateTime missTime, string missInfo, int priorityScore, string iP, int focusNum, bool isVisible)
+            DateTime missTime,DateTime lastEditTime, string missInfo, int priorityScore, string iP, int focusNum, bool isVisible)
         {
             this.MisseId = misseId;
             this.UserID = userID;
@@ -36,6 +36,12 @@ namespace PetCare.Model
             this.IP = iP;
             this.FocusNum = focusNum;
             this.IsVisible = isVisible;
+            this.LastEditTime = lastEditTime;
+        }
+        public DateTime LastEditTime
+        {
+            get;
+            set;
         }
         public string MisseId
         {

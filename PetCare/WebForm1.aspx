@@ -23,6 +23,13 @@
         <asp:LinkButton ID="MissedPet" runat="server" PostBackUrl="~/ManageMent/WebMissedPetManage.aspx">MissedPet管理</asp:LinkButton>
     </td>
     </tr>
+    <tr>
+    <td>
+            <asp:LinkButton ID="KnowledgeUser" runat="server" PostBackUrl="~/Interface/KnowledgeInfo.aspx">PeopleKnowledge</asp:LinkButton>
+    </td>
+    <td></td>
+    <td></td>
+    </tr>
     </table>
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>

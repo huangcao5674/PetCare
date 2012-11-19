@@ -26,17 +26,17 @@
     </tr>
     <tr>
     <td>
-        <asp:TextBox ID="TextBox1" runat="server" Width="95px"></asp:TextBox></td>
+        <asp:TextBox ID="tbUserID" runat="server" Width="95px"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox2" runat="server" Width="92px"></asp:TextBox></td>
+        <asp:TextBox ID="tbKnowledgeID" runat="server" Width="92px"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox3" runat="server" Width="105px"></asp:TextBox></td>
+        <asp:TextBox ID="tbAddressID" runat="server" Width="105px"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox4" runat="server" Width="93px"></asp:TextBox></td>
+        <asp:TextBox ID="tbPetCategoryID" runat="server" Width="93px"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox5" runat="server" Width="93px"></asp:TextBox></td>
+        <asp:TextBox ID="tbWeiBoID" runat="server" Width="93px"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox6" runat="server" Width="116px"></asp:TextBox></td>
+        <asp:TextBox ID="tbKnowLedgeTitle" runat="server" Width="116px"></asp:TextBox></td>
     </tr>
     <tr>
     <td>
@@ -53,17 +53,23 @@
     </tr>
      <tr>
     <td>
-        <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox></td>
+        <asp:TextBox ID="tbKnowlegetTime" runat="server"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox></td>
+        <asp:TextBox ID="tbPriorityScore" runat="server"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox></td>
+        <asp:TextBox ID="tbIP" runat="server"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox></td>
+        <asp:TextBox ID="tbFocusNum" runat="server"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox></td>
+        <asp:TextBox ID="tbIsVisible" runat="server"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox></td>
+        <asp:TextBox ID="tbContent" runat="server"></asp:TextBox></td>
+    </tr>
+    </table>
+    <table>
+    <tr>
+    <td> 
+        <asp:Button ID="BtnAdd" runat="server" Text="Button" onclick="BtnAdd_Click" />  </td>
     </tr>
     </table>
     </div>

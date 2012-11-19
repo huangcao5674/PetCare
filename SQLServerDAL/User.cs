@@ -27,6 +27,14 @@ namespace PetCare.SQLServerDAL
             + ",[UserSex] @UserSex,[UserAddress]=@UserAddress,[UserEmail]=@UserEmail,[UserPhoneNumber]=@UserPhoneNumber"
             + " ,[UserQQNum]=@UserQQNum,[UserInfo]= @UserInfo,[ComplaintNum]=@ComplaintNum WHERE UserID=@UserID";
 
+        private const string SQL_SELECT_KNOWLEDGE_BY_USERID = @"SELECT [KnowledgeID],[UserID],[AddressID],[PetCategoryID],[WeiBoID],[KnowledgeTitle]"
+            + " ,[KnowledgeTime],[LastEditTime],[KnowledgeInfo],[PriorityScore],[IP],[FocusNum],[IsVisible]"
+            + "FROM [PETCAREDB].[dbo].[DB_KnowledgePet] where UserID=@UserId";
+
+        private const string SQL_SELECT_ADOPT_BY_USERID = @"";
+
+        private const string SQL_SELECT_MISSED_BY_USERID = @"";
+
         private const string PARM_USER_ID = "@UserId";
 
         //得到所有的用户的信息
@@ -195,6 +203,60 @@ namespace PetCare.SQLServerDAL
            }
 
            return EditStatus;
+       }
+
+
+       //得到用户的领养宠物信息
+       public List<CTAdoptPet> GetUserAdoptPetInfo(string UserID)
+       {
+           List<CTAdoptPet> adoptList = new List<CTAdoptPet>();
+           return adoptList;
+       }
+
+
+       //得到用户的宠物知识的信息
+       public List<CTKnowledgePet> GetUserKnowledgePetInfo(string UserID)
+       {
+           List<CTKnowledgePet> knowledgeList = new List<CTKnowledgePet>();
+
+           SqlParameter parm = new SqlParameter(PARM_USER_ID, SqlDbType.NVarChar);
+           parm.Value = UserID;
+           //execute the query
+           using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, SQL_SELECT_KNOWLEDGE_BY_USERID, parm))
+           {
+               while (rdr.Read())
+               {
+                   CTKnowledgePet knowledgePet = new CTKnowledgePet();
+                   knowledgePet.UserID = rdr["UserID"].ToString();
+                   knowledgePet.KnowledgeID = rdr["KnowledgeID"].ToString();
+                   knowledgePet.AddressID = rdr["AddressID"].ToString();
+                   knowledgePet.PetCaretegoryID = rdr["PetCategoryID"].ToString();
+                   knowledgePet.WeiBoID = rdr["WeiBoID"].ToString();
+                   knowledgePet.KnowledgeTitle = rdr["KnowledgeTitle"].ToString();
+                   knowledgePet.KnowledgeInfo = rdr["KnowledgeInfo"].ToString();
+                   int tempPriorityScore = 0;
+                   knowledgePet.PriorityScore = int.TryParse(rdr["PriorityScore"].ToString(), out tempPriorityScore) ? tempPriorityScore : 0;
+                   knowledgePet.IP = rdr["IP"].ToString();
+                   int tempFocusNum = 0;
+                   knowledgePet.FocusNum = int.TryParse(rdr["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
+                   bool tempisVisible = true;
+                   knowledgePet.IsVisible = bool.TryParse(rdr["IsVisible"].ToString(), out tempisVisible) ? tempisVisible : true;
+                   DateTime tempDate=DateTime.Now;
+                   knowledgePet.KnowledgeTime =DateTime.TryParse(rdr["KnowledgeTime"].ToString(),out tempDate)?tempDate:DateTime.Now;
+                   DateTime tempEditTime = DateTime.Now;
+                   knowledgePet.LastEditTime = DateTime.TryParse(rdr["LastEditTime"].ToString(), out tempEditTime) ? tempEditTime : DateTime.Now;
+                   knowledgeList.Add(knowledgePet);
+               }
+           }
+           return knowledgeList;
+       }
+
+
+       //得到用户的丢失宠物的信息
+       public List<CTMissedPetInfo> GetUserMissedPetInfo(string UserID)
+       {
+           List<CTMissedPetInfo> missedList = new List<CTMissedPetInfo>();
+           return missedList;
        }
        
     }

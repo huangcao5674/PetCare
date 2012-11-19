@@ -22,5 +22,16 @@ namespace PetCare.IDAL
 
         //编辑用户信息
         int EditUserInfo(string UserID, CTUserInfo userInfo);
+
+        //得到用户的领养宠物信息
+        List<CTAdoptPet> GetUserAdoptPetInfo(string UserID);
+
+
+        //得到用户的宠物知识的信息
+        List<CTKnowledgePet> GetUserKnowledgePetInfo(string UserID);
+
+
+        //得到用户的丢失宠物的信息
+        List<CTMissedPetInfo> GetUserMissedPetInfo(string UserID);
     }
 }

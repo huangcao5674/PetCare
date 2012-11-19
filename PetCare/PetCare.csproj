@@ -73,6 +73,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interface\KnowledgeInfo.aspx.cs">
+      <DependentUpon>KnowledgeInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interface\KnowledgeInfo.aspx.designer.cs">
+      <DependentUpon>KnowledgeInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\WebAdoptManage.aspx.cs">
       <DependentUpon>WebAdoptManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,6 +126,7 @@
     <Content Include="Images\DefaultUserThumb.PNG" />
     <Content Include="Images\imageTest.PNG" />
     <Content Include="Images\searchBtn.PNG" />
+    <Content Include="Interface\KnowledgeInfo.aspx" />
     <Content Include="js\backbone.js" />
     <Content Include="js\jquery-1.4.2.js" />
     <Content Include="js\jquery-1.4.2.min.js" />
