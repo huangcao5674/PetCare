@@ -9,6 +9,7 @@ namespace PetCare.DALFactory
 {
     public sealed class DataAccess
     {
+        private static readonly string Path = ConfigurationManager.AppSettings["AdoptPet"];
         private static readonly string AdoptPath = ConfigurationManager.AppSettings["AdoptPet"];
         private static readonly string KnowledgePath = ConfigurationManager.AppSettings["KnowledgePet"];
         private static readonly string MissedPetPath=ConfigurationManager.AppSettings[""];
@@ -60,6 +61,30 @@ namespace PetCare.DALFactory
             {
                 string className = MissedPetPath + "MissedPetInfo";
                 return (PetCare.IDAL.IMissedPetInfo)Assembly.Load(MissedPetPath).CreateInstance(className);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static PetCare.IDAL.IAddress CreateAddress()
+        {
+            try
+            {
+                string className = AdoptPath + "Address";
+                return (PetCare.IDAL.IAddress)Assembly.Load(AdoptPath).CreateInstance(className);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static PetCare.IDAL.IPetCategory CreateCategory()
+        {
+            try
+            {
+                string className = Path + "PetCategory";
+                return (PetCare.IDAL.IPetCategory)Assembly.Load(Path).CreateInstance(className);
             }
             catch (Exception ex)
             {

@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using PetCare.IDAL;
 using PetCare.Model;
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.Common;
+using PetCare.DBUtility;
 
 namespace PetCare.SQLServerDAL
 {
@@ -26,6 +30,19 @@ namespace PetCare.SQLServerDAL
         public List<CTPetCategory> GetAllPetCategoryInfo()
         {
             List<CTPetCategory> list = new List<CTPetCategory>();
+
+            //execute the query
+            using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, SQL_SELECT_PetCategory, null))
+            {
+                while (rdr.Read())
+                {
+                    CTPetCategory petCategory = new CTPetCategory();
+                    petCategory.petCaregoryID = rdr["PetCategoryID"].ToString();
+                    petCategory.petCategoryName = rdr["PetCategoryName"].ToString();
+                    petCategory.petCategoryInfo = rdr["petCategoryInfo"].ToString();
+                    list.Add(petCategory);
+                }
+            }
 
             return list;
         }

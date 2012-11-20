@@ -8,7 +8,7 @@ namespace PetCare.Model
 {
     [Serializable]
     [Table(Name = "DB_Address")]
-    class CTAddress
+    public class CTAddress
     {
         public CTAddress()
         {

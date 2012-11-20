@@ -80,6 +80,13 @@
     <Compile Include="Interface\KnowledgeInfo.aspx.designer.cs">
       <DependentUpon>KnowledgeInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\WebAdoptManage.aspx.cs">
       <DependentUpon>WebAdoptManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,12 +126,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\GlobalStyle.css" />
+    <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="html\index.html" />
     <Content Include="html\js\init_index.js" />
+    <Content Include="Images\01.gif" />
+    <Content Include="Images\02.gif" />
+    <Content Include="Images\03.gif" />
+    <Content Include="Images\04.gif" />
+    <Content Include="Images\center.gif" />
+    <Content Include="Images\center0.gif" />
     <Content Include="Images\DefaultUserThumb.PNG" />
+    <Content Include="Images\header01.gif" />
+    <Content Include="Images\header_bei.gif" />
     <Content Include="Images\imageTest.PNG" />
+    <Content Include="Images\left01_bei.gif" />
+    <Content Include="Images\left01_left.gif" />
+    <Content Include="Images\left01_right.gif" />
+    <Content Include="Images\left02_bei.gif" />
+    <Content Include="Images\left02_left.gif" />
+    <Content Include="Images\left02_right.gif" />
+    <Content Include="Images\li.gif" />
     <Content Include="Images\searchBtn.PNG" />
     <Content Include="Interface\KnowledgeInfo.aspx" />
     <Content Include="js\backbone.js" />
@@ -133,6 +156,8 @@
     <Content Include="js\sea-debug.js" />
     <Content Include="js\sea.js" />
     <Content Include="js\underscore.js" />
+    <Content Include="ManageMent\Index.aspx" />
+    <Content Include="ManageMent\index.html" />
     <Content Include="ManageMent\WebAdoptManage.aspx" />
     <Content Include="ManageMent\WebKnowledgeManage.aspx" />
     <Content Include="ManageMent\WebMissedPetManage.aspx" />

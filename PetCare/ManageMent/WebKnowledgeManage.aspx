@@ -28,9 +28,12 @@
     <td>
         <asp:TextBox ID="tbUserID" runat="server" Width="95px"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="tbKnowledgeID" runat="server" Width="92px"></asp:TextBox></td>
+        <asp:TextBox ID="tbKnowledgeID" runat="server" Width="117px"></asp:TextBox></td>
     <td>
-        <asp:TextBox ID="tbAddressID" runat="server" Width="105px"></asp:TextBox></td>
+        <asp:TextBox ID="tbAddressID" runat="server" Width="54px"></asp:TextBox>
+        <asp:DropDownList ID="dpAddress" runat="server">
+        </asp:DropDownList>
+        </td>
     <td>
         <asp:TextBox ID="tbPetCategoryID" runat="server" Width="93px"></asp:TextBox></td>
     <td>
