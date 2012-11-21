@@ -35,6 +35,8 @@
         </asp:GridView>
         <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" 
             style="height: 21px" />
+        <br />
+        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Interface/Register.aspx">注册用户</asp:LinkButton>
     </div>
     </form>
 </body>

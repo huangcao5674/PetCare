@@ -80,6 +80,13 @@
     <Compile Include="Interface\KnowledgeInfo.aspx.designer.cs">
       <DependentUpon>KnowledgeInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Interface\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interface\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,6 +157,7 @@
     <Content Include="Images\li.gif" />
     <Content Include="Images\searchBtn.PNG" />
     <Content Include="Interface\KnowledgeInfo.aspx" />
+    <Content Include="Interface\Register.aspx" />
     <Content Include="js\backbone.js" />
     <Content Include="js\jquery-1.4.2.js" />
     <Content Include="js\jquery-1.4.2.min.js" />

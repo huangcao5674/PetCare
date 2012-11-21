@@ -76,13 +76,13 @@ namespace PetCare.ManageMent {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// tbUserID 控件。
+        /// dpUsers 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbUserID;
+        protected global::System.Web.UI.WebControls.DropDownList dpUsers;
         
         /// <summary>
         /// tbKnowledgeID 控件。
@@ -94,15 +94,6 @@ namespace PetCare.ManageMent {
         protected global::System.Web.UI.WebControls.TextBox tbKnowledgeID;
         
         /// <summary>
-        /// tbAddressID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAddressID;
-        
-        /// <summary>
         /// dpAddress 控件。
         /// </summary>
         /// <remarks>
@@ -112,13 +103,13 @@ namespace PetCare.ManageMent {
         protected global::System.Web.UI.WebControls.DropDownList dpAddress;
         
         /// <summary>
-        /// tbPetCategoryID 控件。
+        /// dpCategory 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPetCategoryID;
+        protected global::System.Web.UI.WebControls.DropDownList dpCategory;
         
         /// <summary>
         /// tbWeiBoID 控件。

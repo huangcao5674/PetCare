@@ -26,16 +26,19 @@
     </tr>
     <tr>
     <td>
-        <asp:TextBox ID="tbUserID" runat="server" Width="95px"></asp:TextBox></td>
-    <td>
-        <asp:TextBox ID="tbKnowledgeID" runat="server" Width="117px"></asp:TextBox></td>
-    <td>
-        <asp:TextBox ID="tbAddressID" runat="server" Width="54px"></asp:TextBox>
-        <asp:DropDownList ID="dpAddress" runat="server">
+        <asp:DropDownList ID="dpUsers" runat="server">
         </asp:DropDownList>
         </td>
     <td>
-        <asp:TextBox ID="tbPetCategoryID" runat="server" Width="93px"></asp:TextBox></td>
+        <asp:TextBox ID="tbKnowledgeID" runat="server" Width="117px"></asp:TextBox></td>
+    <td>
+        <asp:DropDownList ID="dpAddress" runat="server" Height="16px" Width="87px">
+        </asp:DropDownList>
+        </td>
+    <td>
+        <asp:DropDownList ID="dpCategory" runat="server">
+        </asp:DropDownList>
+        </td>
     <td>
         <asp:TextBox ID="tbWeiBoID" runat="server" Width="93px"></asp:TextBox></td>
     <td>
@@ -72,7 +75,8 @@
     <table>
     <tr>
     <td> 
-        <asp:Button ID="BtnAdd" runat="server" Text="Button" onclick="BtnAdd_Click" />  </td>
+        <asp:Button ID="BtnAdd" runat="server" Text="Button" onclick="BtnAdd_Click" 
+            style="height: 21px" />  </td>
     </tr>
     </table>
     </div>

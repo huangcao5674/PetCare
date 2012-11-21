@@ -33,12 +33,25 @@ namespace PetCare.SQLServerDAL
            {
                while(reader.Read())
                {
-                   CTKnowledgePet ONE=new CTKnowledgePet();
-                   ONE.KnowledgeID=reader["KnowledgeID"].ToString();
-                   ONE.UserID=reader["UserID"].ToString();
-                   ONE.AddressID=reader["AddressID"].ToString();
-                   ONE.KnowledgeInfo = reader["KnowledgeInfo"].ToString();
-                   KnowledgePetList.Add(ONE);
+                   CTKnowledgePet knowledgepet=new CTKnowledgePet();
+                   knowledgepet.KnowledgeID = reader["KnowledgeID"].ToString();
+                   knowledgepet.UserID = reader["UserID"].ToString();
+                   knowledgepet.AddressID = reader["AddressID"].ToString();
+                   knowledgepet.KnowledgeInfo = reader["KnowledgeInfo"].ToString();
+                   knowledgepet.KnowledgeTitle = reader["KnowledgeTitle"].ToString();
+                   knowledgepet.PetCaretegoryID = reader["PetCategoryID"].ToString();
+                   knowledgepet.PriorityScore = int.Parse(reader["PriorityScore"].ToString());
+                   knowledgepet.WeiBoID = reader["WeiBoID"].ToString();
+
+                   DateTime tempLastEditTime=DateTime.Now;
+                  // knowledgepet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
+                   DateTime tempKnowledgeTime=DateTime.Now;
+                  // knowledgepet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime:DateTime.Now;
+                   knowledgepet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
+                   knowledgepet.IP = reader["IP"].ToString();
+                   int tempFocusNum = 0;
+                   knowledgepet.FocusNum = int.TryParse(reader["FocusNum"].ToString(),out tempFocusNum)?tempFocusNum:0;
+                   KnowledgePetList.Add(knowledgepet);
                }
            }
            return KnowledgePetList;
@@ -74,8 +87,6 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@IsVisible",SqlDbType.Bit),
                             };
 
-            SqlCommand cmd = new SqlCommand();
-
             knowledgeParams[0].Value = KnowledgePetInfo.AddressID;
             knowledgeParams[1].Value = KnowledgePetInfo.KnowledgeID;
             knowledgeParams[2].Value = KnowledgePetInfo.KnowledgeInfo;
@@ -90,10 +101,7 @@ namespace PetCare.SQLServerDAL
             knowledgeParams[11].Value = KnowledgePetInfo.IP;
             knowledgeParams[12].Value = KnowledgePetInfo.LastEditTime;
             knowledgeParams[13].Value = KnowledgePetInfo.IsVisible;
-            foreach (SqlParameter parm in knowledgeParams)
-            {
-                cmd.Parameters.Add(parm);
-            }
+ 
 
             using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))
             {

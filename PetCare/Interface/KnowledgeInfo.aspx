@@ -9,12 +9,11 @@
         .style1
         {
             height: 364px;
-            width: 324px;
+            width: 715px;
         }
-        .style2
+        .style3
         {
-            height: 364px;
-            width: 414px;
+            width: 715px;
         }
     </style>
 </head>
@@ -24,11 +23,13 @@
     <table >
     <tr>
 
-    <td>
+    <td class="style3">
         <asp:Button ID="Button3" runat="server" Text="Button" onclick="Button3_Click" />
         <asp:GridView ID="GridView1"  runat="server" Width="262px">
         </asp:GridView>
         </td>
+        </tr>
+        <tr>
     <td class="style1">
         <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" />
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>

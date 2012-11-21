@@ -47,7 +47,7 @@ namespace PetCare.DALFactory
         {
             try
             {
-                string className = AdoptPath + "AdoptPet";
+                string className = AdoptPath + ".AdoptPet";
                 return (PetCare.IDAL.IAdoptPet)Assembly.Load(AdoptPath).CreateInstance(className);
             }
             catch (Exception ex)
@@ -59,7 +59,7 @@ namespace PetCare.DALFactory
         {
             try
             {
-                string className = MissedPetPath + "MissedPetInfo";
+                string className = MissedPetPath + ".MissedPetInfo";
                 return (PetCare.IDAL.IMissedPetInfo)Assembly.Load(MissedPetPath).CreateInstance(className);
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace PetCare.DALFactory
         {
             try
             {
-                string className = AdoptPath + "Address";
+                string className = AdoptPath + ".Address";
                 return (PetCare.IDAL.IAddress)Assembly.Load(AdoptPath).CreateInstance(className);
             }
             catch (Exception ex)
@@ -83,7 +83,7 @@ namespace PetCare.DALFactory
         {
             try
             {
-                string className = Path + "PetCategory";
+                string className = Path + ".PetCategory";
                 return (PetCare.IDAL.IPetCategory)Assembly.Load(Path).CreateInstance(className);
             }
             catch (Exception ex)
