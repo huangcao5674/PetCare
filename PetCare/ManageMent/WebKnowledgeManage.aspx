@@ -5,78 +5,80 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .style1
+        {
+            height: 169px;
+        }
+        .style2
+        {
+            height: 16px;
+        }
+        .style3
+        {
+            height: 19px;
+        }
+        .style5
+        {
+            height: 16px;
+            width: 111px;
+        }
+        .style6
+        {
+            height: 19px;
+            width: 111px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-    <table>
+    <table class="style1">
     <tr>
-    <td>
+    <td class="style5">
         <asp:Label ID="Label1" runat="server" Text="UserID"></asp:Label></td>
-    <td>
-        <asp:Label ID="Label2" runat="server" Text="KnowledgeID"></asp:Label></td>
-    <td>
+ 
+    <td class="style2">
         <asp:Label ID="Label3" runat="server" Text="AddressID"></asp:Label></td>
-    <td>
+    <td class="style2">
         <asp:Label ID="Label4" runat="server" Text="PetCategoryID"></asp:Label></td>
-    <td>
-        <asp:Label ID="Label5" runat="server" Text="WeiBoID"></asp:Label></td>
-    <td>
+ 
+    <td class="style2">
         <asp:Label ID="Label6" runat="server" Text="KnowledgeTitle"></asp:Label></td>
     </tr>
     <tr>
-    <td>
-        <asp:DropDownList ID="dpUsers" runat="server">
+    <td class="style6">
+        <asp:DropDownList ID="dpUsers" runat="server" Height="16px" Width="112px" 
+            AutoPostBack="True">
         </asp:DropDownList>
         </td>
-    <td>
-        <asp:TextBox ID="tbKnowledgeID" runat="server" Width="117px"></asp:TextBox></td>
-    <td>
-        <asp:DropDownList ID="dpAddress" runat="server" Height="16px" Width="87px">
+ 
+    <td class="style3">
+        <asp:DropDownList ID="dpAddress" runat="server" Height="16px" Width="87px" 
+            AutoPostBack="True">
         </asp:DropDownList>
         </td>
-    <td>
-        <asp:DropDownList ID="dpCategory" runat="server">
+    <td class="style3">
+        <asp:DropDownList ID="dpCategory" runat="server" AutoPostBack="True">
         </asp:DropDownList>
         </td>
-    <td>
-        <asp:TextBox ID="tbWeiBoID" runat="server" Width="93px"></asp:TextBox></td>
-    <td>
-        <asp:TextBox ID="tbKnowLedgeTitle" runat="server" Width="116px"></asp:TextBox></td>
+    <td class="style3">
+        <asp:TextBox ID="tbKnowLedgeTitle" runat="server" Width="146px"></asp:TextBox></td>
     </tr>
-    <tr>
-    <td>
-        <asp:Label ID="Label7" runat="server" Text="KnowledgeTime"></asp:Label></td>
-        <td>
-            <asp:Label ID="Label8" runat="server" Text="PriorityScore"></asp:Label></td>
-        <td>
-            <asp:Label ID="Label9" runat="server" Text="IP"></asp:Label></td>
-        <td>
-            <asp:Label ID="Label10" runat="server" Text="FocusNum"></asp:Label></td>
-        <td>
-            <asp:Label ID="Label11" runat="server" Text="IsVisible"></asp:Label></td>
-        <td></td>
+
+        <tr>
+    <td colspan="4" class="style3">
+        <asp:TextBox ID="tbContent" runat="server" Width="596px" Height="39px"></asp:TextBox></td>
     </tr>
-     <tr>
-    <td>
-        <asp:TextBox ID="tbKnowlegetTime" runat="server"></asp:TextBox></td>
-    <td>
-        <asp:TextBox ID="tbPriorityScore" runat="server"></asp:TextBox></td>
-    <td>
-        <asp:TextBox ID="tbIP" runat="server"></asp:TextBox></td>
-    <td>
-        <asp:TextBox ID="tbFocusNum" runat="server"></asp:TextBox></td>
-    <td>
-        <asp:TextBox ID="tbIsVisible" runat="server"></asp:TextBox></td>
-    <td>
-        <asp:TextBox ID="tbContent" runat="server"></asp:TextBox></td>
-    </tr>
-    </table>
+        </table>
     <table>
     <tr>
     <td> 
-        <asp:Button ID="BtnAdd" runat="server" Text="Button" onclick="BtnAdd_Click" 
-            style="height: 21px" />  </td>
+        <asp:Button ID="BtnAdd" runat="server" Text="添加" onclick="BtnAdd_Click" 
+            style="height: 21px" /> 
+             <asp:Button ID="BtnBack" runat="server" Text="返回"  
+            style="height: 21px" onclick="BtnBack_Click" /> 
+             </td>
     </tr>
     </table>
     </div>

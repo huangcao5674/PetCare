@@ -14,23 +14,24 @@
     <td>
         <asp:Label ID="Label1" runat="server" Text="用户名"></asp:Label></td>
         <td>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+            <asp:TextBox ID="tb_UserName" runat="server"></asp:TextBox></td>
     </tr>
      <tr>
     <td>
         <asp:Label ID="Label3" runat="server" Text="密码"></asp:Label> </td>
-    <td><input id="Password1" type="password" /></td>
+    <td> <asp:TextBox ID="tb_Pass" runat="server"></asp:TextBox></td>
     </tr>
      <tr>
     <td>
         <asp:Label ID="Label2" runat="server" Text="确认密码"></asp:Label></td>
     <td>
-        <input id="Password2" type="password" /></td>
+       <asp:TextBox ID="tb_PassConfirm" runat="server"></asp:TextBox></td>
     </tr>
      <tr>
     <td>
         <asp:Label ID="Label4" runat="server" Text="性别"></asp:Label></td>
     <td>
+   
         <asp:RadioButton ID="man" Text="男" runat="server" />
         <asp:RadioButton ID="woman" Text="女"  runat="server" />
         </td>
@@ -39,19 +40,20 @@
     <td>
         <asp:Label ID="Label5" runat="server" Text="年龄"></asp:Label></td>
     <td>
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+        <asp:TextBox ID="tb_Age" runat="server"></asp:TextBox></td>
     </tr>
      <tr>
     <td>
         <asp:Label ID="Label6" runat="server" Text="邮箱"></asp:Label></td>
     <td>
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+        <asp:TextBox ID="tb_Email" runat="server"></asp:TextBox></td>
     </tr>
      <tr>
     <td  align="right" >
-        <asp:Button ID="Button1" runat="server" Text="注册" /></td>
+        <asp:Button ID="BtnRegister" runat="server" Text="注册" 
+            onclick="BtnRegister_Click" /></td>
         <td align="left"> 
-            <asp:Button ID="Button2" runat="server" Text="返回" /></td>
+            <asp:Button ID="BtnBack" runat="server" Text="返回" onclick="BtnBack_Click" /></td>
     </tr>
     </table>
     </div>

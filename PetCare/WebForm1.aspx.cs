@@ -24,5 +24,11 @@ namespace PetCare
             GridView1.DataSource = list;
             GridView1.DataBind();
         }
+
+        protected void BtnLogin_Click(object sender, EventArgs e)
+        {
+            string userName = TextBox1.Text.Trim().ToString();
+            LbUserName.Text = userName;
+        }
     }
 }

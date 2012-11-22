@@ -87,6 +87,13 @@
     <Compile Include="Interface\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\FocusManage.aspx.cs">
+      <DependentUpon>FocusManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\FocusManage.aspx.designer.cs">
+      <DependentUpon>FocusManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,8 +171,8 @@
     <Content Include="js\sea-debug.js" />
     <Content Include="js\sea.js" />
     <Content Include="js\underscore.js" />
+    <Content Include="ManageMent\FocusManage.aspx" />
     <Content Include="ManageMent\Index.aspx" />
-    <Content Include="ManageMent\index.html" />
     <Content Include="ManageMent\WebAdoptManage.aspx" />
     <Content Include="ManageMent\WebKnowledgeManage.aspx" />
     <Content Include="ManageMent\WebMissedPetManage.aspx" />

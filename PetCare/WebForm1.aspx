@@ -10,7 +10,12 @@
     <form id="form1" runat="server">
     <div>
     <table>
+    <tr><td>欢迎您：</td>
+    <td>
+        <asp:Label ID="LbUserName" runat="server" Text="游客"></asp:Label> </td>
+    </tr>
     <tr>
+    
     <td>
         <asp:LinkButton ID="User" runat="server" PostBackUrl="~/ManageMent/WebUserManage.aspx">用户管理</asp:LinkButton>
     </td>
@@ -27,7 +32,7 @@
     <td>
             <asp:LinkButton ID="KnowledgeUser" runat="server" PostBackUrl="~/Interface/KnowledgeInfo.aspx">PeopleKnowledge</asp:LinkButton>
     </td>
-    <td></td>
+    <td>           <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/ManageMent/FocusManage.aspx">UserFocus</asp:LinkButton></td>
     <td></td>
     </tr>
     </table>
@@ -37,6 +42,23 @@
             style="height: 21px" />
         <br />
         <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Interface/Register.aspx">注册用户</asp:LinkButton>
+      <table>
+      <tr>
+      <td>用户名</td>
+      <td>
+          <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+      </tr>
+      <tr>
+      <td>密码</td>
+      <td>
+          <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox> </td>
+      </tr>
+      <tr>
+      <td>
+          <asp:Button ID="BtnLogin" runat="server" Text="登录" onclick="BtnLogin_Click" 
+              style="height: 21px" /> </td>
+      </tr>
+      </table>
     </div>
     </form>
 </body>

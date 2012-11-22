@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using PetCare.Model;
 using PetCare.BLL;
+using System.Net;
 
 namespace PetCare.ManageMent
 {
@@ -13,9 +14,12 @@ namespace PetCare.ManageMent
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadArea();
-            LoadUser();
-            LoadPetCategory();
+            if (!IsPostBack)
+            {
+                LoadArea();
+                LoadUser();
+                LoadPetCategory();
+            }
         }
 
         private void LoadUser()
@@ -52,19 +56,18 @@ namespace PetCare.ManageMent
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-            string userID = dpUsers.SelectedValue.ToString(); ;
-            string knowledgeID = tbKnowledgeID.Text.Trim().ToString();
+            //获取本机IP
+            IPHostEntry ipe = Dns.GetHostEntry(Dns.GetHostName());
+            IPAddress ipa = ipe.AddressList[0];
+            string userID = dpUsers.SelectedValue.ToString(); 
+            string knowledgeID =Guid.NewGuid().ToString();
             string addressID = dpAddress.SelectedValue.ToString();
             string petcategoryID = dpCategory.SelectedValue.ToString();
-            string weiboID = tbWeiBoID.Text.Trim().Trim();
+            string weiboID = "";
             string knowledgeTitle = tbKnowLedgeTitle.Text.Trim().ToString();
-            string knowledgeTime = tbKnowlegetTime.Text.Trim().ToString();
-            string priorityScore = tbPriorityScore.Text.Trim().ToString();
-            string ip = tbIP.Text.Trim().ToString();
-            string focusNum = tbFocusNum.Text.Trim().ToString();
-            string isVisible = tbIsVisible.Text.Trim().ToString();
+            string knowledgeTime = DateTime.Now.ToString();
+            string ip = ipa.ToString();
             string content = tbContent.Text.Trim().ToString();
-            //InsertKnowledgePet(CTKnowledgePet knowledgePet)
             CTKnowledgePet knowledge = new CTKnowledgePet();
             knowledge.UserID = userID;
             knowledge.KnowledgeID = knowledgeID;
@@ -73,16 +76,28 @@ namespace PetCare.ManageMent
             knowledge.WeiBoID = weiboID;
             knowledge.KnowledgeTitle = knowledgeTitle;
             knowledge.KnowledgeTime = DateTime.Now;
-            knowledge.PriorityScore = int.Parse(priorityScore);
+            knowledge.PriorityScore = 0;
             knowledge.IP = ip;
-            knowledge.IsVisible = bool.Parse(isVisible);
+            knowledge.IsVisible = true;
             knowledge.LastEditTime = DateTime.Now;
             knowledge.KnowledgeInfo = content;
-            knowledge.FocusNum = int.Parse(focusNum);
+            knowledge.FocusNum = 0;
             KnowledgePet knowledgePet = new KnowledgePet();
-            knowledgePet.InsertKnowledgePet(knowledge);
+            int insertStatus=knowledgePet.InsertKnowledgePet(knowledge);
+            if (insertStatus == 1)
+            {
+                Response.Write("<script>alert('添加成功!')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('添加失败!')</script>");
+            }
 
+        }
 
+        protected void BtnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/WebForm1.aspx", false); 
         }
     }
 }
