@@ -8,8 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Configuration;
+using System.Configuration.Provider;
 
-namespace PetCare.Model
+namespace PetCare.DBUtility
 {
     /// <summary>
     /// 从配置文件读取信息类
@@ -38,7 +40,36 @@ namespace PetCare.Model
             get
             {
                 return dbProviderName;
+             }
+        }
+        public static string MailServer
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["MailServer"].ToString();
             }
+        }
+        public static string MailUsername
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["MailUsername"].ToString();
+            }
+        }
+        public static string MailPassword
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["MailPassword"].ToString();
+            }
+        }
+        public static string MailFrom
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["MailFrom"].ToString();
+            }
+            
         }
     }
 }

@@ -32,7 +32,17 @@ namespace PetCare.ManageMent
 
         protected void BtnCheck_Click(object sender, EventArgs e)
         {
+            List<CUserFocusArticle> list = new List<CUserFocusArticle>();
+            UserFocus userfocus = new UserFocus();
+            string userID = dpUser.SelectedValue.ToString();
+            list = userfocus.GetAllUserFocusInfoByUserID(userID);
+            GridView1.DataSource = list;
+            GridView1.DataBind();
+        }
 
+        protected void BtnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/WebForm1.aspx", false); 
         }
     }
 }

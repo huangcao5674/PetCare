@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CGenerateDataAccess.cs" />
+    <Compile Include="CPetCareConfiguration.cs" />
+    <Compile Include="CUtilities.cs" />
     <Compile Include="SQLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

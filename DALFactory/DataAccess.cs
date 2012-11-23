@@ -91,6 +91,18 @@ namespace PetCare.DALFactory
                 throw ex;
             }
         }
+        public static PetCare.IDAL.IUserFocus CreateUserFocus()
+        {
+            try
+            {
+                string className = Path + ".UserFocus";
+                return (PetCare.IDAL.IUserFocus)Assembly.Load(Path).CreateInstance(className);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 

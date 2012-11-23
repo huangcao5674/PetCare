@@ -210,6 +210,10 @@
       <Project>{FD208CA8-EDF0-4975-A996-4873EE6AFE0D}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{F3369493-9172-40B3-8AEB-ED87FD529BC6}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}</Project>
       <Name>Model</Name>

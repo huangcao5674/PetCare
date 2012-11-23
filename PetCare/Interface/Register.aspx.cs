@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using PetCare.BLL;
 using PetCare.Model;
+using PetCare.DBUtility;
+
 
 namespace PetCare.Interface
 {
@@ -29,7 +31,9 @@ namespace PetCare.Interface
             int insertStatus= user.InsertUserInfo(userInfo);
             if (insertStatus == 1)
             {
+                //CUtilities.SendMail("petcareweb", "honkcal@163.com", "aaa", "aaa");
                 Response.Write("<script>alert('注册成功!')</script>");
+
             }
             else
             {
