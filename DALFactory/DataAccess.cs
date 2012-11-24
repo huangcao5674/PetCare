@@ -18,6 +18,8 @@ namespace PetCare.DALFactory
         {
         }
 
+
+        //创建User类
         public static PetCare.IDAL.IUser CreateUser()
         {
             try
@@ -31,6 +33,7 @@ namespace PetCare.DALFactory
             }
         }
 
+        //创建KnowledgePet  类
         public static PetCare.IDAL.IKnowledgePet CreateKnowledgePet()
         {
             try
@@ -43,6 +46,22 @@ namespace PetCare.DALFactory
                 throw ex;
             }
         }
+
+        //创建knowledgePetComment类
+        public static PetCare.IDAL.IKnowledgePetComment CreateKnowledgeComment()
+        {
+            try
+            {
+                string className = KnowledgePath + ".KnowledgePetComment";
+                return (PetCare.IDAL.IKnowledgePetComment)Assembly.Load(KnowledgePath).CreateInstance(className);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //创建AdoptPet类
         public static PetCare.IDAL.IAdoptPet CreateAdoptPet()
         {
             try
@@ -55,6 +74,8 @@ namespace PetCare.DALFactory
                 throw ex;
             }
         }
+
+        //创建Missedpet 类
         public static PetCare.IDAL.IMissedPetInfo CreateMissedPet()
         {
             try
@@ -67,6 +88,8 @@ namespace PetCare.DALFactory
                 throw ex;
             }
         }
+
+        //创建Address 类
         public static PetCare.IDAL.IAddress CreateAddress()
         {
             try
@@ -79,6 +102,8 @@ namespace PetCare.DALFactory
                 throw ex;
             }
         }
+
+        //创建Category类
         public static PetCare.IDAL.IPetCategory CreateCategory()
         {
             try
@@ -91,6 +116,8 @@ namespace PetCare.DALFactory
                 throw ex;
             }
         }
+        
+        //创建UserFocus类
         public static PetCare.IDAL.IUserFocus CreateUserFocus()
         {
             try

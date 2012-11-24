@@ -8,6 +8,10 @@ namespace PetCare.IDAL
 {
     public interface IKnowledgePetComment
     {
+        List<CTKnowledgePetComment> GetKnowledgePetCommentListByUserID(string UserID);
 
+        List<CTKnowledgePetComment> GetKnowledgePetCommentListByKnowledge(string KnowledgeID);
+
+        int InsertKnowledgePetComment(CTKnowledgePetComment knowledgeComment);
     }
 }

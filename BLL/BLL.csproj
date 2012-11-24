@@ -43,6 +43,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="AdoptPet.cs" />
     <Compile Include="KnowledgePet.cs" />
+    <Compile Include="KnowledgePetComment.cs" />
     <Compile Include="MissedPetInfo.cs" />
     <Compile Include="PetCategory.cs" />
     <Compile Include="User.cs" />
@@ -62,6 +63,9 @@
       <Project>{EBAAFDBD-27E5-4B9F-AB21-43D79061490C}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BLLClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

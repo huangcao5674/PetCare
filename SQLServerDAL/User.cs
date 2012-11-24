@@ -108,13 +108,13 @@ namespace PetCare.SQLServerDAL
             SqlParameter[] parms = null;
             parms = new SqlParameter[]
                             {
-                                new SqlParameter("@UserName",SqlDbType.NVarChar,50),
-                                new SqlParameter("@UserPass",SqlDbType.NVarChar,50),
-                                new SqlParameter("@UserRealName",SqlDbType.NVarChar,50),
+                                new SqlParameter("@UserName",SqlDbType.NVarChar,20),
+                                new SqlParameter("@UserPass",SqlDbType.NVarChar,20),
+                                new SqlParameter("@UserRealName",SqlDbType.NVarChar,20),
                                 new SqlParameter("@UserAge",SqlDbType.Int),
                                 new SqlParameter("@UserSex",SqlDbType.Char,2),
                                 new SqlParameter("@UserAddress",SqlDbType.NVarChar,50),
-                                new SqlParameter("@UserEmail",SqlDbType.NVarChar,50),
+                                new SqlParameter("@UserEmail",SqlDbType.NVarChar,20),
                                 new SqlParameter("@UserPhoneNumber",SqlDbType.NVarChar,11),
                                 new SqlParameter("@UserQQNum",SqlDbType.NVarChar,10),
                                 new SqlParameter("@UserInfo",SqlDbType.NVarChar,100),

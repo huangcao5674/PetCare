@@ -101,6 +101,13 @@
     <Compile Include="ManageMent\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\KnowledgeComment.aspx.cs">
+      <DependentUpon>KnowledgeComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\KnowledgeComment.aspx.designer.cs">
+      <DependentUpon>KnowledgeComment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\WebAdoptManage.aspx.cs">
       <DependentUpon>WebAdoptManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -173,6 +180,7 @@
     <Content Include="js\underscore.js" />
     <Content Include="ManageMent\FocusManage.aspx" />
     <Content Include="ManageMent\Index.aspx" />
+    <Content Include="ManageMent\KnowledgeComment.aspx" />
     <Content Include="ManageMent\WebAdoptManage.aspx" />
     <Content Include="ManageMent\WebKnowledgeManage.aspx" />
     <Content Include="ManageMent\WebMissedPetManage.aspx" />

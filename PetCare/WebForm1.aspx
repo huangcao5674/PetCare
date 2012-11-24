@@ -33,7 +33,9 @@
             <asp:LinkButton ID="KnowledgeUser" runat="server" PostBackUrl="~/Interface/KnowledgeInfo.aspx">PeopleKnowledge</asp:LinkButton>
     </td>
     <td>           <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/ManageMent/FocusManage.aspx">UserFocus</asp:LinkButton></td>
-    <td></td>
+    <td>
+   <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/ManageMent/KnowledgeComment.aspx">KnowledgeComment</asp:LinkButton>
+    </td>
     </tr>
     </table>
         <asp:GridView ID="GridView1" runat="server">
