@@ -20,7 +20,9 @@ namespace PetCare.SQLServerDAL
             + " ,[WeiBoID],[KnowledgeTitle],[KnowledgeTime],[LastEditTime],[KnowledgeInfo],[PriorityScore],[IP],[FocusNum],[IsVisible])VALUES"
             + "(@KnowledgeID,@UserID,@AddressID,@PetCategoryID,@WeiBoID,@KnowledgeTitle,@KnowledgeTime,@LastEditTime,@KnowledgeInfo,@PriorityScore,@IP,@FocusNum,@IsVisible)";
 
-        private const string SQL_DELETE_KNOWLEDGEPET = "";
+        private const string SQL_DELETE_KNOWLEDGEPET = "INSERT INTO [PETCAREDB].[dbo].[DB_AdoptPet]([UserID],[AddressID],[PetCategoryID]"
+          +",[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime],[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible])VALUES"
+          +"(@UserID ,@AddressID ,@PetCategoryID ,@WeiBoID ,@AdoptTitle ,@AdoptTime ,@LastEditTime ,@AdoptInfo ,@IP ,@PriorityScore ,@FocusNum ,@IsVisible)";
 
         private const string PARM_USER_ID = "@UserId";
 

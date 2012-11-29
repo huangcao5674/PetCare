@@ -20,12 +20,12 @@ namespace PetCare.Model
         {
         }
 
-        public CTAdoptPet(string userID, string addressID, string petCategory, string weiBoID, string adoptTitle,
+        public CTAdoptPet(string userID, string addressID, string petCategoryId, string weiBoID, string adoptTitle,
             DateTime adoptTime, string adoptInfo,DateTime lastEditTime, string iP, int priorityScore, int focusNum, bool isVisible)
         {
             this.UserID = userID;
             this.AddressID = addressID;
-            this.PetCategory = petCategory;
+            this.PetCategoryID = petCategoryId;
             this.WeiBoID = weiBoID;
             this.AdoptTitle = adoptTitle;
             this.AdoptTime = adoptTime;
@@ -56,7 +56,7 @@ namespace PetCare.Model
             get;
             set;
         }
-        public string PetCategory
+        public string PetCategoryID
         {
             get;
             set;
