@@ -20,6 +20,9 @@ namespace PetCare.IDAL
         //根据宠物类型得到领养宠物的信息
         List<CTAdoptPet> GetAdoptPetListByPetCategory(string PetCategoryID);
 
+        //根据宠物类型和地址信息得到领养宠物的信息
+        List<CTAdoptPet> GetAdoptPetListByPetCategoryAddress(string PetCategoryID, string AddressID);
+
         //增加用户领养宠物的信息
         int InsertAdoptPet(CTAdoptPet AdoptPetInfo);
 

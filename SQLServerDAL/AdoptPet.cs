@@ -25,9 +25,12 @@ namespace PetCare.SQLServerDAL
         private const string SQL_SELECT_ADOPTPET_BY_PETCATEGORY = "SELECT   [AdoptID],[UserID],[AddressID],[PetCategoryID],[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime]"
             + ",[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible] FROM [PETCAREDB].[dbo].[DB_AdoptPet] WHERE PetCategoryID=@PetCategoryID";
 
-        private const string SQL_INSERT_ADOPTPET = "INSERT INTO [PETCAREDB].[dbo].[DB_AdoptPet]([UserID],[AddressID],[PetCategoryID]"
-          + ",[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime],[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible])VALUES"
-          + "(@UserID ,@AddressID ,@PetCategoryID ,@WeiBoID ,@AdoptTitle ,@AdoptTime ,@LastEditTime ,@AdoptInfo ,@IP ,@PriorityScore ,@FocusNum ,@IsVisible)";
+        private const string SQL_SELECT_ADOPTPET_BY_PETCATEGORYADDRESS = "SELECT   [AdoptID],[UserID],[AddressID],[PetCategoryID],[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime]"
+            + ",[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible] FROM [PETCAREDB].[dbo].[DB_AdoptPet] WHERE PetCategoryID=@PetCategoryID AND AddressID=@AddressID";
+
+        private const string SQL_INSERT_ADOPTPET = "INSERT INTO [PETCAREDB].[dbo].[DB_AdoptPet]([AdoptID],[UserID],[AddressID],[PetCategoryID]"
+          + ",[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime],[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible],[IsAdopt])VALUES"
+          + "(@AdoptID,@UserID ,@AddressID ,@PetCategoryID ,@WeiBoID ,@AdoptTitle ,@AdoptTime ,@LastEditTime ,@AdoptInfo ,@IP ,@PriorityScore ,@FocusNum ,@IsVisible,@IsAdopt)";
 
         private const string SQL_DELETE_ADOPTPET = "UPDATE [PETCAREDB].[dbo].[DB_AdoptPet] SET [IsVisible] = false WHERE AdoptID=@AdoptID,[LastEditTime]=@LastEditTime,"
             + "[AdoptInfo]=@AdoptInfo,[IP]=@IP WHERE [AdoptID]=@AdoptID";
@@ -177,6 +180,40 @@ namespace PetCare.SQLServerDAL
             return AdoptPetList;
         }
 
+
+        public List<CTAdoptPet> GetAdoptPetListByPetCategoryAddress(string PetCategoryID, string AddressID)
+        {
+            List<CTAdoptPet> AdoptPetList = new List<CTAdoptPet>();
+            SqlParameter parm = new SqlParameter(PARM_PETCATEGORU_ID, SqlDbType.NVarChar);
+            parm.Value = PetCategoryID;
+            using (SqlDataReader reader = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, SQL_SELECT_ADOPTPET_BY_PETCATEGORY, parm))
+            {
+                while (reader.Read())
+                {
+                    CTAdoptPet adoptPet = new CTAdoptPet();
+                    adoptPet.AdoptID = reader["AdoptID"].ToString();
+                    adoptPet.UserID = reader["UserID"].ToString();
+                    adoptPet.AddressID = reader["AddressID"].ToString();
+                    adoptPet.AdoptInfo = reader["AdoptInfo"].ToString();
+                    adoptPet.AdoptTitle = reader["AdoptTitle"].ToString();
+                    adoptPet.PetCategoryID = reader["PetCategoryID"].ToString();
+                    adoptPet.PriorityScore = int.Parse(reader["PriorityScore"].ToString());
+                    adoptPet.WeiBoID = reader["WeiBoID"].ToString();
+
+                    DateTime tempLastEditTime = DateTime.Now;
+                    // knowledgepet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
+                    DateTime tempKnowledgeTime = DateTime.Now;
+                    // knowledgepet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime:DateTime.Now;
+                    adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
+                    adoptPet.IP = reader["IP"].ToString();
+                    int tempFocusNum = 0;
+                    adoptPet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
+                    AdoptPetList.Add(adoptPet);
+                }
+            }
+            return AdoptPetList;
+        }
+
         //添加新记录
         public int InsertAdoptPet(CTAdoptPet AdoptPetInfo)
         {
@@ -185,6 +222,7 @@ namespace PetCare.SQLServerDAL
             SqlParameter[] adoptPetParams = null;
             adoptPetParams = new SqlParameter[]
                             {
+                                new SqlParameter("@AdoptID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@UserID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@AddressID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@PetCategoryID",SqlDbType.NVarChar,20),
@@ -197,20 +235,22 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@PriorityScore",SqlDbType.Int),
                                 new SqlParameter("@FocusNum",SqlDbType.Int),
                                 new SqlParameter("@IsVisible",SqlDbType.Bit),
+                                new SqlParameter("@IsAdopt",SqlDbType.Bit),
                             };
-
-            adoptPetParams[0].Value = AdoptPetInfo.UserID;
-            adoptPetParams[1].Value = AdoptPetInfo.AddressID;
-            adoptPetParams[2].Value = AdoptPetInfo.PetCategoryID;
-            adoptPetParams[3].Value = AdoptPetInfo.WeiBoID;
-            adoptPetParams[4].Value = AdoptPetInfo.AdoptTitle;
-            adoptPetParams[5].Value = AdoptPetInfo.AdoptTime;
-            adoptPetParams[6].Value = AdoptPetInfo.LastEditTime;
-            adoptPetParams[7].Value = AdoptPetInfo.AdoptInfo;
-            adoptPetParams[8].Value = AdoptPetInfo.IP;
-            adoptPetParams[9].Value = AdoptPetInfo.PriorityScore;
-            adoptPetParams[10].Value = AdoptPetInfo.FocusNum;
-            adoptPetParams[11].Value = AdoptPetInfo.IsVisible;
+            adoptPetParams[0].Value = AdoptPetInfo.AdoptID;
+            adoptPetParams[1].Value = AdoptPetInfo.UserID;
+            adoptPetParams[2].Value = AdoptPetInfo.AddressID;
+            adoptPetParams[3].Value = AdoptPetInfo.PetCategoryID;
+            adoptPetParams[4].Value = AdoptPetInfo.WeiBoID;
+            adoptPetParams[5].Value = AdoptPetInfo.AdoptTitle;
+            adoptPetParams[6].Value = AdoptPetInfo.AdoptTime;
+            adoptPetParams[7].Value = AdoptPetInfo.LastEditTime;
+            adoptPetParams[8].Value = AdoptPetInfo.AdoptInfo;
+            adoptPetParams[9].Value = AdoptPetInfo.IP;
+            adoptPetParams[10].Value = AdoptPetInfo.PriorityScore;
+            adoptPetParams[11].Value = AdoptPetInfo.FocusNum;
+            adoptPetParams[12].Value = AdoptPetInfo.IsVisible;
+            adoptPetParams[13].Value = AdoptPetInfo.IsAdopt;
 
 
             using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))

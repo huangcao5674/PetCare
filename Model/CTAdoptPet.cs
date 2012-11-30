@@ -21,7 +21,8 @@ namespace PetCare.Model
         }
 
         public CTAdoptPet(string userID, string addressID, string petCategoryId, string weiBoID, string adoptTitle,
-            DateTime adoptTime, string adoptInfo,DateTime lastEditTime, string iP, int priorityScore, int focusNum, bool isVisible)
+            DateTime adoptTime, string adoptInfo,DateTime lastEditTime, string iP, int priorityScore, int focusNum, bool isVisible
+           ,bool isAdopt)
         {
             this.UserID = userID;
             this.AddressID = addressID;
@@ -35,6 +36,12 @@ namespace PetCare.Model
             this.FocusNum = focusNum;
             this.IsVisible = isVisible;
             this.LastEditTime = lastEditTime;
+            this.IsAdopt = isAdopt;
+        }
+        public bool IsAdopt
+        {
+            get;
+            set;
         }
         public DateTime LastEditTime
         {
