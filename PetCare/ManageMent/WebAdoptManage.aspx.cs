@@ -69,8 +69,10 @@ namespace PetCare.ManageMent
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
 
-            BindGrid();
-
+            //BindGrid();
+            int pageNumber = int.Parse(TextBox1.Text.Trim().ToString());
+            int perPage = int.Parse(TextBox2.Text.Trim().ToString());
+            BindGridNew(pageNumber, perPage);
         }
         private void BindGrid()
         {
@@ -78,6 +80,16 @@ namespace PetCare.ManageMent
             GridView1.DataSource = adopet.GetPetAdoptPetList();
             GridView1.DataBind();
         }
+
+
+        private void BindGridNew(int pageNumber,int perPage)
+        {
+            AdoptPet adopt = new AdoptPet();
+            int howmany=0;
+            GridView1.DataSource =  adopt.GetPetAdoptPerPageList(pageNumber,perPage,out howmany);
+            GridView1.DataBind();
+        }
+
         private void LoadUser()
         {
             List<CTUserInfo> userList = new List<CTUserInfo>();

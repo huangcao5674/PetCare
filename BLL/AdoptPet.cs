@@ -17,6 +17,11 @@ namespace PetCare.BLL
             return dal.GetAllAdoptPetList();
         }
 
+        public List<CVAdoptPet> GetPetAdoptPerPageList(int pageNumber,int perPage,out int howmanyPages)
+        {
+            return dal.GetAllAdoptPetListNew(pageNumber, perPage,out howmanyPages);
+        }
+
         public List<CTAdoptPet> GetPetAdoptPetListByUserID(string UserID)
         {
             return dal.GetAdoptPetListByUser(UserID);

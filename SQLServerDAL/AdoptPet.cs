@@ -14,8 +14,8 @@ namespace PetCare.SQLServerDAL
     public class AdoptPet : IAdoptPet
     {
         private const string SQL_SELECT_ADOPTPET = "SELECT   [AdoptID],[UserID],[AddressID],[PetCategoryID],[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime]"
-            + ",[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible] FROM [PETCAREDB].[dbo].[DB_AdoptPet]";
-
+            + ",[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible],[IsAdopt] FROM [PETCAREDB].[dbo].[DB_AdoptPet] WHERE [IsVisible]=1 AND [IsAdopt]=1";
+        
         private const string SQL_SELECT_ADOPTPET_BY_USERID = "SELECT   [AdoptID],[UserID],[AddressID],[PetCategoryID],[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime]"
             + ",[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible] FROM [PETCAREDB].[dbo].[DB_AdoptPet] WHERE UserID=@UserId";
 
@@ -62,11 +62,13 @@ namespace PetCare.SQLServerDAL
                     adoptPet.PetCategoryID = reader["PetCategoryID"].ToString();
                     adoptPet.PriorityScore = int.Parse(reader["PriorityScore"].ToString());
                     adoptPet.WeiBoID = reader["WeiBoID"].ToString();
+                    bool tempIsAdopt = true;
+                    adoptPet.IsAdopt = bool.TryParse(reader["IsAdopt"].ToString(),out tempIsAdopt)? tempIsAdopt : true;
 
                     DateTime tempLastEditTime = DateTime.Now;
-                    // knowledgepet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
+                    adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
                     DateTime tempKnowledgeTime = DateTime.Now;
-                    // knowledgepet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime:DateTime.Now;
+                    adoptPet.AdoptTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
                     adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
                     adoptPet.IP = reader["IP"].ToString();
                     int tempFocusNum = 0;
@@ -77,6 +79,57 @@ namespace PetCare.SQLServerDAL
 
             return AdoptPetList;
         }
+
+
+        //获取所有的petlist
+        public List<CVAdoptPet> GetAllAdoptPetListNew(int pageNumber,int NumberPerPage,out int howmanyPages)
+        {
+             SqlParameter[] adoptPetParams = null;
+             adoptPetParams = new SqlParameter[]
+                            {
+                                new SqlParameter("@IsAdopt",SqlDbType.Bit),
+                                new SqlParameter("@DescriptionLength",SqlDbType.Int),
+                                new SqlParameter("@PageNumber",SqlDbType.Int),
+                                new SqlParameter("@AdoptInfoPerPage",SqlDbType.Int),
+                                new SqlParameter("@HowManyAdoptInfo",SqlDbType.Int,65535,ParameterDirection.Output,true,0,0,"",DataRowVersion.Default,0),
+                            };
+            adoptPetParams[0].Value = true;
+            adoptPetParams[1].Value = 5;
+            adoptPetParams[2].Value = pageNumber;
+            adoptPetParams[3].Value = NumberPerPage;
+
+            List<CVAdoptPet> AdoptPetList = new List<CVAdoptPet>();
+            using (SqlDataReader reader = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.StoredProcedure, "proGetAllAdoptInfo", adoptPetParams))
+            {
+                while (reader.Read())
+                {
+                    CVAdoptPet adoptPet = new CVAdoptPet();
+                    adoptPet.AdoptID = reader["AdoptID"].ToString();
+                    adoptPet.City = reader["City"].ToString();
+                    adoptPet.Province = reader["Province"].ToString();
+                    adoptPet.AdoptInfo = reader["AdoptInfo"].ToString();
+                    adoptPet.AdoptTitle = reader["AdoptTitle"].ToString();
+                    adoptPet.PetCategoryName = reader["PetCategoryName"].ToString();
+                    adoptPet.PriorityScore = int.Parse(reader["PriorityScore"].ToString());
+                    bool tempIsAdopt = true;
+                    adoptPet.IsAdopt = bool.TryParse(reader["IsAdopt"].ToString(), out tempIsAdopt) ? tempIsAdopt : true;
+
+                    DateTime tempLastEditTime = DateTime.Now;
+                   // adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                    DateTime tempKnowledgeTime = DateTime.Now;
+                    //adoptPet.AdoptTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
+                    adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
+                    adoptPet.IP = reader["IP"].ToString();
+                    int tempFocusNum = 0;
+                    adoptPet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
+                    AdoptPetList.Add(adoptPet);
+                }
+                howmanyPages = 5;
+            }
+
+            return AdoptPetList;
+        }
+
 
         //根据userID获取其发布petlist
         public  List<CTAdoptPet> GetAdoptPetListByUser(string UserID) 
@@ -99,11 +152,12 @@ namespace PetCare.SQLServerDAL
                     adoptPet.WeiBoID = reader["WeiBoID"].ToString();
 
                     DateTime tempLastEditTime = DateTime.Now;
-                    // knowledgepet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
+                    adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
                     DateTime tempKnowledgeTime = DateTime.Now;
-                    // knowledgepet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime:DateTime.Now;
+                    adoptPet.AdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
                     adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
                     adoptPet.IP = reader["IP"].ToString();
+                    adoptPet.IsAdopt = bool.Parse(reader["IsAdopt"].ToString());
                     int tempFocusNum = 0;
                     adoptPet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
                     AdoptPetList.Add(adoptPet);
@@ -222,7 +276,7 @@ namespace PetCare.SQLServerDAL
             SqlParameter[] adoptPetParams = null;
             adoptPetParams = new SqlParameter[]
                             {
-                                new SqlParameter("@AdoptID",SqlDbType.NVarChar,20),
+                                new SqlParameter("@AdoptID",SqlDbType.NVarChar,32),
                                 new SqlParameter("@UserID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@AddressID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@PetCategoryID",SqlDbType.NVarChar,20),

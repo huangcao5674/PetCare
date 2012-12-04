@@ -109,4 +109,22 @@ namespace PetCare.Model
             set;
         }
     }
+
+    public class CVAdoptPet
+    {
+       public string Province{get;set;}
+       public string City{get;set;}
+       public string PetCategoryName{get;set;}
+       public string AdoptID{get;set;}
+       public string AdoptTitle{get;set;}
+       public DateTime AdoptTime{get;set;}
+       public DateTime LastEditTime{get;set;}
+       public string AdoptInfo{get;set;}
+       public string IP{get;set;}
+       public int PriorityScore{get;set;}
+       public int FocusNum{get;set;}
+       public bool IsVisible{get;set;}
+       public bool IsAdopt { get; set; }
+ 
+    }
 }
