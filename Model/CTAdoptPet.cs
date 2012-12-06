@@ -38,76 +38,20 @@ namespace PetCare.Model
             this.LastEditTime = lastEditTime;
             this.IsAdopt = isAdopt;
         }
-        public bool IsAdopt
-        {
-            get;
-            set;
-        }
-        public DateTime LastEditTime
-        {
-            get;
-            set;
-        }
-        public string AdoptID
-        {
-            get;
-            set;
-        }
-        public string UserID
-        {
-            get;
-            set;
-        }
-        public string AddressID
-        {
-            get;
-            set;
-        }
-        public string PetCategoryID
-        {
-            get;
-            set;
-        }
-        public string WeiBoID
-        {
-            get;
-            set;
-        }
-        public string AdoptTitle
-        {
-            get;
-            set;
-        }
-        public DateTime AdoptTime
-        {
-            get;
-            set;
-        }
-        public string AdoptInfo
-        {
-            get;
-            set;
-        }
-        public string IP
-        {
-            get;
-            set;
-        }
-        public int PriorityScore
-        {
-            get;
-            set;
-        }
-        public int FocusNum
-        {
-            get;
-            set;
-        }
-        public bool IsVisible
-        {
-            get;
-            set;
-        }
+        public bool IsAdopt{get;set;}
+        public DateTime LastEditTime{get;set;}
+        public string AdoptID{get;set;}
+        public string UserID{get;set;}
+        public string AddressID{get;set;}
+        public string PetCategoryID{get;set;}
+        public string WeiBoID{get;set;}
+        public string AdoptTitle{get;set;}
+        public DateTime AdoptTime{get; set;}
+        public string AdoptInfo{ get; set;}
+        public string IP{get;set;}
+        public int PriorityScore{get;set;}
+        public int FocusNum{ get;set;}
+        public bool IsVisible{ get;set;}
     }
 
     public class CVAdoptPet
@@ -125,6 +69,13 @@ namespace PetCare.Model
        public int FocusNum{get;set;}
        public bool IsVisible{get;set;}
        public bool IsAdopt { get; set; }
+       public string AddressID { get; set; }
+       public string PetCategoryID { get; set; }
+       public string UserName { get; set; }
+       public string Protrait { get; set; }
+       public string LinkUrl { get; set; }
+       public string PicLocation { get; set; }
+       public int CommentCount { get; set; }
  
     }
 }
