@@ -25,6 +25,8 @@
 
     <td class="style3">
         <asp:Button ID="Button3" runat="server" Text="Button" onclick="Button3_Click" />
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
         <asp:GridView ID="GridView1"  runat="server" Width="900px" 
             AutoGenerateColumns="False">
             <Columns>

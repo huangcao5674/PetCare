@@ -23,5 +23,11 @@ namespace PetCare.BLL
        {
            return dal.InsertKnowledgePet(knowledgePet);
        }
+
+       public List<CVKnowledgePet> GetPetKnowledgePerPageList(int pageNumber, int perPage, out int howmanyPages)
+       {
+           return dal.GetAllKnowledgePetPageList(pageNumber, perPage, out howmanyPages);
+       }
+
     }
 }

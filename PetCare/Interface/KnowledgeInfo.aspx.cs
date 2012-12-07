@@ -18,9 +18,12 @@ namespace PetCare.Interface
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            List<CTKnowledgePet> list = new List<CTKnowledgePet>();
+            int pageNumb =int.Parse( TextBox2.Text.Trim().ToString());
+            int pagePerPage = int.Parse(TextBox3.Text.Trim().ToString());
+            List<CVKnowledgePet> list = new List<CVKnowledgePet>();
             KnowledgePet knowleget = new KnowledgePet();
-            list = knowleget.GetKnowledgePetList();
+            int howmanyPages = 0;
+            list = knowleget.GetPetKnowledgePerPageList(pageNumb, pagePerPage,out howmanyPages);
             GridView1.DataSource = list;
             GridView1.DataBind();
 

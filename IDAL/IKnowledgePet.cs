@@ -16,5 +16,7 @@ namespace PetCare.IDAL
 
         //增加宠物知识的所有信息
         int InsertKnowledgePet(CTKnowledgePet KnowledgePetInfo);
+
+        List<CVKnowledgePet> GetAllKnowledgePetPageList(int pageNumber, int NumberPerPage, out int howmanyPages);
     }
 }

@@ -67,15 +67,16 @@ namespace PetCare.Model
        public string IP{get;set;}
        public int PriorityScore{get;set;}
        public int FocusNum{get;set;}
-       public bool IsVisible{get;set;}
        public bool IsAdopt { get; set; }
-       public string AddressID { get; set; }
-       public string PetCategoryID { get; set; }
        public string UserName { get; set; }
-       public string Protrait { get; set; }
+       public string Portrait { get; set; }
        public string LinkUrl { get; set; }
        public string PicLocation { get; set; }
        public int CommentCount { get; set; }
+       public string UserWeiBo { get; set; }
+       public string Status { get; set; } //状态，保留字段
+       public bool IsRecommand { get; set; } //是否是被推荐的帖子
+       public bool IsEssence { get; set; }//是否是精华的帖子
  
     }
 }

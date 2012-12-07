@@ -67,8 +67,8 @@ namespace PetCare.SQLServerDAL
 
                     DateTime tempLastEditTime = DateTime.Now;
                     adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
-                    DateTime tempKnowledgeTime = DateTime.Now;
-                    adoptPet.AdoptTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
+                    DateTime tempAdoptTime = DateTime.Now;
+                    adoptPet.AdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
                     adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
                     adoptPet.IP = reader["IP"].ToString();
                     int tempFocusNum = 0;
@@ -99,34 +99,54 @@ namespace PetCare.SQLServerDAL
             adoptPetParams[3].Value = NumberPerPage;
 
             List<CVAdoptPet> AdoptPetList = new List<CVAdoptPet>();
-            using (SqlDataReader reader = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.StoredProcedure, "proGetAllAdoptInfo", adoptPetParams))
+            try
             {
-                while (reader.Read())
+                using (SqlDataReader reader = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.StoredProcedure, "proGetAdoptInfo", adoptPetParams))
                 {
-                    CVAdoptPet adoptPet = new CVAdoptPet();
-                    adoptPet.AdoptID = reader["AdoptID"].ToString();
-                    adoptPet.City = reader["City"].ToString();
-                    adoptPet.Province = reader["Province"].ToString();
-                    adoptPet.AdoptInfo = reader["AdoptInfo"].ToString();
-                    adoptPet.AdoptTitle = reader["AdoptTitle"].ToString();
-                    adoptPet.PetCategoryName = reader["PetCategoryName"].ToString();
-                    adoptPet.PriorityScore = int.Parse(reader["PriorityScore"].ToString());
-                    bool tempIsAdopt = true;
-                    adoptPet.IsAdopt = bool.TryParse(reader["IsAdopt"].ToString(), out tempIsAdopt) ? tempIsAdopt : true;
+                    while (reader.Read())
+                    {
+                        CVAdoptPet adoptPet = new CVAdoptPet();
+                        adoptPet.AdoptID = reader["AdoptID"].ToString();
+                        adoptPet.City = reader["City"].ToString();
+                        adoptPet.Province = reader["Province"].ToString();
+                        adoptPet.AdoptInfo = reader["AdoptInfo"].ToString();
+                        adoptPet.AdoptTitle = reader["AdoptTitle"].ToString();
+                        adoptPet.PetCategoryName = reader["PetCategoryName"].ToString();
+                        adoptPet.PriorityScore = int.Parse(reader["PriorityScore"].ToString());
+                        adoptPet.UserName = reader["UserName"].ToString();
+                        adoptPet.PicLocation = reader["PicLocation"].ToString();
+                        adoptPet.Portrait = reader["Portrait"].ToString();
+                        adoptPet.LinkUrl = reader["LinkUrl"].ToString();
+                        adoptPet.UserWeiBo = reader["UserWeiBo"].ToString();
+                        adoptPet.Status = reader["Status"].ToString();
+                        bool tempIsAdopt = true;
+                        adoptPet.IsAdopt = bool.TryParse(reader["IsAdopt"].ToString(), out tempIsAdopt) ? tempIsAdopt : true;
+                        bool tempIsRecommand = true;
+                        adoptPet.IsRecommand = bool.TryParse(reader["IsRecommand"].ToString(), out tempIsRecommand) ? tempIsRecommand : true;
+                        bool tempIsEssence = true;
+                        adoptPet.IsEssence = bool.TryParse(reader["IsEssence"].ToString(), out tempIsEssence) ? tempIsEssence : true;
 
-                    DateTime tempLastEditTime = DateTime.Now;
-                   // adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
-                    DateTime tempKnowledgeTime = DateTime.Now;
-                    //adoptPet.AdoptTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
-                    adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
-                    adoptPet.IP = reader["IP"].ToString();
-                    int tempFocusNum = 0;
-                    adoptPet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
-                    AdoptPetList.Add(adoptPet);
+                        DateTime tempLastEditTime = DateTime.Now;
+                        adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        DateTime tempAdoptTime = DateTime.Now;
+                        adoptPet.AdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
+
+                        adoptPet.IP = reader["IP"].ToString();
+                        int tempFocusNum = 0;
+                        adoptPet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
+                        int tempCommentCount = 0;
+                        adoptPet.CommentCount = int.TryParse(reader["CommentCount"].ToString(), out tempCommentCount) ? tempCommentCount : 0;
+
+                        AdoptPetList.Add(adoptPet);
+                    }
                 }
-                howmanyPages = 5;
             }
-
+            catch(Exception ex)
+            {
+                throw;
+            }
+                howmanyPages = 5;
+          
             return AdoptPetList;
         }
 

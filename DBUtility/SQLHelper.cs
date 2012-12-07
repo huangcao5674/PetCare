@@ -110,15 +110,21 @@ namespace PetCare.DBUtility {
             // we use a try/catch here because if the method throws an exception we want to 
             // close the connection throw code, because no datareader will exist, hence the 
             // commandBehaviour.CloseConnection will not work
-            try {
+            try
+            {
                 PrepareCommand(cmd, conn, null, cmdType, cmdText, commandParameters);
                 SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 cmd.Parameters.Clear();
                 return rdr;
             }
-            catch {
+            catch
+            {
                 conn.Close();
                 throw;
+            }
+            finally
+            {
+             
             }
         }
 
@@ -144,6 +150,10 @@ namespace PetCare.DBUtility {
             {
                 conn.Close();
                 throw;
+            }
+            finally
+            {
+         
             }
         }
 

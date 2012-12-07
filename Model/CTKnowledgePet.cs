@@ -39,77 +39,43 @@ namespace PetCare.Model
             LastEditTime = lastEditTime;
             ComplaintNum = complatinNum;
         }
-        public int ComplaintNum
-        {
-            get;
-            set;
-        }
-            
-        public DateTime LastEditTime
-        {
-            get;
-            set;
-        }
-        public string KnowledgeID
-        {
-            get;
-            set;
-        }
-        public string UserID
-        { 
-            get; 
-            set; 
-        }
-        public string AddressID
-        { 
-            get; 
-            set; 
-        }
-        public string PetCaretegoryID
-        { 
-            get; 
-            set; 
-        }
-        public string WeiBoID
-        { 
-            get; 
-            set; 
-        }
-        public string KnowledgeTitle
-        { 
-            get; 
-            set; 
-        }
-        public DateTime KnowledgeTime
-        {
-            get;
-            set;
-        }
-        public string KnowledgeInfo
-        {
-            get;
-            set;
-        }
-        public int PriorityScore
-        { 
-            get; 
-            set; 
-        }
-        public string IP
-        { 
-            get; 
-            set; 
-        }
-        public int FocusNum
-        { 
-            get; 
-            set; 
-        }
-        public bool IsVisible
-        { 
-            get; 
-            set; 
-        }
+        public int ComplaintNum{ get;set; }
+        public DateTime LastEditTime{get;set;}
+        public string KnowledgeID{get;set;}
+        public string UserID{ get; set; }
+        public string AddressID{  get; set; }
+        public string PetCaretegoryID{ get; set; }
+        public string WeiBoID{ get; set; }
+        public string KnowledgeTitle{ get; set;  }
+        public DateTime KnowledgeTime{get;set;}
+        public string KnowledgeInfo{ get;set;}
+        public int PriorityScore{ get; set;  }
+        public string IP{ get;  set;  }
+        public int FocusNum{  get; set; }
+        public bool IsVisible{ get; set; }
 
+    }
+    public class CVKnowledgePet
+    {
+        public string UserName { get; set; }
+        public string UserWeiBo { get; set; }
+        public string Portrait { get; set; }
+        public string KnowledgeID { get; set; }
+        public string PetCategoryName { get; set; }
+        public string Province { get; set; }
+        public string City { get; set; }
+        public string KnowledgeTitle { get; set; }
+        public DateTime LastEditTime { get; set; }
+        public DateTime KnowledgeTime { get; set; }
+        public string KnowledgeInfo { get; set; }
+        public int PriorityScore { get; set; }
+        public string IP { get; set; }
+        public int FocusNum { get; set; }
+        public string LinkUrl { get; set; }
+        public string PicLocation { get; set; }
+        public bool IsRecommand { get; set; }
+        public string Status { get; set; }
+        public bool IsEssence { get; set; }
+        public int CommentCount { get; set; }
     }
 }
