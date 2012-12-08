@@ -24,9 +24,18 @@ namespace PetCare.BLL
            return dal.InsertKnowledgePet(knowledgePet);
        }
 
+
+       //获取宠物知识的列表信息
        public List<CVKnowledgePet> GetPetKnowledgePerPageList(int pageNumber, int perPage, out int howmanyPages)
        {
            return dal.GetAllKnowledgePetPageList(pageNumber, perPage, out howmanyPages);
+       }
+
+
+       //获取一篇文章的所有的信息（包括所有的文章信息，评论，用户信息）
+       public List<CVKnowledgePetComment> GetPetKnowledgeCommentPerPageList(string KnowledgeID,int pageNumber, int perPage, out int howmanyPages)
+       {
+           return dal.GetKnowledgePetCommentPageList(KnowledgeID, pageNumber, perPage, out howmanyPages);
        }
 
     }

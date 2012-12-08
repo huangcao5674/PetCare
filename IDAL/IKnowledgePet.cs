@@ -17,6 +17,11 @@ namespace PetCare.IDAL
         //增加宠物知识的所有信息
         int InsertKnowledgePet(CTKnowledgePet KnowledgePetInfo);
 
+        //获取宠物知识的列表信息
         List<CVKnowledgePet> GetAllKnowledgePetPageList(int pageNumber, int NumberPerPage, out int howmanyPages);
+
+        //获取一篇文章的所有的信息（包括所有的文章信息，评论，用户信息）
+        List<CVKnowledgePetComment> GetKnowledgePetCommentPageList(string  knowledgePetID,int pageNumber, int NumberPerPage, out int howmanyPages);
+        
     }
 }

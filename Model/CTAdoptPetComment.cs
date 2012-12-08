@@ -18,21 +18,9 @@ namespace PetCare.Model
             UserID = userID;
             CommentContent = commentContent;
         }
-        public string CommentWeiBoID
-        {
-            get;
-            set;
-        }
-        public int UserID
-        {
-            get;
-            set;
-        }
-        public string CommentContent
-        {
-            get;
-            set;
-        }
+        public string CommentWeiBoID{ get;set;}
+        public int UserID{get;set;}
+        public string CommentContent{ get;set;}
        
     }
 }

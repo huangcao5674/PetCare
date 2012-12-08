@@ -13,7 +13,11 @@ namespace PetCare.Interface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                LoadUser();
+                LoadAdoptList();
+            }
         }
 
         protected void Button3_Click(object sender, EventArgs e)
@@ -29,15 +33,50 @@ namespace PetCare.Interface
 
         }
 
+        private void LoadUser()
+        {
+            List<CTUserInfo> userList = new List<CTUserInfo>();
+            User user = new User();
+            userList = user.GetAllUserList();
+            ddlUser.DataSource = userList;
+            ddlUser.DataTextField = "UserName";
+            ddlUser.DataValueField = "UserID";
+            ddlUser.DataBind();
+        }
+        private void LoadAdoptList()
+        {
+            List<CTKnowledgePet> adoptList = new List<CTKnowledgePet>();
+            KnowledgePet knowledgePet = new KnowledgePet();
+            adoptList = knowledgePet.GetKnowledgePetList();
+            ddAdoptList.DataSource = adoptList;
+            ddAdoptList.DataTextField = "KnowledgeTitle";
+            ddAdoptList.DataValueField = "KnowledgeID";
+            ddAdoptList.DataBind();
+
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             string userID = string.Empty;
-            userID = TextBox1.Text.Trim().ToString();
+            userID = ddlUser.SelectedValue.ToString();
             List<CTKnowledgePet> list = new List<CTKnowledgePet>();
             User user = new User();
             list = user.GetKnowLedgePetListByUserID(userID);
-            GridView2.DataSource = list;
-            GridView2.DataBind();
+            GridView1.DataSource = list;
+            GridView1.DataBind();
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            string adoptID = ddAdoptList.SelectedValue.ToString();
+            KnowledgePet knowledgepet = new KnowledgePet();
+            List<CVKnowledgePetComment>list=new List<CVKnowledgePetComment>();
+            int numb=int.Parse(TextBox4.Text.Trim().ToString());
+            int perPage=int.Parse(TextBox5.Text.Trim().ToString());
+            int hom;
+            list = knowledgepet.GetPetKnowledgeCommentPerPageList(adoptID,numb,perPage,out hom);
+            GridView1.DataSource = list;
+            GridView1.DataBind();
         }
     }
 }

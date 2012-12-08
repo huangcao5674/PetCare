@@ -180,5 +180,69 @@ namespace PetCare.SQLServerDAL
 
             
         }
+
+        //获取一篇文章的所有的信息（包括所有的文章信息，评论，用户信息）
+        public List<CVKnowledgePetComment> GetKnowledgePetCommentPageList(string knowledgePetID, int pageNumber, int NumberPerPage, out int howmanyPages)
+        {
+            List<CVKnowledgePetComment> commentList = new List<CVKnowledgePetComment>();
+            howmanyPages = 6;
+            SqlParameter[] knowledgePetParams = null;
+            knowledgePetParams = new SqlParameter[]
+                            {
+                                new SqlParameter("@KnowledgeID",SqlDbType.NVarChar,32),
+                                new SqlParameter("@DescriptionLength",SqlDbType.Int),
+                                new SqlParameter("@PageNumber",SqlDbType.Int),
+                                new SqlParameter("@InfoPerPage",SqlDbType.Int),
+                                new SqlParameter("@HowManyInfo",SqlDbType.Int,65535,ParameterDirection.Output,true,0,0,"",DataRowVersion.Default,0),
+                            };
+            knowledgePetParams[0].Value = knowledgePetID;
+            knowledgePetParams[1].Value = 5;
+            knowledgePetParams[2].Value = pageNumber;
+            knowledgePetParams[3].Value = NumberPerPage;
+            try
+            {
+                using (SqlDataReader reader = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.StoredProcedure, "proGetKnowledgeCommentInfo", knowledgePetParams))
+                {
+                    while (reader.Read())
+                    {
+                        CVKnowledgePetComment knowledgePet = new CVKnowledgePetComment();
+                        knowledgePet.KnowledgeID = reader["KnowledgeID"].ToString();
+                        knowledgePet.City = reader["City"].ToString();
+                        knowledgePet.Province = reader["Province"].ToString();
+                        knowledgePet.KnowledgeInfo = reader["KnowledgeInfo"].ToString();
+                        knowledgePet.KnowledgeTitle = reader["KnowledgeTitle"].ToString();
+                        knowledgePet.PetCategoryName = reader["PetCategoryName"].ToString();
+                        knowledgePet.PriorityScore = int.Parse(reader["PriorityScore"].ToString());
+                        knowledgePet.UserName = reader["UserName"].ToString();
+                        knowledgePet.PicLocation = reader["PicLocation"].ToString();
+                        knowledgePet.Portrait = reader["Portrait"].ToString();
+                        knowledgePet.LinkUrl = reader["LinkUrl"].ToString();
+                        knowledgePet.UserWeiBo = reader["UserWeiBo"].ToString();
+                        knowledgePet.Status = reader["Status"].ToString();
+                        bool tempIsRecommand = true;
+                        knowledgePet.IsRecommand = bool.TryParse(reader["IsRecommand"].ToString(), out tempIsRecommand) ? tempIsRecommand : true;
+                        bool tempIsEssence = true;
+                        knowledgePet.IsEssence = bool.TryParse(reader["IsEssence"].ToString(), out tempIsEssence) ? tempIsEssence : true;
+
+                        DateTime tempLastEditTime = DateTime.Now;
+                        knowledgePet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        DateTime tempKnowledgeTime = DateTime.Now;
+                        knowledgePet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
+
+                        knowledgePet.IP = reader["IP"].ToString();
+                        int tempFocusNum = 0;
+                        knowledgePet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
+                        commentList.Add(knowledgePet);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return commentList;
+        }
+
     }
 }

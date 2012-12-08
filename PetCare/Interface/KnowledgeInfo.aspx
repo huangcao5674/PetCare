@@ -6,11 +6,6 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-        .style1
-        {
-            height: 364px;
-            width: 715px;
-        }
         .style3
         {
             width: 715px;
@@ -24,9 +19,23 @@
     <tr>
 
     <td class="style3">
-        <asp:Button ID="Button3" runat="server" Text="Button" onclick="Button3_Click" />
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <asp:Button ID="Button3" runat="server" Text="分页检索" onclick="Button3_Click" />
+        PageNumb:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        PerPage:<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" Text="根据用户检索" onclick="Button1_Click" />
+        <asp:DropDownList ID="ddlUser" runat="server" AutoPostBack="True">
+        </asp:DropDownList>
+        <br />
+        <br />
+        <asp:Button ID="Button4" runat="server" Text="查看一篇文章评论" 
+            onclick="Button4_Click" />
+        文章列表<asp:DropDownList ID="ddAdoptList" runat="server" AutoPostBack="True">
+        </asp:DropDownList>
+        PageNumb<asp:TextBox ID="TextBox4" runat="server" Width="85px"></asp:TextBox>
+        PerPage<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+        <br />
         <asp:GridView ID="GridView1"  runat="server" Width="900px" 
             AutoGenerateColumns="False">
             <Columns>
@@ -50,25 +59,7 @@
         </asp:GridView>
         </td>
         </tr>
-        <tr>
-    <td class="style1">
-        <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" />
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns=false>
-                    <Columns>
-                <asp:BoundField DataField="KnowledgeTitle" HeaderText="标题" ReadOnly="True" 
-                    SortExpression="KnowledgeTitle" />
-                <asp:BoundField DataField="KnowledgeTime" HeaderText="时间" ReadOnly="True" 
-                    SortExpression="KnowledgeTime" />
-                <asp:BoundField DataField="IP" HeaderText="IP" ReadOnly="True" 
-                    SortExpression="IP" />
-                <asp:BoundField DataField="KnowledgeInfo" HeaderText="内容" ReadOnly="True"
-                    SortExpression="KnowledgeInfo" />
-            </Columns>
-        </asp:GridView>
-        </td>
-    </tr>
-    </table>
+        </table>
     </div>
     </form>
 </body>
