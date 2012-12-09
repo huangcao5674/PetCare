@@ -37,12 +37,12 @@
                 <!--<article>-->
                 <a href="#" class="userThumb">
                     <!--读取数据库用户头像，默认为Default-->
-                    <img src="../Images/DefaultUserThumb.PNG" alt="用户头像" />
+                    <img src="<%=Portrait %>" alt="../Images/DefaultUserThumb.PNG" />
                 </a>
                 <div class="userPush">
                     <!--读取数据库用户昵称-->
                     <p>
-                        <a class="userNickName" href="#">养狗的二货</a>
+                        <a class="userNickName" href="#"><%=UserName %></a>
                         <span>: </span>
                         <span class="userPushTime"><%=KnowledgeTime %></span>
                     </p>   
@@ -50,16 +50,15 @@
                     <a href="#" class="contentTitle"><%=KnowledgeTitle %></a>
                     <p class="contentBody"><%=KnowledgeInfo %></p>
                     <!--没有图片则隐藏-->
-                    <img class="contentImage" src="../Images/imageTest.PNG" alt="发布图片" />           
+                    <img class="contentImage" src="<%=PicLocation %>" alt="" />      
                     <div class="articleFunction">
                         <div class="userTopic"> 
                             <!--读取数据库用户创建话题-->
-                            <a href="#">#宠物知识</a>
-                            <a href="#">#汪星人百科</a>
+                            <a href="#">#<%=PetCategoryName %></a>
                         </div>
                         <div class="social">
                              <!--读取数据库用户创建话题-->
-                            <a href="#">评论</a>
+                            <a href="#">评论(<%=CommentCount %>)</a>
                             <span>|</span>
                             <a href="#">分享</a>
                             <span>|</span>

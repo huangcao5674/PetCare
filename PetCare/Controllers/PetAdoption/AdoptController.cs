@@ -15,17 +15,7 @@ namespace PetCare.Controllers.PetAdoption
 
         public JsonResult GetBasicMessage()
         {
-            KnowledgePet knowledge = new KnowledgePet();
-            List<CTKnowledgePet> knowledgeList = new List<CTKnowledgePet>();
-            try
-            {
-                knowledgeList = knowledge.GetKnowledgePetList();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return Json(knowledgeList, JsonRequestBehavior.AllowGet);
+            return Json("knowledge message", JsonRequestBehavior.AllowGet);
         }
 
     }

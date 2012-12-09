@@ -54,6 +54,7 @@
     <Compile Include="CTUserFocus.cs" />
     <Compile Include="CTUserInfo.cs" />
     <Compile Include="CUserFocusArticle.cs" />
+    <Compile Include="Paging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

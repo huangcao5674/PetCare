@@ -27,8 +27,10 @@
         initialize: function () {
             contentList.bind("add", this.addList, this);
             //            $("#publish").click(function () {
-            $.getJSON("../Adopt/GetBasicMessage", [], function (json) {
-                contentList.trigger("add", json);
+            $.getJSON("../Knowledge/Index", [], function (json) {
+                if(json.total && json.records.length > 0){
+                    contentList.trigger("add", json.records);
+                }
             });
             //            });
         },
