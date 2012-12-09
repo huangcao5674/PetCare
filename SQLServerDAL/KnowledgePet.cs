@@ -45,10 +45,10 @@ namespace PetCare.SQLServerDAL
                    knowledgepet.PriorityScore = int.Parse(reader["PriorityScore"].ToString());
                    knowledgepet.WeiBoID = reader["WeiBoID"].ToString();
 
-                   DateTime tempLastEditTime=DateTime.Now;
-                  // knowledgepet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
-                   DateTime tempKnowledgeTime=DateTime.Now;
-                  // knowledgepet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime:DateTime.Now;
+                   DateTime tempLastEditTime = DateTime.Now;
+                  // knowledgepet.LastEditTime =  string .TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime: string .Now;
+                   DateTime tempKnowledgeTime = DateTime.Now;
+                  // knowledgepet.KnowledgeTime =  string .TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime: string .Now;
                    knowledgepet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
                    knowledgepet.IP = reader["IP"].ToString();
                    int tempFocusNum = 0;
@@ -76,7 +76,7 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@InfoPerPage",SqlDbType.Int),
                                 new SqlParameter("@HowManyInfo",SqlDbType.Int,65535,ParameterDirection.Output,true,0,0,"",DataRowVersion.Default,0),
                             };
-            adoptPetParams[0].Value = 5;
+            adoptPetParams[0].Value = CPetCareConfiguration.ArticleBreviaryNum;
             adoptPetParams[1].Value = pageNumber;
             adoptPetParams[2].Value = NumberPerPage;
 
@@ -101,15 +101,18 @@ namespace PetCare.SQLServerDAL
                         knowledgePet.LinkUrl = reader["LinkUrl"].ToString();
                         knowledgePet.UserWeiBo = reader["UserWeiBo"].ToString();
                         knowledgePet.Status = reader["Status"].ToString();
-                         bool tempIsRecommand = true;
+                        bool tempIsRecommand = true;
                         knowledgePet.IsRecommand = bool.TryParse(reader["IsRecommand"].ToString(), out tempIsRecommand) ? tempIsRecommand : true;
                         bool tempIsEssence = true;
                         knowledgePet.IsEssence = bool.TryParse(reader["IsEssence"].ToString(), out tempIsEssence) ? tempIsEssence : true;
 
                         DateTime tempLastEditTime = DateTime.Now;
-                        knowledgePet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        tempLastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        knowledgePet.LastEditTime = tempLastEditTime.ToString("yyyy/MM/dd hh:mm:ss");
+                        
                         DateTime tempKnowledgeTime = DateTime.Now;
-                        knowledgePet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
+                        tempKnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
+                        knowledgePet.KnowledgeTime = tempKnowledgeTime.ToString("yyyy/MM/dd hh:mm:ss");
 
                         knowledgePet.IP = reader["IP"].ToString();
                         int tempFocusNum = 0;
@@ -142,7 +145,7 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@AddressID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@KnowledgeID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@KnowledgeInfo",SqlDbType.NVarChar),
-                                new SqlParameter("@KnowledgeTime",SqlDbType.DateTime),
+                                new SqlParameter("@KnowledgeTime",SqlDbType.DateTime ),
                                 new SqlParameter("@KnowledgeTitle",SqlDbType.NVarChar,50),
                                 new SqlParameter("@PetCategoryID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@PriorityScore",SqlDbType.Int),
@@ -151,14 +154,14 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@FocusNum",SqlDbType.Int),
                                 new SqlParameter("@ComplaintNum",SqlDbType.Int),
                                 new SqlParameter("@IP",SqlDbType.NVarChar,20),
-                                new SqlParameter("@LastEditTime",SqlDbType.DateTime),
+                                new SqlParameter("@LastEditTime",SqlDbType.DateTime ),
                                 new SqlParameter("@IsVisible",SqlDbType.Bit),
                             };
 
             knowledgeParams[0].Value = KnowledgePetInfo.AddressID;
             knowledgeParams[1].Value = KnowledgePetInfo.KnowledgeID;
             knowledgeParams[2].Value = KnowledgePetInfo.KnowledgeInfo;
-            knowledgeParams[3].Value = KnowledgePetInfo.KnowledgeTime;
+            knowledgeParams[3].Value = Convert.ToDateTime(KnowledgePetInfo.KnowledgeTime);
             knowledgeParams[4].Value = KnowledgePetInfo.KnowledgeTitle;
             knowledgeParams[5].Value = KnowledgePetInfo.PetCaretegoryID;
             knowledgeParams[6].Value = KnowledgePetInfo.PriorityScore;
@@ -167,7 +170,7 @@ namespace PetCare.SQLServerDAL
             knowledgeParams[9].Value = KnowledgePetInfo.FocusNum;
             knowledgeParams[10].Value = KnowledgePetInfo.ComplaintNum;
             knowledgeParams[11].Value = KnowledgePetInfo.IP;
-            knowledgeParams[12].Value = KnowledgePetInfo.LastEditTime;
+            knowledgeParams[12].Value = Convert.ToDateTime(KnowledgePetInfo.LastEditTime);
             knowledgeParams[13].Value = KnowledgePetInfo.IsVisible;
  
 
@@ -196,7 +199,7 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@HowManyInfo",SqlDbType.Int,65535,ParameterDirection.Output,true,0,0,"",DataRowVersion.Default,0),
                             };
             knowledgePetParams[0].Value = knowledgePetID;
-            knowledgePetParams[1].Value = 5;
+            knowledgePetParams[1].Value = CPetCareConfiguration.AriticleAllNum;
             knowledgePetParams[2].Value = pageNumber;
             knowledgePetParams[3].Value = NumberPerPage;
             try
@@ -225,13 +228,21 @@ namespace PetCare.SQLServerDAL
                         knowledgePet.IsEssence = bool.TryParse(reader["IsEssence"].ToString(), out tempIsEssence) ? tempIsEssence : true;
 
                         DateTime tempLastEditTime = DateTime.Now;
-                        knowledgePet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        tempLastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        knowledgePet.LastEditTime = tempLastEditTime.ToString("yyyy/MM/dd hh:mm:ss");
+
                         DateTime tempKnowledgeTime = DateTime.Now;
-                        knowledgePet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
+                        tempLastEditTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
+                        knowledgePet.KnowledgeTime = tempLastEditTime.ToString("yyyy/MM/dd hh:mm:ss");
 
                         knowledgePet.IP = reader["IP"].ToString();
                         int tempFocusNum = 0;
                         knowledgePet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
+                        knowledgePet.CommentContent = reader["CommentContent"].ToString();
+                        knowledgePet.CommentIP = reader["CommentIP"].ToString();
+                        knowledgePet.CommentUserName = reader["CommentUserName"].ToString();
+                        knowledgePet.CommentUserProtrait = reader["CommentUserProtrait"].ToString();
+                        knowledgePet.CommentUserLevel = reader["CommentUserLevel"].ToString();
                         commentList.Add(knowledgePet);
                     }
                 }

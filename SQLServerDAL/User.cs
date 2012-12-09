@@ -241,10 +241,12 @@ namespace PetCare.SQLServerDAL
                    knowledgePet.FocusNum = int.TryParse(rdr["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
                    bool tempisVisible = true;
                    knowledgePet.IsVisible = bool.TryParse(rdr["IsVisible"].ToString(), out tempisVisible) ? tempisVisible : true;
-                   DateTime tempDate=DateTime.Now;
-                   knowledgePet.KnowledgeTime =DateTime.TryParse(rdr["KnowledgeTime"].ToString(),out tempDate)?tempDate:DateTime.Now;
+                   DateTime tempDate = DateTime.Now;
+                   tempDate = DateTime.TryParse(rdr["KnowledgeTime"].ToString(), out tempDate) ? tempDate : DateTime.Now;
+                   knowledgePet.KnowledgeTime = tempDate.ToString("yyyy/MM/dd hh:mm:ss"); ; 
                    DateTime tempEditTime = DateTime.Now;
-                   knowledgePet.LastEditTime = DateTime.TryParse(rdr["LastEditTime"].ToString(), out tempEditTime) ? tempEditTime : DateTime.Now;
+                   tempEditTime = DateTime.TryParse(rdr["LastEditTime"].ToString(), out tempEditTime) ? tempEditTime : DateTime.Now;
+                   knowledgePet.LastEditTime = tempEditTime.ToString("yyyy/MM/dd hh:mm:ss"); ;
                    knowledgeList.Add(knowledgePet);
                }
            }

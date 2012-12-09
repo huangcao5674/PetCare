@@ -36,26 +36,7 @@
         PageNumb<asp:TextBox ID="TextBox4" runat="server" Width="85px"></asp:TextBox>
         PerPage<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
         <br />
-        <asp:GridView ID="GridView1"  runat="server" Width="900px" 
-            AutoGenerateColumns="False">
-            <Columns>
-                <asp:BoundField DataField="KnowledgeTitle" HeaderText="标题" ReadOnly="True" 
-                    SortExpression="KnowledgeTitle" >
-                <ControlStyle Width="50px" />
-                </asp:BoundField>
-                <asp:BoundField DataField="KnowledgeTime" HeaderText="时间" ReadOnly="True" 
-                    SortExpression="KnowledgeTime" >
-                <ControlStyle BorderWidth="50px" />
-                </asp:BoundField>
-                <asp:BoundField DataField="IP" HeaderText="IP" ReadOnly="True" 
-                    SortExpression="IP" >
-                <ControlStyle BorderWidth="50px" />
-                </asp:BoundField>
-                <asp:BoundField DataField="KnowledgeInfo" HeaderText="内容" ReadOnly="True"
-                    SortExpression="KnowledgeInfo" >
-                <ControlStyle BorderWidth="650px" />
-                </asp:BoundField>
-            </Columns>
+        <asp:GridView ID="GridView1"  runat="server" Width="900px">
         </asp:GridView>
         </td>
         </tr>

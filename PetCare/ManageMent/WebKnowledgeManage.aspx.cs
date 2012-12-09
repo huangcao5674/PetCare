@@ -65,7 +65,7 @@ namespace PetCare.ManageMent
             string petcategoryID = dpCategory.SelectedValue.ToString();
             string weiboID = "";
             string knowledgeTitle = tbKnowLedgeTitle.Text.Trim().ToString();
-            string knowledgeTime = DateTime.Now.ToString();
+            string knowledgeTime = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
             string ip = ipa.ToString();
             string content = tbContent.Text.Trim().ToString();
             CTKnowledgePet knowledge = new CTKnowledgePet();
@@ -75,11 +75,11 @@ namespace PetCare.ManageMent
             knowledge.PetCaretegoryID = petcategoryID;
             knowledge.WeiBoID = weiboID;
             knowledge.KnowledgeTitle = knowledgeTitle;
-            knowledge.KnowledgeTime = DateTime.Now;
+            knowledge.KnowledgeTime = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
             knowledge.PriorityScore = 0;
             knowledge.IP = ip;
             knowledge.IsVisible = true;
-            knowledge.LastEditTime = DateTime.Now;
+            knowledge.LastEditTime = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
             knowledge.KnowledgeInfo = content;
             knowledge.FocusNum = 0;
             KnowledgePet knowledgePet = new KnowledgePet();

@@ -71,5 +71,24 @@ namespace PetCare.DBUtility
             }
             
         }
+
+
+
+        //代表文章缩略显示的个数
+        public static int ArticleBreviaryNum
+        {
+            get
+            {
+                return int.Parse(ConfigurationManager.AppSettings["ArticleBreviaryNum"].ToString());
+            }
+        }
+        //代表文章所有显示的个数
+        public static int AriticleAllNum
+        {
+            get
+            {
+                return int.Parse(ConfigurationManager.AppSettings["AriticleAllNum"].ToString());
+            }
+        }
     }
 }

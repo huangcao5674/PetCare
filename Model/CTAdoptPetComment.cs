@@ -10,17 +10,27 @@ namespace PetCare.Model
     [Table(Name="DB_CommentWeiBo")]
     public class CTAdoptPetComment
     {
+
+
+
+
         public CTAdoptPetComment()
         {
         }
-        public CTAdoptPetComment(int userID,string commentContent)
+        //没有写完，以后补上
+        public CTAdoptPetComment(string userID,string commentContent)
         {
             UserID = userID;
             CommentContent = commentContent;
         }
-        public string CommentWeiBoID{ get;set;}
-        public int UserID{get;set;}
-        public string CommentContent{ get;set;}
+
+        public string CommentID { get; set; }
+        public string UserID { get; set; }
+        public string CommentTime { get; set; }
+        public string IP { get; set; }
+        public string CommentContent { get; set; }
+        public bool IsVisible { get; set; }
+        public string AdoptID { get; set; }
        
     }
 }

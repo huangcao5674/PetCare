@@ -21,7 +21,7 @@ namespace PetCare.Model
         }
 
         public CTAdoptPet(string userID, string addressID, string petCategoryId, string weiBoID, string adoptTitle,
-            DateTime adoptTime, string adoptInfo,DateTime lastEditTime, string iP, int priorityScore, int focusNum, bool isVisible
+             string  adoptTime, string adoptInfo, string  lastEditTime, string iP, int priorityScore, int focusNum, bool isVisible
            ,bool isAdopt)
         {
             this.UserID = userID;
@@ -39,14 +39,14 @@ namespace PetCare.Model
             this.IsAdopt = isAdopt;
         }
         public bool IsAdopt{get;set;}
-        public DateTime LastEditTime{get;set;}
+        public  string  LastEditTime{get;set;}
         public string AdoptID{get;set;}
         public string UserID{get;set;}
         public string AddressID{get;set;}
         public string PetCategoryID{get;set;}
         public string WeiBoID{get;set;}
         public string AdoptTitle{get;set;}
-        public DateTime AdoptTime{get; set;}
+        public  string  AdoptTime{get; set;}
         public string AdoptInfo{ get; set;}
         public string IP{get;set;}
         public int PriorityScore{get;set;}
@@ -63,8 +63,8 @@ namespace PetCare.Model
        public string PetCategoryName{get;set;}
        public string AdoptID{get;set;}
        public string AdoptTitle{get;set;}
-       public DateTime AdoptTime{get;set;}
-       public DateTime LastEditTime{get;set;}
+       public  string  AdoptTime{get;set;}
+       public  string  LastEditTime{get;set;}
        public string AdoptInfo{get;set;}
        public string IP{get;set;}
        public int PriorityScore{get;set;}
@@ -85,9 +85,13 @@ namespace PetCare.Model
     //这个实体类用来代表一条单独的领养文章的所有信息（包括所有评论，用户信息）
     public class CVAdoptPetComment
     {
+        //领养宠物的城市
        public string Province {get;set;}
+        //领养宠物的区
        public string City {get;set;}
+        //发布文章用户的姓名
        public string UserName {get;set;}
+        //发布文章用户的性别
        public string UserSex {get;set;}
        public string UserAddress {get;set;}
        public string UserEmail {get;set;}
@@ -99,8 +103,8 @@ namespace PetCare.Model
        public string RoleID {get;set;}
        public string AdoptID {get;set;}
        public string AdoptTitle {get;set;}
-       public DateTime AdoptTime {get;set;}
-       public DateTime LastEditTime {get;set;}
+       public  string  AdoptTime {get;set;}
+       public  string  LastEditTime {get;set;}
        public string AdoptInfo {get;set;}
        public string IP {get;set;}
        public int PriorityScore {get;set;}
@@ -113,7 +117,7 @@ namespace PetCare.Model
        public string LinkUrl {get;set;}
        public string PicLocation {get;set;}
        public string CommentContent {get;set;}
-       public DateTime CommentTime {get;set;}
+       public  string  CommentTime {get;set;}
        public string CommentIP {get;set;}
        public string CommentUserName {get;set;}
        public string CommentUserProtrait {get;set;}

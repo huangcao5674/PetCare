@@ -75,6 +75,20 @@ namespace PetCare.DALFactory
             }
         }
 
+        //创建AdoptPetComment类
+        public static PetCare.IDAL.IAdoptPetComment CreateAdoptPetComment()
+        {
+            try
+            {
+                string className = Path + ".AdoptPetComment";
+                return (PetCare.IDAL.IAdoptPetComment)Assembly.Load(KnowledgePath).CreateInstance(className);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         //创建Missedpet 类
         public static PetCare.IDAL.IMissedPetInfo CreateMissedPet()
         {

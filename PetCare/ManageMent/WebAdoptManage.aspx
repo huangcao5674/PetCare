@@ -11,6 +11,10 @@
             width: 518px;
             height: 81px;
         }
+        .style1
+        {
+            width: 139px;
+        }
     </style>
 </head>
 <body>
@@ -19,29 +23,37 @@
     <table>
     <tr>
     <td> 
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
+        Address</td>
     <td>
         <asp:DropDownList ID="ddlAddress" runat="server" AutoPostBack="True">
         </asp:DropDownList>  
     </td>
     <td> 
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></td>
-    <td>
+        Category</td>
+    <td class="style1">
         <asp:DropDownList ID="ddlPetCategory" runat="server" AutoPostBack="True">
         </asp:DropDownList> </td>
         <td>
-            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+            <asp:Button ID="Button1" runat="server" Text="查看" onclick="Button1_Click" />  </td>
+
+    </tr>
+    <tr>
+            <td>
+            <asp:Label ID="Label3" runat="server" Text="PageNumber"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" Width="102px"></asp:TextBox>
         </td>
         <td>
-            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label> </td>
-        <td>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+            <asp:Label ID="Label4" runat="server" Text="PerPage"></asp:Label> </td>
+        <td class="style1">
+            <asp:TextBox ID="TextBox2" runat="server" Width="102px"></asp:TextBox></td>
        <td>
-           <asp:Button ID="BtnSearch" runat="server" Text="Search" 
-               onclick="BtnSearch_Click" /></td>
+           <asp:Button ID="BtnSearch" runat="server" Text="查看" 
+               onclick="BtnSearch_Click" Width="46px" />
+           <asp:Button ID="BtnNull" runat="server" Text="清空" onclick="BtnNull_Click" /> 
+               </td>
+ 
     </tr>
     <tr>
     <td colspan='9'>
@@ -111,6 +123,49 @@
             Width="495px"></asp:TextBox>
        
         </td>
+    </tr>
+    <tr>
+    <td colspan=9>000000000000000000000000下面是评论相关的00000000000000000000000000000000000</td>
+    </tr>
+    <tr>
+    <td>AdoptID</td>
+    <td>  
+        <asp:DropDownList ID="ddAdopt1" runat="server" AutoPostBack="True">
+        </asp:DropDownList>
+    </td>
+    <td>User</td>
+    <td>
+        <asp:DropDownList ID="ddUser11" runat="server" AutoPostBack="True">
+        </asp:DropDownList> </td>
+    <td>评论 </td>
+    <td> 
+        <asp:TextBox ID="TextBoxComment" runat="server"></asp:TextBox> </td>
+        <td>
+            <asp:Button ID="BtnAddComment" runat="server" Text="添加评论" 
+                onclick="BtnAddComment_Click" /> </td>
+    </tr>
+ 
+
+    <tr>
+    <td>PageNumber</td>
+    <td>
+        <asp:TextBox ID="TextBoxPageNumber" runat="server"></asp:TextBox></td>
+    
+    <td>PerPage</td>
+    <td>
+        <asp:TextBox ID="TextBoxPerPage" runat="server"></asp:TextBox> </td>
+        <td>AdoptID</td>
+    <td> 
+        <asp:DropDownList ID="ddAdopt" runat="server" AutoPostBack="True">
+        </asp:DropDownList> </td>
+    <td> 
+        <asp:Button ID="BtnChekc" runat="server" Text="Search" 
+            onclick="BtnChekc_Click" /></td>
+    </tr>
+    <tr >
+    <td colspan="7">
+        <asp:GridView ID="GridView2" runat="server" Width="625px">
+        </asp:GridView></td>
     </tr>
     </table>
     </div>

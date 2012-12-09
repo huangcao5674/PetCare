@@ -74,7 +74,7 @@ namespace PetCare.ManageMent
             comment.UserID = userID;
             comment.CommentID = commentID;
             comment.CommentContent = content;
-            comment.CommentTime = DateTime.Now;
+            comment.CommentTime = DateTime.Now.ToString(); ;
             comment.IP = ip;
             KnowledgePetComment knowledgecomment = new KnowledgePetComment();
             int insertStatus=  knowledgecomment.InsertComment(comment);

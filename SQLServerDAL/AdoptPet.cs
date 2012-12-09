@@ -66,9 +66,13 @@ namespace PetCare.SQLServerDAL
                     adoptPet.IsAdopt = bool.TryParse(reader["IsAdopt"].ToString(),out tempIsAdopt)? tempIsAdopt : true;
 
                     DateTime tempLastEditTime = DateTime.Now;
-                    adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                    tempLastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                    adoptPet.LastEditTime = tempLastEditTime.ToString("yyyy/MM/dd hh:mm:ss");
+
                     DateTime tempAdoptTime = DateTime.Now;
-                    adoptPet.AdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
+                    tempAdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
+                    adoptPet.AdoptTime = tempAdoptTime.ToString("yyyy/MM/dd hh:mm:ss");
+                    
                     adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
                     adoptPet.IP = reader["IP"].ToString();
                     int tempFocusNum = 0;
@@ -94,7 +98,7 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@HowManyAdoptInfo",SqlDbType.Int,65535,ParameterDirection.Output,true,0,0,"",DataRowVersion.Default,0),
                             };
             adoptPetParams[0].Value = true;
-            adoptPetParams[1].Value = 5;
+            adoptPetParams[1].Value = CPetCareConfiguration.ArticleBreviaryNum;
             adoptPetParams[2].Value = pageNumber;
             adoptPetParams[3].Value = NumberPerPage;
 
@@ -127,9 +131,13 @@ namespace PetCare.SQLServerDAL
                         adoptPet.IsEssence = bool.TryParse(reader["IsEssence"].ToString(), out tempIsEssence) ? tempIsEssence : true;
 
                         DateTime tempLastEditTime = DateTime.Now;
-                        adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        tempLastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        adoptPet.LastEditTime = tempLastEditTime.ToString("yyyy/MM/dd hh:mm:ss");
+
                         DateTime tempAdoptTime = DateTime.Now;
-                        adoptPet.AdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
+                        tempAdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
+                        adoptPet.AdoptTime = tempAdoptTime.ToString("yyyy/MM/dd hh:mm:ss");
+
 
                         adoptPet.IP = reader["IP"].ToString();
                         int tempFocusNum = 0;
@@ -160,14 +168,14 @@ namespace PetCare.SQLServerDAL
             SqlParameter[] adoptPetCommentParams = null;
             adoptPetCommentParams = new SqlParameter[]
                             {
-                                new SqlParameter("@AdoptID",SqlDbType.Bit),
+                                new SqlParameter("@AdoptID",SqlDbType.NVarChar,32),
                                 new SqlParameter("@DescriptionLength",SqlDbType.Int),
                                 new SqlParameter("@PageNumber",SqlDbType.Int),
-                                new SqlParameter("@AdoptInfoPerPage",SqlDbType.Int),
-                                new SqlParameter("@HowManyAdoptInfo",SqlDbType.Int,65535,ParameterDirection.Output,true,0,0,"",DataRowVersion.Default,0),
+                                new SqlParameter("@InfoPerPage",SqlDbType.Int),
+                                new SqlParameter("@HowManyInfo",SqlDbType.Int,65535,ParameterDirection.Output,true,0,0,"",DataRowVersion.Default,0),
                             };
             adoptPetCommentParams[0].Value = adoptID;
-            adoptPetCommentParams[1].Value = 5;
+            adoptPetCommentParams[1].Value = CPetCareConfiguration.AriticleAllNum;
             adoptPetCommentParams[2].Value = pageNumber;
             adoptPetCommentParams[3].Value = NumberPerPage;
             try
@@ -198,13 +206,21 @@ namespace PetCare.SQLServerDAL
                         adoptPet.IsEssence = bool.TryParse(reader["IsEssence"].ToString(), out tempIsEssence) ? tempIsEssence : true;
 
                         DateTime tempLastEditTime = DateTime.Now;
-                        adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
-                        DateTime tempAdoptTime = DateTime.Now;
-                        adoptPet.AdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
+                        tempLastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        adoptPet.LastEditTime =tempLastEditTime.ToString("yyyy/MM/dd hh:mm:ss");
+
+                         DateTime tempAdoptTime = DateTime.Now;
+                         tempAdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
+                         adoptPet.AdoptTime = tempAdoptTime.ToString("yyyy/MM/dd hh:mm:ss");
 
                         adoptPet.IP = reader["IP"].ToString();
                         int tempFocusNum = 0;
                         adoptPet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
+
+                        adoptPet.CommentIP = reader["CommentIP"].ToString();
+                        adoptPet.CommentContent = reader["CommentContent"].ToString();
+                        adoptPet.CommentUserName = reader["CommentUserName"].ToString();
+                        adoptPet.CommentUserLevel = reader["CommentUserLevel"].ToString();
 
                         commendList.Add(adoptPet);
                     }
@@ -239,9 +255,13 @@ namespace PetCare.SQLServerDAL
                     adoptPet.WeiBoID = reader["WeiBoID"].ToString();
 
                     DateTime tempLastEditTime = DateTime.Now;
-                    adoptPet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
+                     tempLastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                     adoptPet.LastEditTime = tempLastEditTime.ToString("yyyy/MM/dd hh:mm:ss");
+ 
                     DateTime tempKnowledgeTime = DateTime.Now;
-                    adoptPet.AdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
+                    tempKnowledgeTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempKnowledgeTime) ? tempKnowledgeTime : DateTime.Now;
+                    adoptPet.AdoptTime = tempKnowledgeTime.ToString("yyyy/MM/dd hh:mm:ss");
+
                     adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
                     adoptPet.IP = reader["IP"].ToString();
                     adoptPet.IsAdopt = bool.Parse(reader["IsAdopt"].ToString());
@@ -274,9 +294,9 @@ namespace PetCare.SQLServerDAL
                     adoptPet.WeiBoID = reader["WeiBoID"].ToString();
 
                     DateTime tempLastEditTime = DateTime.Now;
-                    // knowledgepet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
-                    DateTime tempKnowledgeTime = DateTime.Now;
-                    // knowledgepet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime:DateTime.Now;
+                    // knowledgepet.LastEditTime =  string .TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime: string .Now;
+                     DateTime tempKnowledgeTime = DateTime.Now;
+                    // knowledgepet.KnowledgeTime =  string .TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime: string .Now;
                     adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
                     adoptPet.IP = reader["IP"].ToString();
                     int tempFocusNum = 0;
@@ -308,9 +328,9 @@ namespace PetCare.SQLServerDAL
                     adoptPet.WeiBoID = reader["WeiBoID"].ToString();
 
                     DateTime tempLastEditTime = DateTime.Now;
-                    // knowledgepet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
+                    // knowledgepet.LastEditTime =  string .TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime: string .Now;
                     DateTime tempKnowledgeTime = DateTime.Now;
-                    // knowledgepet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime:DateTime.Now;
+                    // knowledgepet.KnowledgeTime =  string .TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime: string .Now;
                     adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
                     adoptPet.IP = reader["IP"].ToString();
                     int tempFocusNum = 0;
@@ -342,9 +362,9 @@ namespace PetCare.SQLServerDAL
                     adoptPet.WeiBoID = reader["WeiBoID"].ToString();
 
                     DateTime tempLastEditTime = DateTime.Now;
-                    // knowledgepet.LastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime:DateTime.Now;
+                    // knowledgepet.LastEditTime =  string .TryParse(reader["LastEditTime"].ToString(),out tempLastEditTime)?tempLastEditTime: string .Now;
                     DateTime tempKnowledgeTime = DateTime.Now;
-                    // knowledgepet.KnowledgeTime = DateTime.TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime:DateTime.Now;
+                    // knowledgepet.KnowledgeTime =  string .TryParse(reader["KnowledgeTime"].ToString(),out tempKnowledgeTime)?tempKnowledgeTime: string .Now;
                     adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
                     adoptPet.IP = reader["IP"].ToString();
                     int tempFocusNum = 0;
@@ -369,8 +389,8 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@PetCategoryID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@WeiBoID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@AdoptTitle",SqlDbType.NVarChar,20),
-                                new SqlParameter("@AdoptTime",SqlDbType.DateTime),
-                                new SqlParameter("@LastEditTime",SqlDbType.DateTime),
+                                new SqlParameter("@AdoptTime",SqlDbType.DateTime ),
+                                new SqlParameter("@LastEditTime",SqlDbType.DateTime ),
                                 new SqlParameter("@AdoptInfo",SqlDbType.NVarChar),
                                 new SqlParameter("@IP",SqlDbType.NVarChar,20),
                                 new SqlParameter("@PriorityScore",SqlDbType.Int),
@@ -384,8 +404,8 @@ namespace PetCare.SQLServerDAL
             adoptPetParams[3].Value = AdoptPetInfo.PetCategoryID;
             adoptPetParams[4].Value = AdoptPetInfo.WeiBoID;
             adoptPetParams[5].Value = AdoptPetInfo.AdoptTitle;
-            adoptPetParams[6].Value = AdoptPetInfo.AdoptTime;
-            adoptPetParams[7].Value = AdoptPetInfo.LastEditTime;
+            adoptPetParams[6].Value = Convert.ToDateTime(AdoptPetInfo.AdoptTime);
+            adoptPetParams[7].Value = Convert.ToDateTime(AdoptPetInfo.LastEditTime);
             adoptPetParams[8].Value = AdoptPetInfo.AdoptInfo;
             adoptPetParams[9].Value = AdoptPetInfo.IP;
             adoptPetParams[10].Value = AdoptPetInfo.PriorityScore;

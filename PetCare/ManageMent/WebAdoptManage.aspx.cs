@@ -18,6 +18,7 @@ namespace PetCare.ManageMent
             {
                 LoadUser();
                 LoadArea();
+                LoadAdopt();
                 LoadPetCategory();
             }
         }
@@ -41,8 +42,8 @@ namespace PetCare.ManageMent
             adoptPet.PetCategoryID = categoryID;
             adoptPet.AdoptID = adoptID;
             adoptPet.AdoptInfo = content;
-            adoptPet.AdoptTime = DateTime.Now;
-            adoptPet.LastEditTime = DateTime.Now;
+            adoptPet.AdoptTime = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
+            adoptPet.LastEditTime = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
             adoptPet.AdoptTitle = title;
             adoptPet.FocusNum = 0;
             adoptPet.IP = ip;
@@ -99,6 +100,10 @@ namespace PetCare.ManageMent
             ddlUser.DataTextField = "UserName";
             ddlUser.DataValueField = "UserID";
             ddlUser.DataBind();
+            ddUser11.DataSource = userList;
+            ddUser11.DataTextField = "UserName";
+            ddUser11.DataValueField = "UserID";
+            ddUser11.DataBind();
         }
         private void LoadArea()
         {
@@ -113,6 +118,20 @@ namespace PetCare.ManageMent
             ddlAddressAdd.DataTextField = "City";
             ddlAddressAdd.DataValueField = "AddressID";
             ddlAddressAdd.DataBind();
+        }
+        private void LoadAdopt()
+        {
+            List<CTAdoptPet> LIST = new List<CTAdoptPet>();
+            AdoptPet aa = new AdoptPet();
+            LIST = aa.GetPetAdoptPetList();
+            ddAdopt.DataSource = LIST;
+            ddAdopt.DataTextField = "AdoptTitle";
+            ddAdopt.DataValueField = "AdoptID";
+            ddAdopt.DataBind();
+            ddAdopt1.DataSource = LIST;
+            ddAdopt1.DataTextField = "AdoptTitle";
+            ddAdopt1.DataValueField = "AdoptID";
+            ddAdopt1.DataBind();
         }
 
         private void LoadPetCategory()
@@ -150,6 +169,65 @@ namespace PetCare.ManageMent
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
 
+        }
+
+
+        //根据地区和类型进行检索
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnNull_Click(object sender, EventArgs e)
+        {
+            GridView1.DataSource = null;
+            GridView1.DataBind();
+            GridView2.DataSource = null;
+            GridView2.DataBind();
+        }
+
+
+
+        protected void BtnChekc_Click(object sender, EventArgs e)
+        {
+            int pageNumb = int.Parse(TextBoxPageNumber.Text.Trim().ToString());
+            int perNumb = int.Parse(TextBoxPerPage.Text.Trim().ToString());
+            AdoptPet adopt = new AdoptPet();
+            string adoptID = ddAdopt.SelectedValue.ToString();
+            List<CVAdoptPetComment> list = new List<CVAdoptPetComment>();
+            int howmanyPages = 0;
+            list = adopt.GetPetAdoptCommentPerPageList(adoptID, pageNumb, perNumb, out howmanyPages);
+            GridView2.DataSource = list;
+            GridView2.DataBind();
+        }
+
+        protected void BtnAddComment_Click(object sender, EventArgs e)
+        {
+            //获取本机IP
+            IPHostEntry ipe = Dns.GetHostEntry(Dns.GetHostName());
+            IPAddress ipa = ipe.AddressList[0];
+            string comment = TextBoxComment.Text.Trim().ToString();
+            string userID = ddUser11.SelectedValue.ToString();
+            string adoptID = ddAdopt1.SelectedValue.ToString();
+            CTAdoptPetComment adoptComment = new CTAdoptPetComment();
+            adoptComment.AdoptID = adoptID;
+            adoptComment.CommentContent = comment;
+            adoptComment.CommentID = Guid.NewGuid().ToString();
+            adoptComment.CommentTime = DateTime.Now.ToString();
+            adoptComment.IsVisible = true;
+            adoptComment.UserID = userID;
+            adoptComment.IP = ipa.ToString();
+            AdoptPetComment ado = new AdoptPetComment();
+            int insertStatus = 0;
+            insertStatus = ado.InsertComment(adoptComment);
+            if (insertStatus == 1)
+            {
+                Response.Write("<script>alert('添加成功!')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('添加失败!')</script>");
+            }
         }
     }
 }

@@ -46,7 +46,7 @@ namespace PetCare.SQLServerDAL
                     CTKnowledgePetComment petComment = new CTKnowledgePetComment();
                     petComment.UserID = rdr["UserID"].ToString();
                     petComment.CommentID = rdr["CommentID"].ToString();
-                    petComment.CommentTime = DateTime.Parse(rdr["CommentTime"].ToString());
+                    petComment.CommentTime = rdr["CommentTime"].ToString();
                     petComment.CommentContent = rdr["CommentContent"].ToString();
                     petComment.IP = rdr["IP"].ToString();
                     petComment.IsVisible = bool.Parse(rdr["IsVisible"].ToString());
@@ -71,7 +71,7 @@ namespace PetCare.SQLServerDAL
                     CTKnowledgePetComment petComment = new CTKnowledgePetComment();
                     petComment.UserID = rdr["UserID"].ToString();
                     petComment.CommentID = rdr["CommentID"].ToString();
-                    petComment.CommentTime = DateTime.Parse(rdr["CommentTime"].ToString());
+                    petComment.CommentTime =  rdr["CommentTime"].ToString();
                     petComment.CommentContent = rdr["CommentContent"].ToString();
                     petComment.IP = rdr["IP"].ToString();
                     petComment.IsVisible = bool.Parse(rdr["IsVisible"].ToString());
@@ -91,7 +91,7 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@CommentID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@UserID",SqlDbType.NVarChar,20),
                                 new SqlParameter("@KnowledgeID",SqlDbType.NVarChar,20),
-                                new SqlParameter("@CommentTime",SqlDbType.DateTime),
+                                new SqlParameter("@CommentTime",SqlDbType.DateTime ),
                                 new SqlParameter("@IP",SqlDbType.NVarChar,20),
                                 new SqlParameter("@CommentContent",SqlDbType.NVarChar,100),
                                 new SqlParameter("@IsVisible",SqlDbType.Bit),
