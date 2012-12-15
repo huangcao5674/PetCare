@@ -36,6 +36,9 @@
     <td>
    <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/ManageMent/KnowledgeComment.aspx">KnowledgeComment</asp:LinkButton>
     </td>
+       <td>
+           <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/html/index.html">HyperLink</asp:HyperLink>
+    </td>
     </tr>
     </table>
         <asp:GridView ID="GridView1" runat="server">
