@@ -20,7 +20,8 @@
      <td>用户信息管理</td>
      </tr>
      <tr>
-     <td><asp:GridView ID="GridViewUsers" runat="server"></asp:GridView></td>
+     <td><asp:GridView ID="GridViewUsers" runat="server">
+     </asp:GridView></td>
      </tr>
      <tr>
      <td> 

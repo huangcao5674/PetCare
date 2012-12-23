@@ -27,15 +27,14 @@ namespace PetCare.SQLServerDAL
             + ",[UserSex] @UserSex,[UserAddress]=@UserAddress,[UserEmail]=@UserEmail,[UserPhoneNumber]=@UserPhoneNumber"
             + " ,[UserQQNum]=@UserQQNum,[UserInfo]= @UserInfo,[ComplaintNum]=@ComplaintNum WHERE UserID=@UserID";
 
-        private const string SQL_SELECT_KNOWLEDGE_BY_USERID = @"SELECT [KnowledgeID],[UserID],[AddressID],[PetCategoryID],[WeiBoID],[KnowledgeTitle]"
-            + " ,[KnowledgeTime],[LastEditTime],[KnowledgeInfo],[PriorityScore],[IP],[FocusNum],[IsVisible]"
-            + "FROM [PETCAREDB].[dbo].[DB_KnowledgePet] where UserID=@UserId";
 
-        private const string SQL_SELECT_ADOPT_BY_USERID = @"";
 
-        private const string SQL_SELECT_MISSED_BY_USERID = @"";
+        private const string SQL_VERIFI_USER_INFO = @"SELECT COUNT(*) FROM [PETCAREDB].[dbo].[DB_UserInfo] WHERE UserName=@UserName and UserPass=@UserPass";
+
 
         private const string PARM_USER_ID = "@UserId";
+        private const string PARM_USER_NAME = "@UserName";
+        private const string PARM_USER_PASS = "@UserPass";
 
         //得到所有的用户的信息
         public List<CTUserInfo> GetAllUserInfo()
@@ -205,60 +204,27 @@ namespace PetCare.SQLServerDAL
            return EditStatus;
        }
 
-
-       //得到用户的领养宠物信息
-       public List<CTAdoptPet> GetUserAdoptPetInfo(string UserID)
+        //验证用户登录信息
+       public int UserVerify(string UserName, string UserPass)
        {
-           List<CTAdoptPet> adoptList = new List<CTAdoptPet>();
-           return adoptList;
-       }
+           int verifyStatus = 0;
+           SqlParameter[] parms = null;
+           parms = new SqlParameter[]
+                            {
+                                new SqlParameter("@UserName",SqlDbType.NVarChar,20),
+                                new SqlParameter("@UserPass",SqlDbType.NVarChar,20),
+                            };
+
+           parms[0].Value = UserName;
+           parms[1].Value = UserPass;
 
 
-       //得到用户的宠物知识的信息
-       public List<CTKnowledgePet> GetUserKnowledgePetInfo(string UserID)
-       {
-           List<CTKnowledgePet> knowledgeList = new List<CTKnowledgePet>();
-
-           SqlParameter parm = new SqlParameter(PARM_USER_ID, SqlDbType.NVarChar);
-           parm.Value = UserID;
-           //execute the query
-           using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, SQL_SELECT_KNOWLEDGE_BY_USERID, parm))
+           using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))
            {
-               while (rdr.Read())
-               {
-                   CTKnowledgePet knowledgePet = new CTKnowledgePet();
-                   knowledgePet.UserID = rdr["UserID"].ToString();
-                   knowledgePet.KnowledgeID = rdr["KnowledgeID"].ToString();
-                   knowledgePet.AddressID = rdr["AddressID"].ToString();
-                   knowledgePet.PetCaretegoryID = rdr["PetCategoryID"].ToString();
-                   knowledgePet.WeiBoID = rdr["WeiBoID"].ToString();
-                   knowledgePet.KnowledgeTitle = rdr["KnowledgeTitle"].ToString();
-                   knowledgePet.KnowledgeInfo = rdr["KnowledgeInfo"].ToString();
-                   int tempPriorityScore = 0;
-                   knowledgePet.PriorityScore = int.TryParse(rdr["PriorityScore"].ToString(), out tempPriorityScore) ? tempPriorityScore : 0;
-                   knowledgePet.IP = rdr["IP"].ToString();
-                   int tempFocusNum = 0;
-                   knowledgePet.FocusNum = int.TryParse(rdr["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
-                   bool tempisVisible = true;
-                   knowledgePet.IsVisible = bool.TryParse(rdr["IsVisible"].ToString(), out tempisVisible) ? tempisVisible : true;
-                   DateTime tempDate = DateTime.Now;
-                   tempDate = DateTime.TryParse(rdr["KnowledgeTime"].ToString(), out tempDate) ? tempDate : DateTime.Now;
-                   knowledgePet.KnowledgeTime = tempDate.ToString("yyyy/MM/dd hh:mm:ss"); ; 
-                   DateTime tempEditTime = DateTime.Now;
-                   tempEditTime = DateTime.TryParse(rdr["LastEditTime"].ToString(), out tempEditTime) ? tempEditTime : DateTime.Now;
-                   knowledgePet.LastEditTime = tempEditTime.ToString("yyyy/MM/dd hh:mm:ss"); ;
-                   knowledgeList.Add(knowledgePet);
-               }
+               verifyStatus = (int)SqlHelper.ExecuteScalar(conn, CommandType.Text, SQL_VERIFI_USER_INFO, parms);
            }
-           return knowledgeList;
-       }
 
-
-       //得到用户的丢失宠物的信息
-       public List<CTMissedPetInfo> GetUserMissedPetInfo(string UserID)
-       {
-           List<CTMissedPetInfo> missedList = new List<CTMissedPetInfo>();
-           return missedList;
+           return verifyStatus;
        }
        
     }

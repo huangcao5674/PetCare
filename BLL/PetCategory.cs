@@ -16,5 +16,10 @@ namespace PetCare.BLL
         {
            return dal.GetAllPetCategoryInfo();
         }
+
+        public int InsertPetCategory(CTPetCategory petcategory)
+        {
+            return dal.InsertPetCategory(petcategory);
+        }
     }
 }

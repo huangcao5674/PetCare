@@ -16,11 +16,21 @@
             width: 139px;
         }
     </style>
+ 
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" ondblclick="return form1_ondblclick()">
     <div>
     <table>
+    <tr>
+    <td>当前用户</td>
+    <td>
+        <asp:Label ID="Label1" runat="server"  ></asp:Label>
+    </td>
+    <td>
+    <asp:Button ID="BtnLogOff" runat="server" Text="登出" onclick="BtnLogOff_Click" />
+    </td>
+    </tr>
     <tr>
     <td> 
         Address</td>
@@ -58,34 +68,26 @@
     <tr>
     <td colspan='9'>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            onrowcancelingedit="GridView1_RowCancelingEdit" 
-            onrowediting="GridView1_RowEditing" onrowupdating="GridView1_RowUpdating" 
-            onselectedindexchanged="GridView1_SelectedIndexChanged">
+            ForeColor="#333333" GridLines="None" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
+                        OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit">
+                        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <Columns>
                 <asp:BoundField DataField="AdoptID" HeaderText="AdoptID" />
-                <asp:BoundField DataField="AdoptTitle" HeaderText="AdoptTitle">
-                <ControlStyle BorderStyle="Dotted" />
-                </asp:BoundField>
-                <asp:BoundField DataField="AdoptTime" HeaderText="AdoptTime" 
-                    SortExpression="AdoptTime">
-                <ItemStyle BorderStyle="Dotted" />
-                </asp:BoundField>
-                <asp:BoundField DataField="LastEditTime" HeaderText="LastEditTime" 
-                    SortExpression="LastEditTime">
-                <ControlStyle BorderStyle="Dotted" />
-                </asp:BoundField>
-                <asp:BoundField DataField="IP" HeaderText="IP" SortExpression="IP">
-                <ControlStyle BorderStyle="Dashed" />
-                </asp:BoundField>
-                <asp:BoundField DataField="IsAdopt" HeaderText="IsAdopt" 
-                    SortExpression="IsAdopt" />
-                <asp:TemplateField>
-                  <ItemTemplate>
-                  <asp:HyperLink runat="server" Text="View Adopt"></asp:HyperLink>
-                  </ItemTemplate>
-                </asp:TemplateField>
-                <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+                <asp:BoundField DataField="AdoptTitle" HeaderText="AdoptTitle"/>
+                <asp:BoundField DataField="UserName" HeaderText="UserName" />
+                <asp:BoundField DataField="AdoptTime" HeaderText="AdoptTime" />
+                <asp:BoundField DataField="LastEditTime" HeaderText="LastEditTime" />
+                <asp:BoundField DataField="IP" HeaderText="IP" SortExpression="IP"/>
+                <asp:BoundField DataField="IsAdopt" HeaderText="IsAdopt"/>
+                <asp:CommandField HeaderText="选择" ShowSelectButton="True" />
+                <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
+                <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
             </Columns>
+             <RowStyle ForeColor="#000066" />
+                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+
         </asp:GridView>
     </td>
     </tr>

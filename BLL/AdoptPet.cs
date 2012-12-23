@@ -37,16 +37,10 @@ namespace PetCare.BLL
             return dal.GetAdoptPetListByUser(UserID);
         }
 
-        //根据宠物地区 ，查找领养的信息，返回领养信息的列表
-        public List<CTAdoptPet> GetPetAdoptPetListByAddressID(string AddressID)
+        //根据宠物地区 ，宠物类型，查找领养的信息，返回领养信息的列表，分页的方式返回
+        public List<CVAdoptPet> GetPetAdoptPetListByAddressID(bool IsAdopt, string AddressID, string PetCategoryID, int pageNumber, int NumberPerPage, out int howmanyPages)
         {
-            return dal.GetAdoptPetListByAddress(AddressID);
-        }
-
-        //根据宠物种类，查找领养的信息，返回领养信息的列表
-        public List<CTAdoptPet> GetPetAdoptPetListByPetCategoryID(string PetCategoryID)
-        {
-            return dal.GetAdoptPetListByPetCategory(PetCategoryID);
+            return dal.GetAdoptPetListByAddressCategory(IsAdopt, AddressID, PetCategoryID, pageNumber, NumberPerPage, out howmanyPages);
         }
 
         //增加一条领养的信息
@@ -54,7 +48,6 @@ namespace PetCare.BLL
         {
             return dal.InsertAdoptPet(adoptPet);
         }
-
 
         //删除一篇领养的文章
         public int DeleteAdoptPet(string adoptID)

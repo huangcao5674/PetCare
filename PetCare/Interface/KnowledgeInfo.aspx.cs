@@ -60,10 +60,8 @@ namespace PetCare.Interface
             string userID = string.Empty;
             userID = ddlUser.SelectedValue.ToString();
             List<CTKnowledgePet> list = new List<CTKnowledgePet>();
-            User user = new User();
-            list = user.GetKnowLedgePetListByUserID(userID);
-            GridView1.DataSource = list;
-            GridView1.DataBind();
+            KnowledgePet knowledge = new KnowledgePet();
+             
         }
 
         protected void Button4_Click(object sender, EventArgs e)

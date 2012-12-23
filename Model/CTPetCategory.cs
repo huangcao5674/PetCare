@@ -10,5 +10,6 @@ namespace PetCare.Model
         public string petCaregoryID{get;set;}
         public string petCategoryName { get; set; }
         public string petCategoryInfo { get; set; }
+        public bool IsVisible { get; set; }
     }
 }

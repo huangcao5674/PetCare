@@ -43,10 +43,11 @@ namespace PetCare.BLL
             return dal.EditUserInfo(UserID,userInfo);
         }
 
-        //得到用户的所有的knowledge信息
-        public List<CTKnowledgePet> GetKnowLedgePetListByUserID(string userID)
+        //用户登录验证
+        public int ValidateUserLogin(string UserName, string UserPass)
         {
-            return dal.GetUserKnowledgePetInfo(userID);
+            return dal.UserVerify(UserName, UserPass);
         }
+ 
     }
 }

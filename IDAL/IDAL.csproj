@@ -45,6 +45,7 @@
     <Compile Include="IAdoptPetComment.cs" />
     <Compile Include="IKnowledgePet.cs" />
     <Compile Include="IKnowledgePetComment.cs" />
+    <Compile Include="ILoginLog.cs" />
     <Compile Include="IMissedPetInfo.cs" />
     <Compile Include="IMissedPetInfoComment.cs" />
     <Compile Include="IUserFocus.cs" />

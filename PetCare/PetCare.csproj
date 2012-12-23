@@ -87,6 +87,13 @@
     <Compile Include="Interface\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\AreaAddressManage.aspx.cs">
+      <DependentUpon>AreaAddressManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\AreaAddressManage.aspx.designer.cs">
+      <DependentUpon>AreaAddressManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\FocusManage.aspx.cs">
       <DependentUpon>FocusManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -94,19 +101,33 @@
     <Compile Include="ManageMent\FocusManage.aspx.designer.cs">
       <DependentUpon>FocusManage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManageMent\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ManageMent\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ManageMent\KnowledgeComment.aspx.cs">
       <DependentUpon>KnowledgeComment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManageMent\KnowledgeComment.aspx.designer.cs">
       <DependentUpon>KnowledgeComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMent\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMent\ManagementIndex.aspx.cs">
+      <DependentUpon>ManagementIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\ManagementIndex.aspx.designer.cs">
+      <DependentUpon>ManagementIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMent\PetCategoryManage.aspx.cs">
+      <DependentUpon>PetCategoryManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\PetCategoryManage.aspx.designer.cs">
+      <DependentUpon>PetCategoryManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageMent\WebAdoptManage.aspx.cs">
       <DependentUpon>WebAdoptManage.aspx</DependentUpon>
@@ -137,27 +158,21 @@
       <DependentUpon>WebUserManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="ManageMent\ManagementPage.aspx.cs">
+      <DependentUpon>ManagementPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="ManageMent\ManagementPage.aspx.designer.cs">
+      <DependentUpon>ManagementPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\GlobalStyle.css" />
-    <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="html\index.html" />
     <Content Include="html\js\init_index.js" />
-    <Content Include="Images\01.gif" />
-    <Content Include="Images\02.gif" />
-    <Content Include="Images\03.gif" />
-    <Content Include="Images\04.gif" />
-    <Content Include="Images\center.gif" />
-    <Content Include="Images\center0.gif" />
+    <Content Include="html\simple.html" />
     <Content Include="Images\DefaultUserThumb.PNG" />
     <Content Include="Images\header01.gif" />
     <Content Include="Images\header_bei.gif" />
@@ -169,6 +184,139 @@
     <Content Include="Images\left02_left.gif" />
     <Content Include="Images\left02_right.gif" />
     <Content Include="Images\li.gif" />
+    <Content Include="Images\ManageImages\!.gif" />
+    <Content Include="Images\ManageImages\ad.gif" />
+    <Content Include="Images\ManageImages\add.gif" />
+    <Content Include="Images\ManageImages\back.gif" />
+    <Content Include="Images\ManageImages\bg.gif" />
+    <Content Include="Images\ManageImages\bigsize.jpg" />
+    <Content Include="Images\ManageImages\bootnbg.jpg" />
+    <Content Include="Images\ManageImages\bullet.gif" />
+    <Content Include="Images\ManageImages\buttom-copy-bg.gif" />
+    <Content Include="Images\ManageImages\buttom-left.gif" />
+    <Content Include="Images\ManageImages\buttom-right.gif" />
+    <Content Include="Images\ManageImages\buttom_bgs.gif" />
+    <Content Include="Images\ManageImages\buttom_left2.gif" />
+    <Content Include="Images\ManageImages\buttom_right2.gif" />
+    <Content Include="Images\ManageImages\card.jpg" />
+    <Content Include="Images\ManageImages\check-out_.gif" />
+    <Content Include="Images\ManageImages\close.gif" />
+    <Content Include="Images\ManageImages\content-bg-line.gif" />
+    <Content Include="Images\ManageImages\content-bg.gif" />
+    <Content Include="Images\ManageImages\database_import_.gif" />
+    <Content Include="Images\ManageImages\DefaultDocs.gif" />
+    <Content Include="Images\ManageImages\defind.gif" />
+    <Content Include="Images\ManageImages\del.jpg" />
+    <Content Include="Images\ManageImages\delete.gif" />
+    <Content Include="Images\ManageImages\delete_6.gif" />
+    <Content Include="Images\ManageImages\edit.gif" />
+    <Content Include="Images\ManageImages\ershou_1.gif" />
+    <Content Include="Images\ManageImages\ershou_2.gif" />
+    <Content Include="Images\ManageImages\format.gif" />
+    <Content Include="Images\ManageImages\fox.css" />
+    <Content Include="Images\ManageImages\g.gif" />
+    <Content Include="Images\ManageImages\gw.gif" />
+    <Content Include="Images\ManageImages\gw2.gif" />
+    <Content Include="Images\ManageImages\icon-demo.gif" />
+    <Content Include="Images\ManageImages\icon-login-seaver.gif" />
+    <Content Include="Images\ManageImages\icon-mail2.gif" />
+    <Content Include="Images\ManageImages\icon-phone.gif" />
+    <Content Include="Images\ManageImages\icon2_004.png" />
+    <Content Include="Images\ManageImages\icon2_089.png" />
+    <Content Include="Images\ManageImages\icon2_090.png" />
+    <Content Include="Images\ManageImages\imagedelete.gif" />
+    <Content Include="Images\ManageImages\imageedit.gif" />
+    <Content Include="Images\ManageImages\image_%28add%296.gif" />
+    <Content Include="Images\ManageImages\image_1.gif" />
+    <Content Include="Images\ManageImages\ipsecurity.gif" />
+    <Content Include="Images\ManageImages\l1b3.gif" />
+    <Content Include="Images\ManageImages\l1b4.gif" />
+    <Content Include="Images\ManageImages\l1b5.gif" />
+    <Content Include="Images\ManageImages\left-bg.gif" />
+    <Content Include="Images\ManageImages\left-top-right.gif" />
+    <Content Include="Images\ManageImages\line2.jpg" />
+    <Content Include="Images\ManageImages\linkspic3.gif" />
+    <Content Include="Images\ManageImages\linkspic6.gif" />
+    <Content Include="Images\ManageImages\lm.gif" />
+    <Content Include="Images\ManageImages\lminfo.gif" />
+    <Content Include="Images\ManageImages\login-buttom-bg.gif" />
+    <Content Include="Images\ManageImages\login-content-bg.gif" />
+    <Content Include="Images\ManageImages\login-top-bg.gif" />
+    <Content Include="Images\ManageImages\login-wel.gif" />
+    <Content Include="Images\ManageImages\login_bg.jpg" />
+    <Content Include="Images\ManageImages\Login_but.gif" />
+    <Content Include="Images\ManageImages\logo.gif" />
+    <Content Include="Images\ManageImages\logo.png" />
+    <Content Include="Images\ManageImages\luck.gif" />
+    <Content Include="Images\ManageImages\mail_leftbg.gif" />
+    <Content Include="Images\ManageImages\mail_rightbg.gif" />
+    <Content Include="Images\ManageImages\menu_bg.gif" />
+    <Content Include="Images\ManageImages\menu_bg1.gif" />
+    <Content Include="Images\ManageImages\menu_bg2.gif" />
+    <Content Include="Images\ManageImages\menu_bgs.gif" />
+    <Content Include="Images\ManageImages\menu_topimg.gif" />
+    <Content Include="Images\ManageImages\menu_topline.gif" />
+    <Content Include="Images\ManageImages\mime.gif" />
+    <Content Include="Images\ManageImages\nav-right-bg.gif" />
+    <Content Include="Images\ManageImages\news-title-bg.gif" />
+    <Content Include="Images\ManageImages\ok.gif" />
+    <Content Include="Images\ManageImages\OK.jpg" />
+    <Content Include="Images\ManageImages\out.gif" />
+    <Content Include="Images\ManageImages\password.gif" />
+    <Content Include="Images\ManageImages\pic1.gif" />
+    <Content Include="Images\ManageImages\pic10.gif" />
+    <Content Include="Images\ManageImages\pic11.gif" />
+    <Content Include="Images\ManageImages\pic12.gif" />
+    <Content Include="Images\ManageImages\pic13.gif" />
+    <Content Include="Images\ManageImages\pic14.gif" />
+    <Content Include="Images\ManageImages\pic15.gif" />
+    <Content Include="Images\ManageImages\pic16.gif" />
+    <Content Include="Images\ManageImages\pic17.gif" />
+    <Content Include="Images\ManageImages\pic18.gif" />
+    <Content Include="Images\ManageImages\pic19.gif" />
+    <Content Include="Images\ManageImages\pic21.gif" />
+    <Content Include="Images\ManageImages\pic22.gif" />
+    <Content Include="Images\ManageImages\pic23.gif" />
+    <Content Include="Images\ManageImages\pic24.gif" />
+    <Content Include="Images\ManageImages\pic25.gif" />
+    <Content Include="Images\ManageImages\pic26.gif" />
+    <Content Include="Images\ManageImages\pic5.gif" />
+    <Content Include="Images\ManageImages\pic6.gif" />
+    <Content Include="Images\ManageImages\pic7.gif" />
+    <Content Include="Images\ManageImages\pic8.gif" />
+    <Content Include="Images\ManageImages\pic9.gif" />
+    <Content Include="Images\ManageImages\Redirects.gif" />
+    <Content Include="Images\ManageImages\report2_%28add%29.gif" />
+    <Content Include="Images\ManageImages\report2_%28delete%29.gif" />
+    <Content Include="Images\ManageImages\right_smbg.jpg" />
+    <Content Include="Images\ManageImages\servicezhgb2312.gif" />
+    <Content Include="Images\ManageImages\set.gif" />
+    <Content Include="Images\ManageImages\set2.gif" />
+    <Content Include="Images\ManageImages\sitebackup.gif" />
+    <Content Include="Images\ManageImages\skin.css" />
+    <Content Include="Images\ManageImages\smallbg.jpg" />
+    <Content Include="Images\ManageImages\st.gif" />
+    <Content Include="Images\ManageImages\st.png" />
+    <Content Include="Images\ManageImages\stop.gif" />
+    <Content Include="Images\ManageImages\str.gif" />
+    <Content Include="Images\ManageImages\Submit_bg.gif" />
+    <Content Include="Images\ManageImages\t2bg1.gif" />
+    <Content Include="Images\ManageImages\t2bg2.gif" />
+    <Content Include="Images\ManageImages\t2bg4.gif" />
+    <Content Include="Images\ManageImages\t2bg5.gif" />
+    <Content Include="Images\ManageImages\title.gif" />
+    <Content Include="Images\ManageImages\tj.jpg" />
+    <Content Include="Images\ManageImages\to.gif" />
+    <Content Include="Images\ManageImages\tool-down-pic.gif" />
+    <Content Include="Images\ManageImages\top-right.gif" />
+    <Content Include="Images\ManageImages\top_bt.jpg" />
+    <Content Include="Images\ManageImages\ts.gif" />
+    <Content Include="Images\ManageImages\user-info.gif" />
+    <Content Include="Images\ManageImages\usercontrol.gif" />
+    <Content Include="Images\ManageImages\vie.gif" />
+    <Content Include="Images\ManageImages\X.gif" />
+    <Content Include="Images\ManageImages\yc.gif" />
+    <Content Include="Images\ManageImages\yx.gif" />
     <Content Include="Images\searchBtn.PNG" />
     <Content Include="Interface\KnowledgeInfo.aspx" />
     <Content Include="Interface\Register.aspx" />
@@ -176,12 +324,277 @@
     <Content Include="js\CommFunc.js" />
     <Content Include="js\jquery-1.4.2.js" />
     <Content Include="js\jquery-1.4.2.min.js" />
+    <Content Include="js\ManagementJs\moo.fx.js" />
+    <Content Include="js\ManagementJs\moo.fx.pack.js" />
+    <Content Include="js\ManagementJs\prototype.lite.js" />
     <Content Include="js\sea-debug.js" />
     <Content Include="js\sea.js" />
+    <Content Include="js\tiny_mce\langs\en.js" />
+    <Content Include="js\tiny_mce\license.txt" />
+    <Content Include="js\tiny_mce\plugins\advhr\css\advhr.css" />
+    <Content Include="js\tiny_mce\plugins\advhr\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\advhr\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\advhr\js\rule.js" />
+    <Content Include="js\tiny_mce\plugins\advhr\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\advhr\rule.htm" />
+    <Content Include="js\tiny_mce\plugins\advimage\css\advimage.css" />
+    <Content Include="js\tiny_mce\plugins\advimage\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\advimage\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\advimage\image.htm" />
+    <Content Include="js\tiny_mce\plugins\advimage\img\sample.gif" />
+    <Content Include="js\tiny_mce\plugins\advimage\js\image.js" />
+    <Content Include="js\tiny_mce\plugins\advimage\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\advlink\css\advlink.css" />
+    <Content Include="js\tiny_mce\plugins\advlink\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\advlink\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\advlink\js\advlink.js" />
+    <Content Include="js\tiny_mce\plugins\advlink\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\advlink\link.htm" />
+    <Content Include="js\tiny_mce\plugins\advlist\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\advlist\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\autolink\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\autolink\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\autoresize\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\autoresize\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\autosave\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\autosave\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\bbcode\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\bbcode\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\contextmenu\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\contextmenu\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\directionality\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\directionality\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\emotions\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\emotions\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\emotions\emotions.htm" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-cool.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-cry.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-embarassed.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-foot-in-mouth.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-frown.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-innocent.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-kiss.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-laughing.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-money-mouth.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-sealed.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-smile.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-surprised.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-tongue-out.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-undecided.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-wink.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\img\smiley-yell.gif" />
+    <Content Include="js\tiny_mce\plugins\emotions\js\emotions.js" />
+    <Content Include="js\tiny_mce\plugins\emotions\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\example\dialog.htm" />
+    <Content Include="js\tiny_mce\plugins\example\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\example\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\example\img\example.gif" />
+    <Content Include="js\tiny_mce\plugins\example\js\dialog.js" />
+    <Content Include="js\tiny_mce\plugins\example\langs\en.js" />
+    <Content Include="js\tiny_mce\plugins\example\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\example_dependency\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\example_dependency\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\fullpage\css\fullpage.css" />
+    <Content Include="js\tiny_mce\plugins\fullpage\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\fullpage\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\fullpage\fullpage.htm" />
+    <Content Include="js\tiny_mce\plugins\fullpage\js\fullpage.js" />
+    <Content Include="js\tiny_mce\plugins\fullpage\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\fullscreen\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\fullscreen\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\fullscreen\fullscreen.htm" />
+    <Content Include="js\tiny_mce\plugins\iespell\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\iespell\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\window.css" />
+    <Content Include="js\tiny_mce\plugins\inlinepopups\template.htm" />
+    <Content Include="js\tiny_mce\plugins\insertdatetime\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\insertdatetime\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\layer\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\layer\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\legacyoutput\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\legacyoutput\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\lists\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\lists\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\media\css\media.css" />
+    <Content Include="js\tiny_mce\plugins\media\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\media\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\media\js\embed.js" />
+    <Content Include="js\tiny_mce\plugins\media\js\media.js" />
+    <Content Include="js\tiny_mce\plugins\media\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\media\media.htm" />
+    <Content Include="js\tiny_mce\plugins\media\moxieplayer.swf" />
+    <Content Include="js\tiny_mce\plugins\nonbreaking\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\nonbreaking\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\noneditable\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\noneditable\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\pagebreak\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\pagebreak\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\paste\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\paste\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\paste\js\pastetext.js" />
+    <Content Include="js\tiny_mce\plugins\paste\js\pasteword.js" />
+    <Content Include="js\tiny_mce\plugins\paste\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\paste\pastetext.htm" />
+    <Content Include="js\tiny_mce\plugins\paste\pasteword.htm" />
+    <Content Include="js\tiny_mce\plugins\preview\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\preview\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\preview\example.html" />
+    <Content Include="js\tiny_mce\plugins\preview\jscripts\embed.js" />
+    <Content Include="js\tiny_mce\plugins\preview\preview.html" />
+    <Content Include="js\tiny_mce\plugins\print\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\print\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\save\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\save\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\searchreplace\css\searchreplace.css" />
+    <Content Include="js\tiny_mce\plugins\searchreplace\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\searchreplace\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\searchreplace\js\searchreplace.js" />
+    <Content Include="js\tiny_mce\plugins\searchreplace\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\searchreplace\searchreplace.htm" />
+    <Content Include="js\tiny_mce\plugins\spellchecker\css\content.css" />
+    <Content Include="js\tiny_mce\plugins\spellchecker\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\spellchecker\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\spellchecker\img\wline.gif" />
+    <Content Include="js\tiny_mce\plugins\style\css\props.css" />
+    <Content Include="js\tiny_mce\plugins\style\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\style\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\style\js\props.js" />
+    <Content Include="js\tiny_mce\plugins\style\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\style\props.htm" />
+    <Content Include="js\tiny_mce\plugins\style\readme.txt" />
+    <Content Include="js\tiny_mce\plugins\tabfocus\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\tabfocus\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\table\cell.htm" />
+    <Content Include="js\tiny_mce\plugins\table\css\cell.css" />
+    <Content Include="js\tiny_mce\plugins\table\css\row.css" />
+    <Content Include="js\tiny_mce\plugins\table\css\table.css" />
+    <Content Include="js\tiny_mce\plugins\table\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\table\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\table\js\cell.js" />
+    <Content Include="js\tiny_mce\plugins\table\js\merge_cells.js" />
+    <Content Include="js\tiny_mce\plugins\table\js\row.js" />
+    <Content Include="js\tiny_mce\plugins\table\js\table.js" />
+    <Content Include="js\tiny_mce\plugins\table\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\table\merge_cells.htm" />
+    <Content Include="js\tiny_mce\plugins\table\row.htm" />
+    <Content Include="js\tiny_mce\plugins\table\table.htm" />
+    <Content Include="js\tiny_mce\plugins\template\blank.htm" />
+    <Content Include="js\tiny_mce\plugins\template\css\template.css" />
+    <Content Include="js\tiny_mce\plugins\template\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\template\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\template\js\template.js" />
+    <Content Include="js\tiny_mce\plugins\template\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\plugins\template\template.htm" />
+    <Content Include="js\tiny_mce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="js\tiny_mce\plugins\visualblocks\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\visualblocks\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\visualchars\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\visualchars\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\wordcount\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\wordcount\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\abbr.htm" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\acronym.htm" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\attributes.htm" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\cite.htm" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\css\attributes.css" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\css\popup.css" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\del.htm" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\editor_plugin.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\editor_plugin_src.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\ins.htm" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\js\abbr.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\js\acronym.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\js\attributes.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\js\cite.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\js\del.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\js\element_common.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\js\ins.js" />
+    <Content Include="js\tiny_mce\plugins\xhtmlxtras\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\themes\advanced\about.htm" />
+    <Content Include="js\tiny_mce\themes\advanced\anchor.htm" />
+    <Content Include="js\tiny_mce\themes\advanced\charmap.htm" />
+    <Content Include="js\tiny_mce\themes\advanced\color_picker.htm" />
+    <Content Include="js\tiny_mce\themes\advanced\editor_template.js" />
+    <Content Include="js\tiny_mce\themes\advanced\editor_template_src.js" />
+    <Content Include="js\tiny_mce\themes\advanced\image.htm" />
+    <Content Include="js\tiny_mce\themes\advanced\img\colorpicker.jpg" />
+    <Content Include="js\tiny_mce\themes\advanced\img\flash.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\img\icons.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\img\iframe.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\img\pagebreak.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\img\quicktime.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\img\realmedia.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\img\shockwave.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\img\trans.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\img\video.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\img\windowsmedia.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\js\about.js" />
+    <Content Include="js\tiny_mce\themes\advanced\js\anchor.js" />
+    <Content Include="js\tiny_mce\themes\advanced\js\charmap.js" />
+    <Content Include="js\tiny_mce\themes\advanced\js\color_picker.js" />
+    <Content Include="js\tiny_mce\themes\advanced\js\image.js" />
+    <Content Include="js\tiny_mce\themes\advanced\js\link.js" />
+    <Content Include="js\tiny_mce\themes\advanced\js\source_editor.js" />
+    <Content Include="js\tiny_mce\themes\advanced\langs\en.js" />
+    <Content Include="js\tiny_mce\themes\advanced\langs\en_dlg.js" />
+    <Content Include="js\tiny_mce\themes\advanced\link.htm" />
+    <Content Include="js\tiny_mce\themes\advanced\shortcuts.htm" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\default\content.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\default\dialog.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\default\img\buttons.png" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\default\img\items.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\default\img\menu_arrow.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\default\img\menu_check.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\default\img\progress.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\default\img\tabs.gif" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\default\ui.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\highcontrast\content.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\highcontrast\dialog.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\highcontrast\ui.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\o2k7\content.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\o2k7\dialog.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\o2k7\img\button_bg.png" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_black.png" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_silver.png" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\o2k7\ui.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\o2k7\ui_black.css" />
+    <Content Include="js\tiny_mce\themes\advanced\skins\o2k7\ui_silver.css" />
+    <Content Include="js\tiny_mce\themes\advanced\source_editor.htm" />
+    <Content Include="js\tiny_mce\themes\simple\editor_template.js" />
+    <Content Include="js\tiny_mce\themes\simple\editor_template_src.js" />
+    <Content Include="js\tiny_mce\themes\simple\img\icons.gif" />
+    <Content Include="js\tiny_mce\themes\simple\langs\en.js" />
+    <Content Include="js\tiny_mce\themes\simple\skins\default\content.css" />
+    <Content Include="js\tiny_mce\themes\simple\skins\default\ui.css" />
+    <Content Include="js\tiny_mce\themes\simple\skins\o2k7\content.css" />
+    <Content Include="js\tiny_mce\themes\simple\skins\o2k7\img\button_bg.png" />
+    <Content Include="js\tiny_mce\themes\simple\skins\o2k7\ui.css" />
+    <Content Include="js\tiny_mce\tiny_mce.js" />
+    <Content Include="js\tiny_mce\tiny_mce_popup.js" />
+    <Content Include="js\tiny_mce\tiny_mce_src.js" />
+    <Content Include="js\tiny_mce\utils\editable_selects.js" />
+    <Content Include="js\tiny_mce\utils\form_utils.js" />
+    <Content Include="js\tiny_mce\utils\mctabs.js" />
+    <Content Include="js\tiny_mce\utils\validate.js" />
     <Content Include="js\underscore.js" />
+    <Content Include="ManageMent\admin_top.html" />
+    <Content Include="ManageMent\AreaAddressManage.aspx" />
     <Content Include="ManageMent\FocusManage.aspx" />
-    <Content Include="ManageMent\Index.aspx" />
     <Content Include="ManageMent\KnowledgeComment.aspx" />
+    <Content Include="ManageMent\left.html" />
+    <Content Include="ManageMent\Login.aspx" />
+    <Content Include="ManageMent\ManagementIndex.aspx" />
+    <Content Include="ManageMent\PetCategoryManage.aspx" />
+    <Content Include="ManageMent\right.html" />
     <Content Include="ManageMent\WebAdoptManage.aspx" />
     <Content Include="ManageMent\WebKnowledgeManage.aspx" />
     <Content Include="ManageMent\WebMissedPetManage.aspx" />
@@ -208,9 +621,11 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\Web.config" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="ManageMent\ManagementPage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="js\tiny_mce\plugins\spellchecker\classes\utils\" />
+    <Folder Include="js\tiny_mce\plugins\spellchecker\includes\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>

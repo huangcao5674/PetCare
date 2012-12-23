@@ -12,6 +12,7 @@ namespace PetCare.ManageMent
 {
     public partial class WebAdoptManage : System.Web.UI.Page
     {
+        private static bool isUserSession = true;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,6 +21,57 @@ namespace PetCare.ManageMent
                 LoadArea();
                 LoadAdopt();
                 LoadPetCategory();
+            }
+            Label1.Text = CheckUser();
+        }
+
+        protected void BtnLogOff_Click(object sender, EventArgs e)
+        {
+            UserOut();
+        }
+
+        public static void UserOut()
+        {
+            System.Web.HttpContext.Current.Session["UserName"] = null;
+            System.Web.HttpContext.Current.Response.Cookies["UserName"].Value = null;
+        }
+
+        public static string CheckUser()
+        {
+            if (isUserSession)
+            {
+                if (System.Web.HttpContext.Current.Session["UserName"] == null)
+                    //没有登录
+                    return null;
+                else
+                {
+                    //返回信息
+                    string info = System.Web.HttpContext.Current.Session["UserName"].ToString();
+                    //info = Encryptor.Decrypt(info);
+                    //判断信息是否正确
+                    if (info.Length ==0)
+                        //信息不正确
+                        return null;
+                    
+                    return info;
+                }
+            }
+            else
+            {
+                if (System.Web.HttpContext.Current.Request.Cookies ["UserName"] == null)
+                    //没有登录
+                    return null;
+                else
+               {
+                    //返回信息
+                    string info = System.Web.HttpContext.Current.Request.Cookies["UserName"].Value;
+                    //判断信息是否正确
+                    if (info.Length ==0)
+                        //信息不正确
+                        return null;
+                    
+                    return info;
+                }
             }
         }
 
@@ -75,6 +127,14 @@ namespace PetCare.ManageMent
             int perPage = int.Parse(TextBox2.Text.Trim().ToString());
             BindGridNew(pageNumber, perPage);
         }
+        private void BindGridNew(int pageNumber, int perPage)
+        {
+            AdoptPet adopt = new AdoptPet();
+            int howmany = 0;
+            GridView1.DataSource = adopt.GetPetAdoptPerPageList(pageNumber, perPage, out howmany);
+            GridView1.DataBind();
+        }
+
         private void BindGrid()
         {
             AdoptPet adopet = new AdoptPet();
@@ -82,14 +142,14 @@ namespace PetCare.ManageMent
             GridView1.DataBind();
         }
 
-
-        private void BindGridNew(int pageNumber,int perPage)
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            AdoptPet adopt = new AdoptPet();
-            int howmany=0;
-            GridView1.DataSource =  adopt.GetPetAdoptPerPageList(pageNumber,perPage,out howmany);
-            GridView1.DataBind();
+            string delAdoptID= GridView1.DataKeys[e.RowIndex].Value.ToString() ;
+            AdoptPet adoptPetone = new AdoptPet();
+            adoptPetone.DeleteAdoptPet(delAdoptID);
         }
+
+
 
         private void LoadUser()
         {
@@ -133,7 +193,6 @@ namespace PetCare.ManageMent
             ddAdopt1.DataValueField = "AdoptID";
             ddAdopt1.DataBind();
         }
-
         private void LoadPetCategory()
         {
             List<CTPetCategory> petcategoryList = new List<CTPetCategory>();
@@ -149,9 +208,10 @@ namespace PetCare.ManageMent
             ddlCategoryAdd.DataBind();
         }
 
+
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+           
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
@@ -229,5 +289,7 @@ namespace PetCare.ManageMent
                 Response.Write("<script>alert('添加失败!')</script>");
             }
         }
+
+
     }
 }

@@ -29,6 +29,45 @@ namespace PetCare
             AreaRegistration.RegisterAllAreas();
 
             RegisterRoutes(RouteTable.Routes);
+
+            Application.Lock();    ///Application对象加锁  
+            if (Application["OnlineCount"] == null)
+            {   ///初始化在线人数为1  
+                Application["OnlineCount"] = 1;
+            }
+            Application.UnLock();///Application对象解锁  
         }
+        void Session_Start(object sender, EventArgs e)
+        {
+            Application.Lock();   ///Application对象加锁  
+            if (Application["OnlineCount"] != null)
+            {   ///获取当前在线人数  
+                int count = Int32.Parse(Application
+                ["OnlineCount"].ToString());
+                ///设置当前在线人数，计数器增1  
+                Application["OnlineCount"] = count + 1;
+            }
+            else
+            {   ///计数器初始化为1  
+                Application["OnlineCount"] = 1;
+            }
+            Application.UnLock();///Application对象解锁  
+        }
+        void Session_End(object sender, EventArgs e)
+        {
+            Application.Lock();   ///Application对象加锁  
+            if (Application["OnlineCount"] != null)
+            {   ///获取当前在线人数  
+                int count = Int32.Parse(Application
+                ["OnlineCount"].ToString());
+                ///设置当前在线人数，计数器减1  
+                Application["OnlineCount"] = count - 1;
+            }
+            else
+            {   ///计数器初始化为1  
+                Application["OnlineCount"] = 0;
+            }
+            Application.UnLock();///Application对象解锁  
+        } 
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="KnowledgePetComment.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="LoginLog.cs" />
     <Compile Include="MissedPetInfo.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>

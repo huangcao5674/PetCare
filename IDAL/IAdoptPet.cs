@@ -20,14 +20,8 @@ namespace PetCare.IDAL
         //根据用户ID得到用户的发布的领养宠物的信息
         List<CTAdoptPet> GetAdoptPetListByUser(string UserID);
 
-        //根据地区得到领养宠物的信息
-        List<CTAdoptPet> GetAdoptPetListByAddress(string AddressID);
-
-        //根据宠物类型得到领养宠物的信息
-        List<CTAdoptPet> GetAdoptPetListByPetCategory(string PetCategoryID);
-
-        //根据宠物类型和地址信息得到领养宠物的信息
-        List<CTAdoptPet> GetAdoptPetListByPetCategoryAddress(string PetCategoryID, string AddressID);
+        //根据宠物类型地区得到领养宠物的信息
+        List<CVAdoptPet> GetAdoptPetListByAddressCategory(bool IsAdopt, string AddressID, string PetCategoryID, int pageNumber, int NumberPerPage, out int howmanyPages);
 
         //增加用户领养宠物的信息
         int InsertAdoptPet(CTAdoptPet AdoptPetInfo);

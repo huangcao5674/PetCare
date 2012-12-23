@@ -16,13 +16,18 @@ namespace PetCare.SQLServerDAL
 
         private const string SQL_SELECT_PetCategory = @"SELECT [PetCategoryID],[PetCategoryName],[PetCategoryInfo],[IsVisible] FROM [PETCAREDB].[dbo].[DB_PetCategory]";
 
-        private const string SQL_INSERT_PetCategory = @"";
+        private const string SQL_INSERT_PetCategory = @"INSERT INTO [PETCAREDB].[dbo].[DB_PetCategory]([PetCategoryID],[PetCategoryName],[PetCategoryInfo],[IsVisible])"
+            + "VALUES(@PetCategoryId,@PetCategoryName,@PetCategoryInfo,1)";
 
         private const string SQL_DELETE_PetCategory = @"DELETE FROM [PETCAREDB].[dbo].[DB_PetCategory] WHERE PetCategoryID=@PetCategoryId";
 
         private const string SQL_EDIT_PetCategory = @"";
 
         private const string PARM_PetCategory_ID = "@PetCategoryId";
+
+        private const string PARM_PetCategory_Name = "@PetCategoryName";
+
+        private const string PARM_PetCategory_Info = "@PetCategoryInfo";
 
 
 
@@ -40,6 +45,7 @@ namespace PetCare.SQLServerDAL
                     petCategory.petCaregoryID = rdr["PetCategoryID"].ToString();
                     petCategory.petCategoryName = rdr["PetCategoryName"].ToString();
                     petCategory.petCategoryInfo = rdr["petCategoryInfo"].ToString();
+                    petCategory.IsVisible = bool.Parse(rdr["IsVisible"].ToString());
                     list.Add(petCategory);
                 }
             }
@@ -52,6 +58,20 @@ namespace PetCare.SQLServerDAL
         public int InsertPetCategory(CTPetCategory petCategory)
         {
             int insertStatus = 0;
+            SqlParameter[] parms = null;
+            parms = new SqlParameter[]
+                            {
+                                new SqlParameter("@PetCategoryId",SqlDbType.NVarChar,20),
+                                new SqlParameter("@PetCategoryName",SqlDbType.NVarChar,50),
+                                new SqlParameter("@PetCategoryInfo",SqlDbType.NVarChar,50),
+                            };
+            parms[0].Value = petCategory.petCaregoryID;
+            parms[1].Value = petCategory.petCategoryName;
+            parms[2].Value = petCategory.petCategoryInfo;
+            using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))
+            {
+                insertStatus = SqlHelper.ExecuteNonQuery(conn, CommandType.Text, SQL_INSERT_PetCategory, parms);
+            }
             return insertStatus;
         }
 
