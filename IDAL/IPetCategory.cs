@@ -18,6 +18,6 @@ namespace PetCare.IDAL
         int DeletePetCategoryInfo(string petCategoryID);
 
         //编辑宠物分类信息
-        int EditPetCategoryInfo(string petCategoryID, CTPetCategory petCategory);
+        int EditPetCategoryInfo(CTPetCategory petCategory);
     }
 }

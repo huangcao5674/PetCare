@@ -19,5 +19,8 @@ namespace PetCare.IDAL
 
         //删除地址信息
         int DeleteAddress(string addressInfo);
+
+        //更新地址信息
+        int UpdateAddress(CTAddress addressInfo);
     }
 }

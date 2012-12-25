@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PetCare {
+namespace PetCare.ManageMent {
     
     
-    public partial class ManagementPage {
+    public partial class WebAdoptCommentManage {
         
         /// <summary>
         /// form1 control.
@@ -22,111 +22,111 @@ namespace PetCare {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// LbUserName control.
+        /// ddAdopt1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbUserName;
+        protected global::System.Web.UI.WebControls.DropDownList ddAdopt1;
         
         /// <summary>
-        /// User control.
+        /// ddUser11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton User;
+        protected global::System.Web.UI.WebControls.DropDownList ddUser11;
         
         /// <summary>
-        /// AdoptPet control.
+        /// TextBoxComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton AdoptPet;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxComment;
         
         /// <summary>
-        /// KnowledgePet control.
+        /// BtnAddComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton KnowledgePet;
+        protected global::System.Web.UI.WebControls.Button BtnAddComment;
         
         /// <summary>
-        /// MissedPet control.
+        /// TextBoxPageNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton MissedPet;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPageNumber;
         
         /// <summary>
-        /// KnowledgeUser control.
+        /// ddAdopt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton KnowledgeUser;
+        protected global::System.Web.UI.WebControls.DropDownList ddAdopt;
         
         /// <summary>
-        /// LinkButton2 control.
+        /// BtnChekc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        protected global::System.Web.UI.WebControls.Button BtnChekc;
         
         /// <summary>
-        /// LinkButton3 control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// CheckBoxAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxAll;
         
         /// <summary>
-        /// HyperLink2 control.
+        /// BtnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.Button BtnCancel;
         
         /// <summary>
-        /// LinkButton1 control.
+        /// BtnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.Button BtnDelete;
         
         /// <summary>
-        /// HyperLink3 control.
+        /// BtnEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
+        protected global::System.Web.UI.WebControls.Button BtnEdit;
     }
 }

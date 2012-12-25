@@ -32,68 +32,48 @@ namespace PetCare.Model
         }
 
         public string UserID
-        {
-            get;
-            set;
-        }
-
+        {get;set;}
         //写出所有的userinfo属性
         public string UserName
-        { 
-            get; 
-            set; 
-        }
-
+        { get; set;}
         public string UserPass
-        {
-            get;
-            set;
-        }
+        {get;set;}
         public string UserRealName
-        {
-            get;
-            set;
-        }
+        {get;set;}
         public int UserAge
-        {
-            get;
-            set;
-        }
+        {get;set;}
         public string UserSex
-        {
-            get;
-            set;
-        }
+        {get;set;}
         public string UserAddress
-        {
-            get;
-            set;
-        }
+        {get;set;}
         public string UserEmail
-        {
-            get;
-            set;
-        }
+        {get;set;}
         public string UserPhoneNumber
-        {
-            get;
-            set;
-        }
+        {get;set;}
         public string UserQQNum
-        {
-            get;
-            set;
-        }
+        {get;set;}
         public string UserInfo
-        {
-            get;
-            set;
-        }
+        {get;set;}
         public int ComplainNum
-        {
-            get;
-            set;
-        }
+        {get;set;}
+        public bool IsUsed
+        {get;set;}
+        public string UserWeiBo
+        {get;set;}
+        public string Portrait
+        { get; set; }
+        public string UserLevel
+        { get; set; }
+        public string CreateTime
+        { get; set; }
+        public string ModifyTime
+        { get; set; }
+        public string RoldID
+        { get; set; }
+        public string LastLoginTime
+        { get; set; }
+        public int   LoginTimes
+        { get; set; }
     }
 
 

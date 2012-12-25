@@ -34,5 +34,15 @@ namespace PetCare.Model
             get;
             set;
         }
+        public string FatherID
+        {
+            get;
+            set;
+        }
+        public bool IsVisible
+        {
+            get;
+            set;
+        }
     }
 }

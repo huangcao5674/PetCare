@@ -21,9 +21,9 @@ namespace PetCare.SQLServerDAL
 
         private const string SQL_DELETE_PetCategory = @"DELETE FROM [PETCAREDB].[dbo].[DB_PetCategory] WHERE PetCategoryID=@PetCategoryId";
 
-        private const string SQL_EDIT_PetCategory = @"";
+        private const string SQL_EDIT_PetCategory = @"UPDATE [PETCAREDB].[dbo].[DB_PetCategory] SET [PetCategoryName]=@PetCategoryName, [PetCategoryInfo]=@PetCategoryInfo,[IsVisible]=@IsVisible where [PetCategoryID]=@PetCategoryID";
 
-        private const string PARM_PetCategory_ID = "@PetCategoryId";
+        private const string PARM_PetCategory_ID = "@PetCategoryID";
 
         private const string PARM_PetCategory_Name = "@PetCategoryName";
 
@@ -79,13 +79,37 @@ namespace PetCare.SQLServerDAL
         public int DeletePetCategoryInfo(string petCategoryID)
         {
             int deleteStatus = 0;
+            SqlParameter param = new SqlParameter();
+            param.Value = petCategoryID;
+            param.ParameterName = PARM_PetCategory_ID;
+            using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))
+            {
+                deleteStatus = SqlHelper.ExecuteNonQuery(conn, CommandType.Text, SQL_DELETE_PetCategory, param);
+            }
             return deleteStatus;
         }
 
+
         //编辑宠物分类信息
-        public int EditPetCategoryInfo(string petCategoryID, CTPetCategory petCategory)
+        public int EditPetCategoryInfo(CTPetCategory petCategory)
         {
             int editStatus = 0;
+            SqlParameter[] parms = null;
+            parms = new SqlParameter[]
+                            {
+                                new SqlParameter("@PetCategoryID",SqlDbType.NVarChar,20),
+                                new SqlParameter("@PetCategoryName",SqlDbType.NVarChar,50),
+                                new SqlParameter("@PetCategoryInfo",SqlDbType.NVarChar,50),
+                                new SqlParameter("@IsVisible",SqlDbType.Bit),
+                            };
+            parms[0].Value = petCategory.petCaregoryID;
+            parms[1].Value = petCategory.petCategoryName;
+            parms[2].Value = petCategory.petCategoryInfo;
+            parms[3].Value = petCategory.IsVisible;
+            using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))
+            {
+                editStatus = SqlHelper.ExecuteNonQuery(conn, CommandType.Text, SQL_EDIT_PetCategory, parms);
+            }
             return editStatus;
         }
 

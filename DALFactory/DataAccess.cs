@@ -145,6 +145,20 @@ namespace PetCare.DALFactory
             }
         }
 
+        //创建LoginLog类
+        public static PetCare.IDAL.ILoginLog CreateLoginLog()
+        {
+            try
+            {
+                string className = Path + ".LoginLog";
+                return (PetCare.IDAL.ILoginLog)Assembly.Load(Path).CreateInstance(className);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 
 }

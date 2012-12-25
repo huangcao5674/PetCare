@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using PetCare.BLL;
 using PetCare.Model;
 using System.Net;
+using PetCare.DBUtility;
 
 namespace PetCare.ManageMent
 {
@@ -124,9 +125,11 @@ namespace PetCare.ManageMent
 
             //BindGrid();
             int pageNumber = int.Parse(TextBox1.Text.Trim().ToString());
-            int perPage = int.Parse(TextBox2.Text.Trim().ToString());
+            int perPage = CPetCareConfiguration.PetPerPageNumbers;
             BindGridNew(pageNumber, perPage);
         }
+
+
         private void BindGridNew(int pageNumber, int perPage)
         {
             AdoptPet adopt = new AdoptPet();
@@ -160,10 +163,6 @@ namespace PetCare.ManageMent
             ddlUser.DataTextField = "UserName";
             ddlUser.DataValueField = "UserID";
             ddlUser.DataBind();
-            ddUser11.DataSource = userList;
-            ddUser11.DataTextField = "UserName";
-            ddUser11.DataValueField = "UserID";
-            ddUser11.DataBind();
         }
         private void LoadArea()
         {
@@ -184,14 +183,6 @@ namespace PetCare.ManageMent
             List<CTAdoptPet> LIST = new List<CTAdoptPet>();
             AdoptPet aa = new AdoptPet();
             LIST = aa.GetPetAdoptPetList();
-            ddAdopt.DataSource = LIST;
-            ddAdopt.DataTextField = "AdoptTitle";
-            ddAdopt.DataValueField = "AdoptID";
-            ddAdopt.DataBind();
-            ddAdopt1.DataSource = LIST;
-            ddAdopt1.DataTextField = "AdoptTitle";
-            ddAdopt1.DataValueField = "AdoptID";
-            ddAdopt1.DataBind();
         }
         private void LoadPetCategory()
         {
@@ -209,32 +200,18 @@ namespace PetCare.ManageMent
         }
 
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            GridView1.EditIndex = e.NewEditIndex;
-            BindGrid();
-        }
-
-        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            GridView1.EditIndex = -1;
-            BindGrid();
-        }
-
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-
-        }
-
-
         //根据地区和类型进行检索
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string address = ddlAddress.SelectedValue.ToString();
+            string petcategory = ddlPetCategory.SelectedValue.ToString();
+            bool isAdopt=bool.Parse(ckIsAdopt.Checked.ToString());
+            int perPageNumb=CPetCareConfiguration.PetPerPageNumbers;
+            int pageNumb=1;
+            int howmanyPages=0;
+            AdoptPet adoptpet = new AdoptPet();
+            List<CVAdoptPet>list=new List<CVAdoptPet>();
+            list=adoptpet.GetPetAdoptPetListByAddressID(isAdopt,address,petcategory, pageNumb, perPageNumb, out howmanyPages);
 
         }
 
@@ -242,54 +219,6 @@ namespace PetCare.ManageMent
         {
             GridView1.DataSource = null;
             GridView1.DataBind();
-            GridView2.DataSource = null;
-            GridView2.DataBind();
         }
-
-
-
-        protected void BtnChekc_Click(object sender, EventArgs e)
-        {
-            int pageNumb = int.Parse(TextBoxPageNumber.Text.Trim().ToString());
-            int perNumb = int.Parse(TextBoxPerPage.Text.Trim().ToString());
-            AdoptPet adopt = new AdoptPet();
-            string adoptID = ddAdopt.SelectedValue.ToString();
-            List<CVAdoptPetComment> list = new List<CVAdoptPetComment>();
-            int howmanyPages = 0;
-            list = adopt.GetPetAdoptCommentPerPageList(adoptID, pageNumb, perNumb, out howmanyPages);
-            GridView2.DataSource = list;
-            GridView2.DataBind();
-        }
-
-        protected void BtnAddComment_Click(object sender, EventArgs e)
-        {
-            //获取本机IP
-            IPHostEntry ipe = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipa = ipe.AddressList[0];
-            string comment = TextBoxComment.Text.Trim().ToString();
-            string userID = ddUser11.SelectedValue.ToString();
-            string adoptID = ddAdopt1.SelectedValue.ToString();
-            CTAdoptPetComment adoptComment = new CTAdoptPetComment();
-            adoptComment.AdoptID = adoptID;
-            adoptComment.CommentContent = comment;
-            adoptComment.CommentID = Guid.NewGuid().ToString();
-            adoptComment.CommentTime = DateTime.Now.ToString();
-            adoptComment.IsVisible = true;
-            adoptComment.UserID = userID;
-            adoptComment.IP = ipa.ToString();
-            AdoptPetComment ado = new AdoptPetComment();
-            int insertStatus = 0;
-            insertStatus = ado.InsertComment(adoptComment);
-            if (insertStatus == 1)
-            {
-                Response.Write("<script>alert('添加成功!')</script>");
-            }
-            else
-            {
-                Response.Write("<script>alert('添加失败!')</script>");
-            }
-        }
-
-
     }
 }

@@ -115,6 +115,13 @@
     <Compile Include="ManageMent\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\LoginLogManage.aspx.cs">
+      <DependentUpon>LoginLogManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\LoginLogManage.aspx.designer.cs">
+      <DependentUpon>LoginLogManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\ManagementIndex.aspx.cs">
       <DependentUpon>ManagementIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,6 +136,13 @@
     <Compile Include="ManageMent\PetCategoryManage.aspx.designer.cs">
       <DependentUpon>PetCategoryManage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\WebAdoptCommentManage.aspx.cs">
+      <DependentUpon>WebAdoptCommentManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\WebAdoptCommentManage.aspx.designer.cs">
+      <DependentUpon>WebAdoptCommentManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\WebAdoptManage.aspx.cs">
       <DependentUpon>WebAdoptManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,12 +150,26 @@
     <Compile Include="ManageMent\WebAdoptManage.aspx.designer.cs">
       <DependentUpon>WebAdoptManage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\WebKnowledgeCommentManage.aspx.cs">
+      <DependentUpon>WebKnowledgeCommentManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\WebKnowledgeCommentManage.aspx.designer.cs">
+      <DependentUpon>WebKnowledgeCommentManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\WebKnowledgeManage.aspx.cs">
       <DependentUpon>WebKnowledgeManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManageMent\WebKnowledgeManage.aspx.designer.cs">
       <DependentUpon>WebKnowledgeManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMent\WebMissedPetCommentManage.aspx.cs">
+      <DependentUpon>WebMissedPetCommentManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\WebMissedPetCommentManage.aspx.designer.cs">
+      <DependentUpon>WebMissedPetCommentManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageMent\WebMissedPetManage.aspx.cs">
       <DependentUpon>WebMissedPetManage.aspx</DependentUpon>
@@ -592,11 +620,15 @@
     <Content Include="ManageMent\KnowledgeComment.aspx" />
     <Content Include="ManageMent\left.html" />
     <Content Include="ManageMent\Login.aspx" />
+    <Content Include="ManageMent\LoginLogManage.aspx" />
     <Content Include="ManageMent\ManagementIndex.aspx" />
     <Content Include="ManageMent\PetCategoryManage.aspx" />
     <Content Include="ManageMent\right.html" />
+    <Content Include="ManageMent\WebAdoptCommentManage.aspx" />
     <Content Include="ManageMent\WebAdoptManage.aspx" />
+    <Content Include="ManageMent\WebKnowledgeCommentManage.aspx" />
     <Content Include="ManageMent\WebKnowledgeManage.aspx" />
+    <Content Include="ManageMent\WebMissedPetCommentManage.aspx" />
     <Content Include="ManageMent\WebMissedPetManage.aspx" />
     <Content Include="ManageMent\WebUserManage.aspx" />
     <Content Include="Web.config">

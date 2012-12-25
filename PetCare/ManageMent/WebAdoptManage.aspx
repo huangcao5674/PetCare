@@ -11,11 +11,7 @@
             width: 518px;
             height: 81px;
         }
-        .style1
-        {
-            width: 139px;
-        }
-    </style>
+        </style>
  
 </head>
 <body>
@@ -39,10 +35,11 @@
         </asp:DropDownList>  
     </td>
     <td> 
-        Category</td>
-    <td class="style1">
-        <asp:DropDownList ID="ddlPetCategory" runat="server" AutoPostBack="True">
-        </asp:DropDownList> </td>
+        Category <asp:DropDownList ID="ddlPetCategory" runat="server" AutoPostBack="True">
+        </asp:DropDownList></td>
+    <td>
+        <asp:CheckBox ID="ckIsAdopt" Text="IsAdopt" runat="server" />
+         </td>
         <td>
             <asp:Button ID="Button1" runat="server" Text="查看" onclick="Button1_Click" />  </td>
 
@@ -54,10 +51,6 @@
         <td>
             <asp:TextBox ID="TextBox1" runat="server" Width="102px"></asp:TextBox>
         </td>
-        <td>
-            <asp:Label ID="Label4" runat="server" Text="PerPage"></asp:Label> </td>
-        <td class="style1">
-            <asp:TextBox ID="TextBox2" runat="server" Width="102px"></asp:TextBox></td>
        <td>
            <asp:Button ID="BtnSearch" runat="server" Text="查看" 
                onclick="BtnSearch_Click" Width="46px" />
@@ -67,11 +60,15 @@
     </tr>
     <tr>
     <td colspan='9'>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            ForeColor="#333333" GridLines="None" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
-                        OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit">
-                        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-            <Columns>
+         <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False"
+                        CellPadding="3" Font-Size="12pt"  BackColor="White" 
+            BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
+             >            <Columns>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:CheckBox ID="CheckBox2" runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="AdoptID" HeaderText="AdoptID" />
                 <asp:BoundField DataField="AdoptTitle" HeaderText="AdoptTitle"/>
                 <asp:BoundField DataField="UserName" HeaderText="UserName" />
@@ -79,14 +76,10 @@
                 <asp:BoundField DataField="LastEditTime" HeaderText="LastEditTime" />
                 <asp:BoundField DataField="IP" HeaderText="IP" SortExpression="IP"/>
                 <asp:BoundField DataField="IsAdopt" HeaderText="IsAdopt"/>
-                <asp:CommandField HeaderText="选择" ShowSelectButton="True" />
-                <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
-                <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
             </Columns>
-             <RowStyle ForeColor="#000066" />
-                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+        <RowStyle ForeColor="#000066" />
+            <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
 
         </asp:GridView>
     </td>
@@ -123,51 +116,7 @@
        
         <asp:TextBox ID="tbContent" runat="server" Height="40px" TextMode="MultiLine" 
             Width="495px"></asp:TextBox>
-       
         </td>
-    </tr>
-    <tr>
-    <td colspan=9>000000000000000000000000下面是评论相关的00000000000000000000000000000000000</td>
-    </tr>
-    <tr>
-    <td>AdoptID</td>
-    <td>  
-        <asp:DropDownList ID="ddAdopt1" runat="server" AutoPostBack="True">
-        </asp:DropDownList>
-    </td>
-    <td>User</td>
-    <td>
-        <asp:DropDownList ID="ddUser11" runat="server" AutoPostBack="True">
-        </asp:DropDownList> </td>
-    <td>评论 </td>
-    <td> 
-        <asp:TextBox ID="TextBoxComment" runat="server"></asp:TextBox> </td>
-        <td>
-            <asp:Button ID="BtnAddComment" runat="server" Text="添加评论" 
-                onclick="BtnAddComment_Click" /> </td>
-    </tr>
- 
-
-    <tr>
-    <td>PageNumber</td>
-    <td>
-        <asp:TextBox ID="TextBoxPageNumber" runat="server"></asp:TextBox></td>
-    
-    <td>PerPage</td>
-    <td>
-        <asp:TextBox ID="TextBoxPerPage" runat="server"></asp:TextBox> </td>
-        <td>AdoptID</td>
-    <td> 
-        <asp:DropDownList ID="ddAdopt" runat="server" AutoPostBack="True">
-        </asp:DropDownList> </td>
-    <td> 
-        <asp:Button ID="BtnChekc" runat="server" Text="Search" 
-            onclick="BtnChekc_Click" /></td>
-    </tr>
-    <tr >
-    <td colspan="7">
-        <asp:GridView ID="GridView2" runat="server" Width="625px">
-        </asp:GridView></td>
     </tr>
     </table>
     </div>

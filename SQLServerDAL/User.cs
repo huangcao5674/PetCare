@@ -14,14 +14,21 @@ namespace PetCare.SQLServerDAL
 {
     public class User:IUser
     {
-        private const string SQL_SELECT_USERS_BY_USERID = @"SELECT  [UserID],[UserName],[UserPass],[UserRealName],[UserAge],[UserSex],[UserAddress],[UserEmail],[UserPhoneNumber],[UserQQNum],[UserInfo] ,[ComplaintNum] FROM [PETCAREDB].[dbo].[DB_UserInfo] where UserID=@UserID";
+        private const string SQL_SELECT_USERS_BY_USERID = @"SELECT  [UserID],[UserName],[UserPass],[UserRealName],[UserAge],[UserSex],"+
+            "[UserAddress],[UserEmail],[UserPhoneNumber],[UserQQNum],[UserInfo] ,[ComplaintNum]"+
+            ",[IsUsed],[UserWeiBo],[Portrait],[UserLevel],[CreateTime],[ModifyTime],[RoleID],[LastLoginTime],[LoginTimes] "+
+            "FROM [PETCAREDB].[dbo].[DB_UserInfo] where UserID=@UserID";
 
-        private const string SQL_SELECT_USERS = @"SELECT  [UserID],[UserName],[UserPass],[UserRealName],[UserAge],[UserSex],[UserAddress],[UserEmail],[UserPhoneNumber],[UserQQNum],[UserInfo] ,[ComplaintNum] FROM [PETCAREDB].[dbo].[DB_UserInfo]";
+        private const string SQL_SELECT_USERS = @"SELECT  [UserID],[UserName],[UserPass],[UserRealName],[UserAge],[UserSex],[UserAddress],"+
+            "[UserEmail],[UserPhoneNumber],[UserQQNum],[UserInfo] ,[ComplaintNum] "+
+             ",[IsUsed],[UserWeiBo],[Portrait],[UserLevel],[CreateTime],[ModifyTime],[RoleID],[LastLoginTime],[LoginTimes] " +
+            "FROM [PETCAREDB].[dbo].[DB_UserInfo]";
 
-        private const string SQL_INSERT_USER = @"INSERT INTO [PETCAREDB].[dbo].[DB_UserInfo]([UserName],[UserPass],[UserRealName],[UserAge],[UserSex],[UserAddress],[UserEmail],[UserPhoneNumber],[UserQQNum],[UserInfo],[ComplaintNum]) VALUES"
-            + "(@UserName,@UserPass,@UserRealName,@UserAge,@UserSex,@UserAddress,@UserEmail,@UserPhoneNumber,@UserQQNum,@UserInfo,@ComplaintNum)";
-
-        private const string SQL_DELETE_USER = @"DELETE FROM [PETCAREDB].[dbo].[DB_UserInfo] WHERE UserID=@UserId";
+        private const string SQL_INSERT_USER = @"INSERT INTO [PETCAREDB].[dbo].[DB_UserInfo]([UserName],[UserPass],[UserRealName],[UserAge],[UserSex],"+
+            "[UserAddress],[UserEmail],[UserPhoneNumber],[UserQQNum],[UserInfo],[ComplaintNum]"+
+            ",[IsUsed],[UserWeiBo],[Portrait],[UserLevel],[CreateTime],[ModifyTime],[RoleID],[LastLoginTime],[LoginTimes]) VALUES"
+            + "(@UserName,@UserPass,@UserRealName,@UserAge,@UserSex,@UserAddress,@UserEmail,@UserPhoneNumber,@UserQQNum,@UserInfo,@ComplaintNum,"+
+            "@IsUsed,@UserWeiBo,@Portrait,@UserLevel,@CreateTime,@ModifyTime,@RoleID,@LastLoginTime,@LoginTimes)";
 
         private const string SQL_EDIT_USER = @"UPDATE [PETCAREDB].[dbo].[DB_UserInfo] SET [UserName] = @UserName,[UserPass] = @UserPass,[UserRealName]= @UserRealName,[UserAge] =@UserAge "
             + ",[UserSex] @UserSex,[UserAddress]=@UserAddress,[UserEmail]=@UserEmail,[UserPhoneNumber]=@UserPhoneNumber"
@@ -59,6 +66,17 @@ namespace PetCare.SQLServerDAL
                     user.UserSex = rdr["UserSex"].ToString();
                     int tempComplain=0;
                     user.ComplainNum = int.TryParse(rdr["ComplaintNum"].ToString(),out tempComplain)?tempComplain:0;
+                    bool tempIsUsed = false;
+                    user.IsUsed = bool.TryParse(rdr["IsUsed"].ToString(),out tempIsUsed)?tempIsUsed:false;
+                    user.UserWeiBo=rdr["UserWeiBo"].ToString();
+                    user.Portrait = rdr["Portrait"].ToString();
+                    user.UserLevel = rdr["UserLevel"].ToString();
+                    user.CreateTime = rdr["CreateTime"].ToString();
+                    user.ModifyTime = rdr["ModifyTime"].ToString();
+                    user.RoldID = rdr["RoleID"].ToString();
+                    user.LastLoginTime = rdr["LastLoginTime"].ToString();
+                    int tempLoginTemps=0;
+                    user.LoginTimes=int.TryParse(rdr["LoginTimes"].ToString(),out tempLoginTemps)?tempLoginTemps:0;
                     userInfoList.Add(user);
                 }
             }
@@ -92,6 +110,19 @@ namespace PetCare.SQLServerDAL
                     user.UserSex = rdr["UserSex"].ToString();
                     int tempComplain = 0;
                     user.ComplainNum = int.TryParse(rdr["ComplaintNum"].ToString(), out tempComplain) ? tempComplain : 0;
+                    bool tempIsUsed = false;
+                    user.IsUsed = bool.TryParse(rdr["IsUsed"].ToString(), out tempIsUsed) ? tempIsUsed : false;
+                    user.UserWeiBo = rdr["UserWeiBo"].ToString();
+                    user.Portrait = rdr["Portrait"].ToString();
+                    user.UserLevel = rdr["UserLevel"].ToString();
+                    user.CreateTime = rdr["CreateTime"].ToString();
+                    user.ModifyTime = rdr["ModifyTime"].ToString();
+                    user.RoldID = rdr["RoleID"].ToString();
+                    user.LastLoginTime = rdr["LastLoginTime"].ToString();
+                    int tempLoginTemps = 0;
+                    user.LoginTimes = int.TryParse(rdr["LoginTimes"].ToString(), out tempLoginTemps) ? tempLoginTemps : 0;
+
+                    
                     userInfoList.Add(user);
                 }
             }
@@ -141,24 +172,25 @@ namespace PetCare.SQLServerDAL
 
 
         //删除用户信息
-       public int DeleteUserInfo(string UserID)
+        public int DeleteUserInfo(string UserID)
         {
-            int deleteStatus = 0;
-            SqlParameter parm = new SqlParameter(PARM_USER_ID, SqlDbType.NVarChar);
-            parm.Value = UserID;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))
-                {
-                    deleteStatus = SqlHelper.ExecuteNonQuery(conn, CommandType.Text, SQL_DELETE_USER, parm);
-                }
-                return deleteStatus;
+             int deleteStatus = 0;
+             return deleteStatus;
+            //SqlParameter parm = new SqlParameter(PARM_USER_ID, SqlDbType.NVarChar);
+            //parm.Value = UserID;
+            //try
+            //{
+            //    using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))
+            //    {
+            //        deleteStatus = SqlHelper.ExecuteNonQuery(conn, CommandType.Text, SQL_DELETE_USER, parm);
+            //    }
+            //    return deleteStatus;
 
-            }
-            catch (Exception ex)
-            {
-                return 0;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    return 0;
+            //}
         }
 
 

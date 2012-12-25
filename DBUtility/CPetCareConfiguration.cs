@@ -90,5 +90,14 @@ namespace PetCare.DBUtility
                 return int.Parse(ConfigurationManager.AppSettings["AriticleAllNum"].ToString());
             }
         }
+
+        //分业每页显示的数量
+        public static int PetPerPageNumbers
+        {
+            get
+            {
+                return int.Parse(ConfigurationManager.AppSettings["PerPageNum"].ToString());
+            }
+        }
     }
 }
