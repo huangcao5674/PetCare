@@ -1,6 +1,7 @@
 ﻿define(function (require, exports, module) {
     var under = require("underscore");
     var backbone = require("backbone");
+    var Paging = require("Paging")($);
 
     var _model = Backbone.Model.extend({
     });
@@ -22,16 +23,29 @@
 
     var contentList = new Collection();
 
+    //定义分页
+    var _Paging = new Paging({
+        DomId: "paging",
+        limit: 20,
+        sort: "date",
+        order: "desc"
+    });
+
     var AppView = Backbone.View.extend({
         el: $("body"),
         initialize: function () {
             contentList.bind("add", this.addList, this);
-            //            $("#publish").click(function () {
-            $.getJSON("../Knowledge/Index", [], function (json) {
-                if(json.total && json.records.length > 0){
-                    contentList.trigger("add", json.records);
-                }
-            });
+            var self = this;
+            _Paging.options.callback = function (json) {
+                self.callback(json);
+            }
+            _Paging.options.url = "../Knowledge/Index";
+            _Paging.getPagingDate();
+            //            $.getJSON("../Knowledge/Index", [], function (json) {
+            //                if (json.total && json.records.length > 0) {
+            //                    contentList.trigger("add", json.records);
+            //                }
+            //            });
             //            });
         },
         addList: function (json) {
@@ -40,8 +54,14 @@
                     model: new _model(item)
                 });
                 view.template = _.template($("#templateModel").html());
-                $("#content").append(view.render().el);
+                $("#article").append(view.render().el);
             });
+        },
+        callback: function (json) {
+            if (json.length > 0) {
+                $("#article").html("");
+                contentList.trigger("add", json);
+            }
         }
     });
     var App = new AppView();

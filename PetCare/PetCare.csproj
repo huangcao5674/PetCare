@@ -196,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\GlobalStyle.css" />
+    <Content Include="css\Paging.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="html\index.html" />
@@ -355,6 +356,7 @@
     <Content Include="js\ManagementJs\moo.fx.js" />
     <Content Include="js\ManagementJs\moo.fx.pack.js" />
     <Content Include="js\ManagementJs\prototype.lite.js" />
+    <Content Include="js\Paging.js" />
     <Content Include="js\sea-debug.js" />
     <Content Include="js\sea.js" />
     <Content Include="js\tiny_mce\langs\en.js" />
