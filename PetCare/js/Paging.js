@@ -115,8 +115,8 @@ define(function () {
             },
             getPagingDate: function (callBack) { //获取数据
                 var _self = this;
-                //var _data = "pageIndex=" + this.options.pageIndex + "&limit=" + this.options.limit + "&sort=" + encodeURI(this.options.sort) + "&order=" + this.options.order;
-                var _data = null;
+                var _data = "pageIndex=" + this.options.pageIndex + "&limit=" + this.options.limit + "&sort=" + encodeURI(this.options.sort) + "&order=" + this.options.order;
+                //var _data = null;
                 $.getJSON(_self.options.url, _data, function (json) {
                     _self.options.totalCount = json.total; //json.total;
                     _self.getTotalPage();

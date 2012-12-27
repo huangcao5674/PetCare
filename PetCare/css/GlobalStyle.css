@@ -312,7 +312,7 @@ aside
 	display:block;
 	height:35px;
 }
-#sideNav ul li a
+#sideNav ul li
 {
 	display:block;
 	color:#004A88;
@@ -321,7 +321,7 @@ aside
 	padding-left:20px;
 	height:34px;
 }
-#sideNav ul li a:hover
+#sideNav ul li:hover
 {
 	text-decoration:none;
 	background:#E6EDF2;
@@ -330,7 +330,7 @@ aside
 	border:1px solid #B8D1E5;
 }
 
-#sideNav ul li .sideNavActive
+#sideNav ul li.sideNavActive
 {
 	background:#DAE7F2;
 	padding-left:19px;

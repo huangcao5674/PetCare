@@ -26,7 +26,7 @@
     //定义分页
     var _Paging = new Paging({
         DomId: "paging",
-        limit: 20,
+        limit: 2,
         sort: "date",
         order: "desc"
     });
@@ -36,6 +36,10 @@
         initialize: function () {
             contentList.bind("add", this.addList, this);
             var self = this;
+            $("#sideNav>ul>li").bind("click", function (e) {
+                _Paging.options.url = "../Adopt/Index";
+                _Paging.getPagingDate();
+            });
             _Paging.options.callback = function (json) {
                 self.callback(json);
             }

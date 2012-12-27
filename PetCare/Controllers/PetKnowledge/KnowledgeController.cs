@@ -12,8 +12,13 @@ namespace PetCare.Controllers.PetKnowledge
     {
         //
         // GET: /Knowledge/
-
-        public JsonResult Index()
+        /// <summary>
+        /// 获取宠物知识的信息
+        /// </summary>
+        /// <param name="pageIndex">当前页码</param>
+        /// <param name="limit">每页的显示条数</param>
+        /// <returns></returns>
+        public JsonResult Index(int pageIndex,int limit)
         {
             KnowledgePet knowledge = new KnowledgePet();
             PagingModel<CVKnowledgePet> _pageKnowledge = new PagingModel<CVKnowledgePet>();
@@ -22,7 +27,7 @@ namespace PetCare.Controllers.PetKnowledge
             int count = 0;
             try
             {
-                knowledgeList = knowledge.GetPetKnowledgePerPageList(1,5,out count);
+                knowledgeList = knowledge.GetPetKnowledgePerPageList(pageIndex,limit,out count);
                 _pageKnowledge.total = count;
                 _pageKnowledge.records = knowledgeList;
             }
