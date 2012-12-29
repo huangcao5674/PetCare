@@ -46,14 +46,12 @@
     </tr>
     <tr>
             <td>
-            <asp:Label ID="Label3" runat="server" Text="PageNumber"></asp:Label>
-        </td>
+            <asp:DropDownList ID="ddPages" runat="server" AutoPostBack="True">
+            </asp:DropDownList>  </td>
         <td>
-            <asp:TextBox ID="TextBox1" runat="server" Width="102px"></asp:TextBox>
-        </td>
+            <asp:Button ID="BtnLook" runat="server" Text="查看" onclick="BtnLook_Click" />
+            </td>
        <td>
-           <asp:Button ID="BtnSearch" runat="server" Text="查看" 
-               onclick="BtnSearch_Click" Width="46px" />
            <asp:Button ID="BtnNull" runat="server" Text="清空" onclick="BtnNull_Click" /> 
                </td>
  
@@ -70,6 +68,9 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="AdoptID" HeaderText="AdoptID" />
+                 <asp:BoundField DataField="Province" HeaderText="Province" />
+                 <asp:BoundField DataField="City" HeaderText="City" />
+                 <asp:BoundField DataField="PetCategoryName" HeaderText="PetCategoryName" />
                 <asp:BoundField DataField="AdoptTitle" HeaderText="AdoptTitle"/>
                 <asp:BoundField DataField="UserName" HeaderText="UserName" />
                 <asp:BoundField DataField="AdoptTime" HeaderText="AdoptTime" />

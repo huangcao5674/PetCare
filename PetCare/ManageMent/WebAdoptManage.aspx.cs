@@ -22,7 +22,9 @@ namespace PetCare.ManageMent
                 LoadArea();
                 LoadAdopt();
                 LoadPetCategory();
+                BindGridNew(1);
             }
+            
             Label1.Text = CheckUser();
         }
 
@@ -120,21 +122,22 @@ namespace PetCare.ManageMent
 
         }
 
-        protected void BtnSearch_Click(object sender, EventArgs e)
-        {
 
-            //BindGrid();
-            int pageNumber = int.Parse(TextBox1.Text.Trim().ToString());
+
+        private void BindGridNew(int pageNumber)
+        {
             int perPage = CPetCareConfiguration.PetPerPageNumbers;
-            BindGridNew(pageNumber, perPage);
-        }
-
-
-        private void BindGridNew(int pageNumber, int perPage)
-        {
             AdoptPet adopt = new AdoptPet();
             int howmany = 0;
             GridView1.DataSource = adopt.GetPetAdoptPerPageList(pageNumber, perPage, out howmany);
+            int howmanyPages = int.Parse((howmany / perPage).ToString());
+            List<int> list = new List<int>();
+            for(int a=1;a<=howmanyPages;a++)
+            {
+                list.Add(a);
+            }
+            ddPages.DataSource = list;
+            ddPages.DataBind();
             GridView1.DataBind();
         }
 
@@ -212,13 +215,22 @@ namespace PetCare.ManageMent
             AdoptPet adoptpet = new AdoptPet();
             List<CVAdoptPet>list=new List<CVAdoptPet>();
             list=adoptpet.GetPetAdoptPetListByAddressID(isAdopt,address,petcategory, pageNumb, perPageNumb, out howmanyPages);
-
+            GridView1.DataSource = list;
+            GridView1.DataBind();
         }
+
+
 
         protected void BtnNull_Click(object sender, EventArgs e)
         {
             GridView1.DataSource = null;
             GridView1.DataBind();
+        }
+
+        protected void BtnLook_Click(object sender, EventArgs e)
+        {
+            int value = int.Parse(ddPages.SelectedValue.ToString());
+            BindGridNew(value);
         }
     }
 }

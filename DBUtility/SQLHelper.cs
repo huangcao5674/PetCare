@@ -114,7 +114,8 @@ namespace PetCare.DBUtility {
             {
                 PrepareCommand(cmd, conn, null, cmdType, cmdText, commandParameters);
                 SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                cmd.Parameters.Clear();
+                //cmd.Parameters.Clear();
+                 
                 return rdr;
             }
             catch

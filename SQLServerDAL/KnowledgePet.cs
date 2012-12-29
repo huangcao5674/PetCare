@@ -122,6 +122,10 @@ namespace PetCare.SQLServerDAL
 
                         AdoptPetList.Add(knowledgePet);
                     }
+                    reader.Close();
+                    reader.Dispose();
+                    int tempHowmanyPages=0;
+                    howmanyPages = int.TryParse(adoptPetParams[3].Value.ToString(), out tempHowmanyPages) ? tempHowmanyPages : 0;
                 }
             }
             catch (Exception ex)
@@ -245,6 +249,10 @@ namespace PetCare.SQLServerDAL
                         knowledgePet.CommentUserLevel = reader["CommentUserLevel"].ToString();
                         commentList.Add(knowledgePet);
                     }
+                    reader.Close();
+                    reader.Dispose();
+                    int tempHowmanyPages = 0;
+                    howmanyPages=int.TryParse(knowledgePetParams[4].Value.ToString(),out tempHowmanyPages)?tempHowmanyPages:0;
                 }
             }
             catch (Exception ex)

@@ -95,18 +95,23 @@ namespace PetCare.SQLServerDAL
         public List<CVAdoptPet> GetAllAdoptPetListPerPage(int pageNumber, int NumberPerPage, out int howmanyPages)
         {
              SqlParameter[] adoptPetParams = null;
-             adoptPetParams = new SqlParameter[]
-                            {
-                                new SqlParameter("@IsAdopt",SqlDbType.Bit),
-                                new SqlParameter("@DescriptionLength",SqlDbType.Int),
-                                new SqlParameter("@PageNumber",SqlDbType.Int),
-                                new SqlParameter("@AdoptInfoPerPage",SqlDbType.Int),
-                                new SqlParameter("@HowManyAdoptInfo",SqlDbType.Int,65535,ParameterDirection.Output,true,0,0,"",DataRowVersion.Default,0),
-                            };
+             adoptPetParams = new SqlParameter[5];
+             adoptPetParams[0] = new SqlParameter("@IsAdopt", SqlDbType.Bit);
+             adoptPetParams[1] = new SqlParameter("@DescriptionLength", SqlDbType.Int);
+             adoptPetParams[2] = new SqlParameter("@PageNumber", SqlDbType.Int);
+             adoptPetParams[3] = new SqlParameter("@AdoptInfoPerPage", SqlDbType.Int);
+             
             adoptPetParams[0].Value = true;
             adoptPetParams[1].Value = CPetCareConfiguration.ArticleBreviaryNum;
             adoptPetParams[2].Value = pageNumber;
             adoptPetParams[3].Value = NumberPerPage;
+
+            SqlParameter parameter = new SqlParameter();
+            parameter.DbType = DbType.Int16;
+            parameter.Direction = ParameterDirection.Output;
+            parameter.ParameterName = "@HowManyAdoptInfo";
+            adoptPetParams[4] = parameter;
+             
 
             List<CVAdoptPet> AdoptPetList = new List<CVAdoptPet>();
             try
@@ -144,22 +149,26 @@ namespace PetCare.SQLServerDAL
                         tempAdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
                         adoptPet.AdoptTime = tempAdoptTime.ToString("yyyy/MM/dd hh:mm:ss");
 
-
                         adoptPet.IP = reader["IP"].ToString();
                         int tempFocusNum = 0;
                         adoptPet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
                         int tempCommentCount = 0;
                         adoptPet.CommentCount = int.TryParse(reader["CommentCount"].ToString(), out tempCommentCount) ? tempCommentCount : 0;
-
                         AdoptPetList.Add(adoptPet);
                     }
+                    reader.Close();
+                    reader.Dispose();
+                    int tempHowmanyPages = 0;
+                    howmanyPages = int.TryParse(adoptPetParams[4].Value.ToString(), out tempHowmanyPages) ? tempHowmanyPages : 0;
                 }
             }
             catch(Exception ex)
             {
                 throw;
             }
-                howmanyPages = 5;
+            
+            
+ 
           
             return AdoptPetList;
         }
@@ -169,8 +178,6 @@ namespace PetCare.SQLServerDAL
         public List<CVAdoptPetComment> GetAllAdoptCommentListPerPage(string adoptID, int pageNumber, int NumberPerPage, out int howmanyPages)
         {
             List<CVAdoptPetComment> commendList = new List<CVAdoptPetComment>();
-            howmanyPages = 8;
-
             SqlParameter[] adoptPetCommentParams = null;
             adoptPetCommentParams = new SqlParameter[]
                             {
@@ -230,6 +237,10 @@ namespace PetCare.SQLServerDAL
 
                         commendList.Add(adoptPet);
                     }
+                    int tempHowmanyPages = 0;
+                    howmanyPages = int.TryParse(adoptPetCommentParams[4].Value.ToString(),out tempHowmanyPages) ? tempHowmanyPages : 0;
+                    reader.Close();
+                    reader.Dispose();
                 }
             }
             catch (Exception ex)
