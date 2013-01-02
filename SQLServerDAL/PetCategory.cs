@@ -42,7 +42,7 @@ namespace PetCare.SQLServerDAL
                 while (rdr.Read())
                 {
                     CTPetCategory petCategory = new CTPetCategory();
-                    petCategory.petCaregoryID = rdr["PetCategoryID"].ToString();
+                    petCategory.petCategoryID = rdr["PetCategoryID"].ToString();
                     petCategory.petCategoryName = rdr["PetCategoryName"].ToString();
                     petCategory.petCategoryInfo = rdr["petCategoryInfo"].ToString();
                     petCategory.IsVisible = bool.Parse(rdr["IsVisible"].ToString());
@@ -65,7 +65,7 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@PetCategoryName",SqlDbType.NVarChar,50),
                                 new SqlParameter("@PetCategoryInfo",SqlDbType.NVarChar,50),
                             };
-            parms[0].Value = petCategory.petCaregoryID;
+            parms[0].Value = petCategory.petCategoryID;
             parms[1].Value = petCategory.petCategoryName;
             parms[2].Value = petCategory.petCategoryInfo;
             using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))
@@ -102,7 +102,7 @@ namespace PetCare.SQLServerDAL
                                 new SqlParameter("@PetCategoryInfo",SqlDbType.NVarChar,50),
                                 new SqlParameter("@IsVisible",SqlDbType.Bit),
                             };
-            parms[0].Value = petCategory.petCaregoryID;
+            parms[0].Value = petCategory.petCategoryID;
             parms[1].Value = petCategory.petCategoryName;
             parms[2].Value = petCategory.petCategoryInfo;
             parms[3].Value = petCategory.IsVisible;

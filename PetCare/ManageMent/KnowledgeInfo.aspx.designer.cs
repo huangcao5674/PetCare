@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace PetCare.ManageMent {
+namespace PetCare.Interface {
     
     
-    public partial class WebKnowledgeCommentManage {
+    public partial class KnowledgeInfo {
         
         /// <summary>
         /// form1 控件。
@@ -22,31 +22,22 @@ namespace PetCare.ManageMent {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// BtnComment 控件。
+        /// ddlUser 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnComment;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUser;
         
         /// <summary>
-        /// ddAdoptList 控件。
+        /// TextBox2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddAdoptList;
-        
-        /// <summary>
-        /// TextBox4 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
         /// GridView1 控件。
@@ -58,39 +49,21 @@ namespace PetCare.ManageMent {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// CheckBoxAll 控件。
+        /// ddPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoxAll;
+        protected global::System.Web.UI.WebControls.DropDownList ddPage;
         
         /// <summary>
-        /// BtnCancel 控件。
+        /// Button3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCancel;
-        
-        /// <summary>
-        /// BtnDelete 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnDelete;
-        
-        /// <summary>
-        /// BtnEdit 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnEdit;
+        protected global::System.Web.UI.WebControls.Button Button3;
     }
 }

@@ -132,7 +132,6 @@ namespace PetCare.SQLServerDAL
             {
                 throw;
             }
-            howmanyPages = 5;
 
             return AdoptPetList;
         }

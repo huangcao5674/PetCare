@@ -237,10 +237,11 @@ namespace PetCare.SQLServerDAL
 
                         commendList.Add(adoptPet);
                     }
-                    int tempHowmanyPages = 0;
-                    howmanyPages = int.TryParse(adoptPetCommentParams[4].Value.ToString(),out tempHowmanyPages) ? tempHowmanyPages : 0;
                     reader.Close();
                     reader.Dispose();
+                    int tempHowmanyPages = 0;
+                    howmanyPages = int.TryParse(adoptPetCommentParams[4].Value.ToString(),out tempHowmanyPages) ? tempHowmanyPages : 0;
+
                 }
             }
             catch (Exception ex)

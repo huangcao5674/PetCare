@@ -9,6 +9,22 @@
 <body>
     <form id="form1" runat="server">
     <div>
+         <table>
+         <tr>
+          <td>
+        <asp:Button ID="BtnComment" runat="server" Text="查看一篇文章评论" onclick="BtnComment_Click" 
+              /></td>
+        <td>
+        文章列表<asp:DropDownList ID="ddAdoptList" runat="server" AutoPostBack="True">
+        </asp:DropDownList>
+        </td>
+        <td>
+        PageNumb<asp:TextBox ID="TextBox4" runat="server" Width="85px"></asp:TextBox>
+       </td>
+         </tr>
+
+    <tr>
+    <td colspan='4'>
 <asp:GridView ID="GridView1" runat="server" AllowSorting="True"
                         CellPadding="3" Font-Size="12pt"  BackColor="White" 
             BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
@@ -24,14 +40,23 @@
                     </Columns>
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
         </asp:GridView>
+        </td>
+        </tr>
+    <tr>
+        <td>
          <asp:CheckBox ID="CheckBoxAll" runat="server" AutoPostBack="True" Font-Size="9pt"
-                        Text="全选" oncheckedchanged="CheckBoxAll_CheckedChanged" />
+                        Text="全选" oncheckedchanged="CheckBoxAll_CheckedChanged" /></td>
+        <td>
             <asp:Button ID="BtnCancel" runat="server" Font-Size="12pt" Text="取消" 
-            onclick="BtnCancel_Click"  />
+            onclick="BtnCancel_Click"  /></td>
+        <td>
             <asp:Button ID="BtnDelete" runat="server" Font-Size="12pt" Text="删除" 
-            onclick="BtnDelete_Click" />
-            <asp:Button ID="BtnEdit" runat="server" Font-Size="12pt" Text="编辑" onclick="BtnEdit_Click1" 
-            />
+            onclick="BtnDelete_Click" /></td>
+        <td>
+               <asp:Button ID="BtnEdit" runat="server" Font-Size="12pt" Text="编辑" onclick="BtnEdit_Click1" 
+            /></td>
+            </tr>
+          </table>
     </div>
     </form>
 </body>

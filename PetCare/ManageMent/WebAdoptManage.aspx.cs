@@ -25,13 +25,15 @@ namespace PetCare.ManageMent
                 BindGridNew(1);
             }
             
-            Label1.Text = CheckUser();
+            //Label1.Text = CheckUser();
         }
 
-        protected void BtnLogOff_Click(object sender, EventArgs e)
-        {
-            UserOut();
-        }
+
+        //登出功能
+        //protected void BtnLogOff_Click(object sender, EventArgs e)
+        //{
+        //    UserOut();
+        //}
 
         public static void UserOut()
         {
@@ -156,7 +158,7 @@ namespace PetCare.ManageMent
         }
 
 
-
+        //加载当前用户load用户信息
         private void LoadUser()
         {
             List<CTUserInfo> userList = new List<CTUserInfo>();
@@ -167,6 +169,7 @@ namespace PetCare.ManageMent
             ddlUser.DataValueField = "UserID";
             ddlUser.DataBind();
         }
+
         private void LoadArea()
         {
             List<CTAddress> addressList = new List<CTAddress>();
@@ -176,6 +179,8 @@ namespace PetCare.ManageMent
             ddlAddress.DataTextField = "City";
             ddlAddress.DataValueField = "AddressID";
             ddlAddress.DataBind();
+            ddlAddress.Items.Insert(0, new ListItem("", ""));
+
             ddlAddressAdd.DataSource = addressList;
             ddlAddressAdd.DataTextField = "City";
             ddlAddressAdd.DataValueField = "AddressID";
@@ -194,11 +199,13 @@ namespace PetCare.ManageMent
             petcategoryList = petcategory.GetPetCategoryList();
             ddlPetCategory.DataSource = petcategoryList;
             ddlPetCategory.DataTextField = "petCategoryName";
-            ddlPetCategory.DataValueField = "petCaregoryID";
+            ddlPetCategory.DataValueField = "petCategoryID";
             ddlPetCategory.DataBind();
+            ddlPetCategory.Items.Insert(0, new ListItem("", ""));
+
             ddlCategoryAdd.DataSource = petcategoryList;
             ddlCategoryAdd.DataTextField = "petCategoryName";
-            ddlCategoryAdd.DataValueField = "petCaregoryID";
+            ddlCategoryAdd.DataValueField = "petCategoryID";
             ddlCategoryAdd.DataBind();
         }
 
@@ -208,6 +215,14 @@ namespace PetCare.ManageMent
         {
             string address = ddlAddress.SelectedValue.ToString();
             string petcategory = ddlPetCategory.SelectedValue.ToString();
+            if (address == "")
+            {
+                address = "NULL";
+            }
+            if (petcategory == "")
+            {
+                petcategory = "NULL";
+            }
             bool isAdopt=bool.Parse(ckIsAdopt.Checked.ToString());
             int perPageNumb=CPetCareConfiguration.PetPerPageNumbers;
             int pageNumb=1;

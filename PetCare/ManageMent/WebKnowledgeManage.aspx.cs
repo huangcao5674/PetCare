@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using PetCare.Model;
 using PetCare.BLL;
 using System.Net;
+using PetCare.DBUtility;
 
 namespace PetCare.ManageMent
 {
@@ -19,6 +20,7 @@ namespace PetCare.ManageMent
                 LoadArea();
                 LoadUser();
                 LoadPetCategory();
+                BindGridNew(1);
             }
         }
 
@@ -41,6 +43,11 @@ namespace PetCare.ManageMent
             dpAddress.DataTextField = "City";
             dpAddress.DataValueField = "AddressID";
             dpAddress.DataBind();
+            ddlAddress.DataSource = addressList;
+            ddlAddress.DataTextField = "City";
+            ddlAddress.DataValueField = "AddressID";
+            ddlAddress.DataBind();
+            ddlAddress.Items.Insert(0, new ListItem("", ""));
         }
 
         private void LoadPetCategory()
@@ -50,8 +57,13 @@ namespace PetCare.ManageMent
             petcategoryList = petcategory.GetPetCategoryList();
             dpCategory.DataSource = petcategoryList;
             dpCategory.DataTextField = "petCategoryName";
-            dpCategory.DataValueField = "petCaregoryID";
+            dpCategory.DataValueField = "petCategoryID";
             dpCategory.DataBind();
+            ddlPetCategory.DataSource = petcategoryList;
+            ddlPetCategory.DataTextField = "petCategoryName";
+            ddlPetCategory.DataValueField = "petCategoryID";
+            ddlPetCategory.DataBind();
+            ddlPetCategory.Items.Insert(0, new ListItem("", ""));
         }
 
         protected void BtnAdd_Click(object sender, EventArgs e)
@@ -95,9 +107,57 @@ namespace PetCare.ManageMent
 
         }
 
-        protected void BtnBack_Click(object sender, EventArgs e)
+
+        //分页检索数据
+        protected void BtnCheckData_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/WebForm1.aspx", false); 
+            int value = int.Parse(ddPage.SelectedValue.ToString());
+            BindGridNew(value);
+        }
+
+        private void BindGridNew(int pageNumber)
+        {
+            int perPage = CPetCareConfiguration.PetPerPageNumbers;
+            List<CVKnowledgePet> list = new List<CVKnowledgePet>();
+            KnowledgePet knowleget = new KnowledgePet();
+            int howmany = 0;
+            list = knowleget.GetPetKnowledgePerPageList(pageNumber, perPage, out howmany);
+            GridView1.DataSource = list;
+            GridView1.DataBind();
+            int howmanyPages = 0;
+            int a = howmany % perPage;
+            if (a>0)
+            {
+                howmanyPages = int.Parse((howmany / perPage).ToString());
+            }
+            else
+            {
+                howmanyPages=int.Parse(((howmany / perPage)+1).ToString());
+            }
+ 
+            List<int> listPage = new List<int>();
+            for (int b = 1; b <= howmanyPages; b++)
+            {
+                listPage.Add(b);
+            }
+            ddPage.DataSource = listPage;
+            ddPage.DataBind();
+        }
+
+
+        //根据条件检索
+        protected void BtnSearch_Click(object sender, EventArgs e)
+        {
+            string address = ddlAddress.SelectedValue.ToString();
+            string petcategory = ddlPetCategory.SelectedValue.ToString();
+            if (address == "")
+            {
+                address = "NULL";
+            }
+            if (petcategory == "")
+            {
+                petcategory = "NULL";
+            }
         }
     }
 }

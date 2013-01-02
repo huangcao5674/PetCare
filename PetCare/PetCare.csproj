@@ -73,11 +73,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Interface\KnowledgeInfo.aspx.cs">
+    <Compile Include="ManageMent\KnowledgeInfo.aspx.cs">
       <DependentUpon>KnowledgeInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Interface\KnowledgeInfo.aspx.designer.cs">
+    <Compile Include="ManageMent\KnowledgeInfo.aspx.designer.cs">
       <DependentUpon>KnowledgeInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interface\Register.aspx.cs">
@@ -347,7 +347,7 @@
     <Content Include="Images\ManageImages\yc.gif" />
     <Content Include="Images\ManageImages\yx.gif" />
     <Content Include="Images\searchBtn.PNG" />
-    <Content Include="Interface\KnowledgeInfo.aspx" />
+    <Content Include="ManageMent\KnowledgeInfo.aspx" />
     <Content Include="Interface\Register.aspx" />
     <Content Include="js\backbone.js" />
     <Content Include="js\CommFunc.js" />
@@ -699,7 +699,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>10764</DevelopmentServerPort>
+          <DevelopmentServerPort>6009</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

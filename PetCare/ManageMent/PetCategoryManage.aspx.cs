@@ -26,7 +26,7 @@ namespace PetCare.ManageMent
             string categoryInfo = tbCategoryInfo.Text.Trim().ToString();
 
             CTPetCategory category = new CTPetCategory();
-            category.petCaregoryID = petcategoryID;
+            category.petCategoryID = petcategoryID;
             category.petCategoryName = categoryName;
             category.petCategoryInfo = categoryInfo;
 
@@ -52,7 +52,7 @@ namespace PetCare.ManageMent
             PetCategory petcategory = new PetCategory();
             list=petcategory.GetPetCategoryList();
             GridView1.DataSource = list;
-            GridView1.DataKeyNames = new string[] { "petCaregoryID" };
+            GridView1.DataKeyNames = new string[] { "petCategoryID" };
             GridView1.DataBind();
         }
 
@@ -136,7 +136,7 @@ namespace PetCare.ManageMent
             bool isVisible = bool.Parse(cbIsvisible.Checked.ToString());
 
             CTPetCategory tpetcategory = new CTPetCategory();
-            tpetcategory.petCaregoryID = petCategoryID;
+            tpetcategory.petCategoryID = petCategoryID;
             tpetcategory.petCategoryInfo = petCategoryInfo;
             tpetcategory.petCategoryName = petCategoryName;
             tpetcategory.IsVisible = isVisible;

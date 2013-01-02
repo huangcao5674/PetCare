@@ -15,7 +15,11 @@ namespace PetCare.ManageMent
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                LoadUser();
+                LoadAdopt();
+            }
         }
 
         private void LoadUser()
@@ -43,6 +47,7 @@ namespace PetCare.ManageMent
             ddAdopt1.DataValueField = "AdoptID";
             ddAdopt1.DataBind();
         }
+
 
         protected void BtnAddComment_Click(object sender, EventArgs e)
         {
@@ -73,18 +78,26 @@ namespace PetCare.ManageMent
             }
         }
 
+
+
         protected void BtnChekc_Click(object sender, EventArgs e)
         {
             int pageNumb = int.Parse(TextBoxPageNumber.Text.Trim().ToString());
+            string adoptID = ddAdopt.SelectedValue.ToString();
+            GridBindData(pageNumb,adoptID);
+        }
+
+        private void GridBindData(int pageNumb,string adoptID)
+        {
             int perNumb = CPetCareConfiguration.PetPerPageNumbers;
             AdoptPet adopt = new AdoptPet();
-            string adoptID = ddAdopt.SelectedValue.ToString();
             List<CVAdoptPetComment> list = new List<CVAdoptPetComment>();
             int howmanyPages = 0;
             list = adopt.GetPetAdoptCommentPerPageList(adoptID, pageNumb, perNumb, out howmanyPages);
             GridView1.DataSource = list;
             GridView1.DataBind();
         }
+
 
         //选择所有
         protected void CheckBoxAll_CheckedChanged(object sender, EventArgs e)

@@ -7,7 +7,7 @@ namespace PetCare.Model
 {
     public class CTPetCategory
     {
-        public string petCaregoryID{get;set;}
+        public string petCategoryID{get;set;}
         public string petCategoryName { get; set; }
         public string petCategoryInfo { get; set; }
         public bool IsVisible { get; set; }
