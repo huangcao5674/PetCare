@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>宠物网-帮你寻找最喜爱的宠物</title>
+    <link href="../css/GlobalStyle.css" rel="stylesheet" type="text/css" />
+    <link href="../css/Paging.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="header">
+    <!--Html5预留标签，未经测试-->
+        <!--<header>-->
+        <div id="top">
+            <div id="logo">宠物网</div>
+            <div class="userNav">
+                <a href="#">首页</a><span>|</span>
+                <a href="#">通知</a><span>|</span>
+                <a href="#">爱宠无限 ▼</a>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <!--</header>-->
+    </div>
+    <div id="wrapper">
+    	<div id="content">
+            <div id="tabView">
+                <p id="mostRecent">最新动态</p>
+                <div id="tabFilter">
+                    <a href="#" class="linkActive">最新</a>
+                    •
+                    <a href="#">最热门</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <script type="text/template" id="templateModel">
+            <!--Html5预留标签，未经测试-->
+                <!--<article>-->
+                <a href="#" class="userThumb">
+                    <!--读取数据库用户头像，默认为Default-->
+                    <img src="<%=userPhoto %>" alt="../Images/DefaultUserThumb.PNG" />
+                </a>
+                <div class="userPush">
+                    <!--读取数据库用户昵称-->
+                    <p>
+                        <a class="userNickName" href="#"><%=userName %></a>
+                        <span>: </span>
+                        <span class="userPushTime"><%=publishTime %></span>
+                    </p>   
+                    <!--读取数据库用户发布内容-->
+                    <a href="#" class="contentTitle"><%=publishTitle %></a>
+                    <p class="contentBody"><%=publishContent %></p>
+                    <!--没有图片则隐藏-->
+                    <img class="contentImage" src="<%=publishPhoto %>" alt="" />      
+                    <div class="articleFunction">
+                        <div class="userTopic"> 
+                            <!--读取数据库用户创建话题-->
+                            <a href="#">#<%=classify %></a>
+                        </div>
+                        <div class="social">
+                             <!--读取数据库用户创建话题-->
+                            <a href="#">评论(<%=publishComment %>)</a>
+                            <span>|</span>
+                            <a href="#">分享</a>
+                            <span>|</span>
+                            <a href="#">收藏</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <!--</article>-->
+            </script>
+            <div id="article"></div>
+            <div id="paging" class="pagelist_box"></div>
+        </div>
+        <div id="aside">
+        <!--Html5预留，未经测试-->
+        <!--<aside>-->
+            <input id="publish" type="button" value="我要发布" />
+            <div id="sideNav">
+                <ul>
+                   <!--<li><a href="#">最新动态</a></li>
+                   <li><a href="#">寻找宠物</a></li>
+                   <li><a href="#">领养宠物</a></li>
+                   <li><a class="sideNavActive" href="#">宠物知识</a></li>
+                   <li><a href="#">我的关注</a></li>-->
+                   <li>最新动态</li>
+                   <li>寻找宠物</li>
+                   <li>领养宠物</li>
+                   <li class="sideNavActive">宠物知识</li>
+                   <li>我的关注</li>
+                </ul>
+                <div id="searchArea">
+                    <input id="searchBox" type="text" />
+                    <input id="searchBtn" type="button"  /> 
+                </div>            
+            </div>
+        <!--</aside>-->
+        </div>   
+        <div class="clear"></div>
+    </div>
+    <!--防止js 的加载堵塞页面的显示 -->
+    <script src="../js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../js/sea-debug.js" type="text/javascript" data-main="../html/js/init_userHome"></script>
+</body>
+</html>

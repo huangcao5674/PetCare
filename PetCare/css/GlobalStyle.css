@@ -7,11 +7,24 @@
 */
 
 /*Global parts*/
+/*If you need insert global style, please insert in here.*/
 body,h1,h2,h3,h4,h5,h6,span,p,img,a,ul,ol,li,div,input,form,header,aside,article,footer
 {
     margin:0;
     border:0;
     padding:0;
+}
+h1
+{
+	font-size:24px;
+}
+h2
+{
+	font-size:18px;
+}
+h3
+{
+	font-size:16px;
 }
 ul,ol,li
 {
@@ -25,34 +38,36 @@ a:hover
 {
     text-decoration:underline;
 }
-
 body
 {
     width:100%;
+	background-color:#f8f6eb;
+	color:#3c3c3c;
     font-size:62.5%;/*Define: 1em = 10px;*/
-    font-family:黑体,Microsoft Yahei,Arial, Helvetica,sans-serif,Simsun;
+    font-family:"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 .clear
 {
     clear:both;
 }
+/*Global ends*/
+
+/*Header Start*/
 header
 {
     width:100%;
-    height:50px;
+    height:60px;
     background:#004A88;
-    box-shadow:0px 1px 1px rgba(0,74,136,0.3);
 }
 #header
 {
     width:100%;
-    height:50px;
+    height:60px;
     background:#004A88;
-    box-shadow:0px 1px 1px rgba(0,74,136,0.3);
 }
 #top
 {
-    width:1000px;
+    width:940px;
     height:100%;
     margin:0 auto;
 }
@@ -65,9 +80,68 @@ header
     display:block;
     font-size:30px;
     color:#FFF;
-    line-height:46px;
+    line-height:60px;
     text-shadow:0px 2px 2px rgba(0,0,0,0.75);
 }
+#location{
+	width:40px;
+	height:30px;
+	margin:30px 10px 0 5px;
+	color:#91C0E9;
+	font-size:12px;
+	float:left; 
+}
+#globalNav{
+	width:auto;
+	height:100%;
+	display:block;
+	float:left;
+	line-height:60px;
+}
+#globalNav .highlight{
+	color:#fff;
+	border-top:2px solid #fff; 
+}
+#globalNav a{
+	padding:20px;
+	color:#91C0E9;
+	font-size:16px;
+}
+#globalNav a:hover
+{
+    text-decoration:none;
+    color:#FFF;
+}
+.loginArea{
+	width:auto;
+	height:100%;
+	display:block;
+	float:right;
+	margin-right:-14px;
+	color:#91C0E9;
+	line-height:60px;
+}
+.loginArea .highlight{
+	color:#fff;
+}
+.loginArea a
+{
+	padding:14px;
+    color:#91C0E9;
+	font-size:14px;
+	font-weight:bold; 
+}
+.loginArea a:hover
+{
+    text-decoration:none;
+    color:#FFF;
+}
+.loginArea span
+{
+    font-size:14px;
+    letter-spacing:-6px;
+}
+
 .userNav
 {
     width:auto;
@@ -75,7 +149,7 @@ header
     float:right;
     font-size:16px;
     color:#91C0E9;
-    line-height:46px;
+    line-height:60px;
     display:block;
 }
 
@@ -94,9 +168,12 @@ header
     font-size:14px;
     letter-spacing:-6px;
 }
+/*Head ends*/
+
+/*Body start*/
 #wrapper
 {
-    width:1000px;
+    width:940px;
     height:auto;
     margin-left:auto;
     margin-right:auto;
@@ -108,6 +185,96 @@ header
     width:700px;
     height:auto;
     float:left;
+}
+/*POV displayed in homepage*/
+#pov
+{
+	width:934px;
+	height:294px;
+	/*background-color:#F00;*/ 
+	border:3px #FFF solid;
+	-webkit-box-shadow: 0 1px 2px #dad4bc;
+	-moz-box-shadow: 0 1px 2px #dad4bc;
+	box-shadow: 0 1px 2px #dad4bc;
+}
+/*POV ends*/
+#adoptArea
+{
+	width:100%;
+	height:auto;
+	margin-top:20px;
+}
+#adoptArea h3
+{
+	color:#0b4366;
+}
+#findArea
+{
+	width:100%;
+	height:auto;
+	margin-top:20px;
+}
+#findArea h3
+{
+	color:#0b4366;
+}
+.listStyle1
+{
+	width:960px;
+	height:auto;
+	margin-left:-10px;
+	list-style:none;
+}
+
+.listStyle1 a
+{
+	width:198px;
+	height:78px;
+	color:#3c3c3c;
+	background-color:#fff;
+	display:block;
+	float:left;
+	padding:10px;
+	margin:10px 10px 10px 10px;
+	border:1px solid #e1ded9;
+	-webkit-box-shadow: 0 1px 2px rgba(218,212,188,.3);
+	-moz-box-shadow: 0 1px 2px rgba(218,212,188,.3);
+	box-shadow: 0 1px 2px rgba(218,212,188,.3);
+}
+.listStyle1 a img
+{
+	width:80px;
+	height:80px;
+	float:left;
+}
+.listStyle1 a p
+{
+	width:100px;
+	height:80px;
+	float:left;
+	margin-left:10px;
+	display:block;
+}
+.listStyle1 a p span
+{
+	display:block;
+	padding:2px;
+}
+.listTitle
+{
+	font-size:16px;
+	font-weight:bold;
+	display:block;
+}
+.listLocation
+{
+	margin-top:10px;
+}
+.listStyle1 a:hover
+{
+	background:#199ff2;
+	color:#fff;
+	border:1px solid #199ff2;
 }
 #tabView
 {
@@ -277,7 +444,7 @@ aside
 	cursor:pointer;
 	font-size:20px;
 	letter-spacing:0.1em;
-	font-family:黑体,Microsoft Yahei,Arial, Helvetica,sans-serif,Simsun;
+	font-family:"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 	background:#80A610;
 	border:1px solid #608000;
 	text-shadow:0px 1px rgba(0,0,0,0.3);
@@ -363,4 +530,34 @@ aside
 	width:22px;
 	height:22px;
 	background:url(../Images/searchBtn.PNG) no-repeat center;
+}
+
+/*footer start*/
+#footer
+{
+	width:940px;
+	margin:20px auto;
+	height:40px;
+	border-top:1px solid #ccc;
+}
+#footer p
+{
+	width:auto;
+	font-size:14px;
+	color:#666;
+	margin-top:10px;
+	float:left;
+}
+#footer p a
+{
+	color:#666;
+	margin-right:20px;
+}
+#copyright
+{
+	width:auto;
+	font-size:14px;
+	color:#666;
+	margin-top:10px;
+	float:right;
 }

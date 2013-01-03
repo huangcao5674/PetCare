@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PetCare.BLL;
 using PetCare.Model;
+using PetCare.Dao;
 
 namespace PetCare.Controllers.PetAdoption
 {
@@ -21,15 +22,17 @@ namespace PetCare.Controllers.PetAdoption
         public JsonResult Index(int pageIndex, int limit)
         {
             AdoptPet adoption = new AdoptPet();
-            PagingModel<CVAdoptPet> _pageKnowledge = new PagingModel<CVAdoptPet>();
+            PagingModel<WebCommonModel> _pageKnowledge = new PagingModel<WebCommonModel>();
+            List<WebCommonModel> commonList = new List<WebCommonModel>();
             List<CVAdoptPet> adoptList = new List<CVAdoptPet>();
             //获取总页数
             int count = 0;
             try
             {
                 adoptList = adoption.GetPetAdoptPerPageList(pageIndex, limit, out count);
+                commonList = CommonDao.DataTransferToAdoptionWebCommonModelList(adoptList);
                 _pageKnowledge.total = count;
-                _pageKnowledge.records = adoptList;
+                _pageKnowledge.records = commonList;
             }
             catch (Exception ex)
             {
