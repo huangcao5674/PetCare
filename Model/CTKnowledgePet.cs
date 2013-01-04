@@ -106,6 +106,9 @@ namespace PetCare.Model
     //这个实体类用来代表一条单独的知识文章的所有信息（包括所有评论，用户信息）
     public class CVKnowledgePetComment
     {
+        //评论ID
+        public string CommentID { get; set; }
+
         //文章ID
         public string KnowledgeID { get; set; }
         //文章的标题

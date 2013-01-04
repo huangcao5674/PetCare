@@ -85,6 +85,7 @@ namespace PetCare.Model
     //这个实体类用来代表一条单独的领养文章的所有信息（包括所有评论，用户信息）
     public class CVAdoptPetComment
     {
+        public string CommentID { get; set; }
         //领养宠物的城市
        public string Province {get;set;}
         //领养宠物的区

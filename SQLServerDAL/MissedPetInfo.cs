@@ -36,13 +36,28 @@ namespace PetCare.SQLServerDAL
         }
 
         //实现接口定义的函数，增加一条信息
-        public void InsertMissedPet(CTMissedPetInfo MissedPetInfo)
+        public int InsertMissedPet(CTMissedPetInfo MissedPetInfo)
         {
-
+            int InsertStatus = 0;
+            return InsertStatus;
         }
-        public void DeleteMissedPet()
+        public int DeleteMissedPet(string MissedID)
         {
+            int DeleteStatus = 0;
+            return DeleteStatus;
+        }
 
+        public int EditMissedPet(CTMissedPetInfo MissedPetInfo)
+        {
+            int editStatus = 0;
+            return editStatus;
+        }
+
+        //根据MissedID查找miss文章信息
+        public CTMissedPetInfo GetMissedPetByMissedID(string MissedID)
+        {
+            CTMissedPetInfo missedPetInfo = new CTMissedPetInfo();
+            return missedPetInfo;
         }
     }
 }

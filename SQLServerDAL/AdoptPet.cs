@@ -234,6 +234,7 @@ namespace PetCare.SQLServerDAL
                         adoptPet.CommentContent = reader["CommentContent"].ToString();
                         adoptPet.CommentUserName = reader["CommentUserName"].ToString();
                         adoptPet.CommentUserLevel = reader["CommentUserLevel"].ToString();
+                        adoptPet.CommentID = reader["CommentID"].ToString();
 
                         commendList.Add(adoptPet);
                     }

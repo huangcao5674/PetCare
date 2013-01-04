@@ -42,7 +42,7 @@
                         <asp:CheckBox ID="CheckBoxs" AutoPostBack="true"   runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="petCaregoryID" HeaderText="PetCategoryID" >
+                <asp:BoundField DataField="petCategoryID" HeaderText="PetCategoryID" >
                 </asp:BoundField>
                 <asp:BoundField DataField="petCategoryName" HeaderText="PetCategoryName" >
                 </asp:BoundField>

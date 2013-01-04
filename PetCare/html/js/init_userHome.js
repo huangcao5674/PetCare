@@ -49,10 +49,10 @@
             }
             switch (code) {
                 case "1":
-                    _Paging.options.url = "../Knowledge/Index";
+                    _Paging.options.url = "../Adopt/Index";
                     break;
                 case "3":
-                    _Paging.options.url = "../Adopt/Index";
+                    _Paging.options.url = "../Knowledge/Index";
                     break;
                 default:
                     _Paging.options.url = "../Knowledge/Index";

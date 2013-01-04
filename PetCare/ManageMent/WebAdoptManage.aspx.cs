@@ -131,8 +131,12 @@ namespace PetCare.ManageMent
             int perPage = CPetCareConfiguration.PetPerPageNumbers;
             AdoptPet adopt = new AdoptPet();
             int howmany = 0;
+
             GridView1.DataSource = adopt.GetPetAdoptPerPageList(pageNumber, perPage, out howmany);
-            int howmanyPages = int.Parse((howmany / perPage).ToString());
+            int howmanyPages = 0;
+
+            howmanyPages = int.Parse(Math.Ceiling((double)howmany / (double)perPage).ToString());
+            
             List<int> list = new List<int>();
             for(int a=1;a<=howmanyPages;a++)
             {

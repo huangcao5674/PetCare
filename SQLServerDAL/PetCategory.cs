@@ -48,6 +48,8 @@ namespace PetCare.SQLServerDAL
                     petCategory.IsVisible = bool.Parse(rdr["IsVisible"].ToString());
                     list.Add(petCategory);
                 }
+                rdr.Close();
+                rdr.Dispose();
             }
 
             return list;

@@ -125,16 +125,8 @@ namespace PetCare.ManageMent
             GridView1.DataSource = list;
             GridView1.DataBind();
             int howmanyPages = 0;
-            int a = howmany % perPage;
-            if (a>0)
-            {
-                howmanyPages = int.Parse((howmany / perPage).ToString());
-            }
-            else
-            {
-                howmanyPages=int.Parse(((howmany / perPage)+1).ToString());
-            }
- 
+
+            howmanyPages = int.Parse(Math.Ceiling((double)howmany / (double)perPage).ToString());
             List<int> listPage = new List<int>();
             for (int b = 1; b <= howmanyPages; b++)
             {

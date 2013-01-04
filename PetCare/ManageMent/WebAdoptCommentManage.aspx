@@ -63,16 +63,17 @@
   </tr>
 
     <tr>
-    <td>PageNumber</td>
+    <td>领养文章</td>
     <td>
-        <asp:TextBox ID="TextBoxPageNumber" runat="server"></asp:TextBox></td>
-        <td>领养文章</td>
-    <td> 
         <asp:DropDownList ID="ddAdopt" runat="server" AutoPostBack="True">
         </asp:DropDownList> </td>
-    <td> 
+        <td> 
         <asp:Button ID="BtnChekc" runat="server" Text="Search" 
             onclick="BtnChekc_Click" /></td>
+    <td> 
+        &nbsp;</td>
+    <td> 
+        &nbsp;</td>
     </tr>
     <tr >
     <td colspan="7">
@@ -85,7 +86,7 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:CheckBox ID="CheckBox" runat="server" />
+                                <asp:CheckBox ID="CheckBox" runat="server" AutoPostBack="true"/>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="AdoptTitle" HeaderText="AdoptTitle" />
@@ -100,6 +101,12 @@
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
         </asp:GridView></td>
            </tr>
+           <tr>
+             <td>第<asp:DropDownList ID="ddPages" runat="server">
+                 </asp:DropDownList>页</td>
+              <td> 
+                  <asp:Button ID="BtnView" runat="server" Text="查看" onclick="BtnView_Click" /></td>
+           </tr>
     </table>
         <asp:CheckBox ID="CheckBoxAll" runat="server" AutoPostBack="True" Font-Size="9pt"
                         Text="全选" oncheckedchanged="CheckBoxAll_CheckedChanged" />
@@ -109,6 +116,47 @@
             onclick="BtnDelete_Click" />
             <asp:Button ID="BtnEdit" runat="server" Font-Size="12pt" Text="编辑" onclick="BtnEdit_Click1" 
             />
+            <table>
+            <tr>
+            <td> AdoptID</td>
+            <td> 
+                <asp:TextBox ID="tbAdoptID" runat="server"></asp:TextBox></td>
+            <td> CommentID</td>
+            <td> 
+                <asp:TextBox ID="tbCommentID" runat="server"></asp:TextBox></td>
+                <td>CommentTime </td>
+                <td> 
+                    <asp:TextBox ID="tbCommentTime" runat="server"></asp:TextBox></td>
+            </tr>
+            <tr> 
+            <td>
+            UserID
+            </td>
+            <td>
+                <asp:TextBox ID="tbUserID" runat="server"></asp:TextBox>
+            </td>
+            <td>
+            IP
+            </td>
+            <td>
+                <asp:TextBox ID="tbIP" runat="server"></asp:TextBox> </td>
+                <td>
+                IsVisible
+                </td>
+                <td>
+                    <asp:CheckBox ID="cbIsVisible" Text="Visible" runat="server" />
+                </td>
+            </tr>
+            <tr>
+            <td>Content</td>
+            <td colspan='3'>
+                <asp:TextBox ID="tbContent" runat="server" Width="374px"></asp:TextBox> </td>
+            <td>
+                <asp:Button ID="BtnSave" runat="server" Text="Save" onclick="BtnSave_Click" /> </td>
+            </tr>
+            
+            
+            </table>
  
     </div>
     </form>

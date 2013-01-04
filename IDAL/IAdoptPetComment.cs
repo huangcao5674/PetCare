@@ -12,5 +12,11 @@ namespace PetCare.IDAL
         List<CTAdoptPetComment> GetAdoptPetCommentListByID(int UserID);
 
         int InsertAdoptPetComment(CTAdoptPetComment adoptComment);
+
+        int DeleteAdoptPetComment(string commendID);
+
+        int EditAdoptPetComment(CTAdoptPetComment adoptComment);
+
+        CTAdoptPetComment GetAdoptPetCommentByCommentID(string commentID);
     }
 }
