@@ -198,6 +198,7 @@
   <ItemGroup>
     <Content Include="css\GlobalStyle.css" />
     <Content Include="css\Paging.css" />
+    <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="html\index.html" />
@@ -205,6 +206,9 @@
     <Content Include="html\js\init_userHome.js" />
     <Content Include="html\simple.html" />
     <Content Include="html\UserHome.html" />
+    <Content Include="html\[Draft]Index.html" />
+    <Content Include="html\[Draft]simple.html" />
+    <Content Include="html\[Draft]UserHome.html" />
     <Content Include="Images\DefaultUserThumb.PNG" />
     <Content Include="Images\header01.gif" />
     <Content Include="Images\header_bei.gif" />
