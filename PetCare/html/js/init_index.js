@@ -36,9 +36,6 @@
         initialize: function () {
             contentList.bind("add", this.addList, this);
             var self = this;
-            $("#publish").bind("click", function () {
-                window.open("../html/simple.html","发布");
-            });
             $("#sideNav>ul>li").bind("click", function (e) {
                 _Paging.options.url = "../Adopt/Index";
                 _Paging.getPagingDate();

@@ -51,7 +51,97 @@ body
     clear:both;
 }
 /*Global ends*/
+/*buttons*/
+.greenButton
+{
+	color:#E6F2C2;
+	cursor:pointer;
+	letter-spacing:0.1em;
+	font-family:"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	background:#80A610;
+	border:1px solid #608000;
+	text-shadow:0px 1px rgba(0,0,0,0.3);
+	box-shadow:0px 1px 1px rgba(128,166,16,0.3);
+}
+.greenButton:hover
+{
+	color:#FFF;
+	background:#8FB224;
+}
+.greenButton:active
+{
+	color:#FFF;
+	background:#80A610;
+}
 
+.blueButton
+{
+	color:#99d1ff;
+	cursor:pointer;
+	letter-spacing:0.1em;
+	font-family:"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	background-color:#126ab2;
+	border:1px solid #003866;
+	text-shadow:0px 1px 1px rgba(0,0,0,0.3);
+	box-shadow:0px 1px 1px rgba(0,0,0,0.1);
+}
+
+.login
+{
+	width:358px;
+	height:58px;
+	font-size:30px;
+}
+
+.publish
+{
+	width:150px;
+	height:50px;
+	font-size:20px;
+	float:right;
+}
+
+/*buttons end*/
+/*SignIn Parts*/
+#signInLogo
+{
+	width:200px;
+	height:80px;
+	margin:10% auto 20px auto;
+	background:url(../Images/Logo-M.png) no-repeat center;
+	text-indent:-9999px;
+	display:block;
+    font-size:60px;
+    color:#FFF;
+    line-height:120px;
+	text-shadow:0px 2px 2px rgba(0,0,0,0.75);
+}
+#signInArea
+{
+	width:360px;
+	height:auto;
+	margin:0 auto;	
+}
+#signInArea a
+{
+	display:block;
+	color:#199ff2;
+	font-size:16px;
+	margin-top:20px;
+}
+.signUpField
+{
+	width:358px;
+	height:58px;
+	margin-bottom:20px;
+	color:#0f5b99;
+	font-family:"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	text-indent:1em;
+	font-size:24px;
+	background-color:rgba(0,0,0,0.1);
+	border:1px solid rgba(255,255,255,0.1);
+}
+/*SignIn Parts end*/
 /*Header Start*/
 header
 {
@@ -81,6 +171,8 @@ header
     font-size:30px;
     color:#FFF;
     line-height:60px;
+	text-indent:-9999px;
+	background:url(../Images/Logo-S.png) no-repeat center;
     text-shadow:0px 2px 2px rgba(0,0,0,0.75);
 }
 #location{
@@ -360,6 +452,29 @@ header
 	border:1px solid #199ff2;
 	text-decoration:none;
 }
+
+#secTitleArea
+{
+	width:100%;
+	height:auto;
+}
+.secTitle
+{
+	width:400px;
+	height:auto;
+	display:block;
+	float:left;
+	font-size:24px;
+}
+#shelfFilter
+{
+	width:938px;;
+	height:auto;
+	min-height:120px;
+	margin:20px 0 10px 0;
+	border:1px solid #e0e0e0;
+}
+
 #tabView
 {
     width:630px;
