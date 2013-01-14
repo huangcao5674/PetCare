@@ -12,7 +12,7 @@ namespace PetCare.DALFactory
         private static readonly string Path = ConfigurationManager.AppSettings["AdoptPet"];
         private static readonly string AdoptPath = ConfigurationManager.AppSettings["AdoptPet"];
         private static readonly string KnowledgePath = ConfigurationManager.AppSettings["KnowledgePet"];
-        private static readonly string MissedPetPath=ConfigurationManager.AppSettings[""];
+        private static readonly string MissedPetPath = ConfigurationManager.AppSettings["AdoptPet"];
 
         private DataAccess()
         {
@@ -54,6 +54,20 @@ namespace PetCare.DALFactory
             {
                 string className = KnowledgePath + ".KnowledgePetComment";
                 return (PetCare.IDAL.IKnowledgePetComment)Assembly.Load(KnowledgePath).CreateInstance(className);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //创建missedPetComment类
+        public static PetCare.IDAL.IMissedPetInfoComment CreateMissedComment()
+        {
+            try
+            {
+                string className = KnowledgePath + ".MissedPetInfoComment";
+                return (PetCare.IDAL.IMissedPetInfoComment)Assembly.Load(KnowledgePath).CreateInstance(className);
             }
             catch (Exception ex)
             {

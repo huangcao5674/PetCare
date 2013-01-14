@@ -119,6 +119,11 @@
                         CellPadding="3" Font-Size="12pt"  BackColor="White" 
             BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" >
                         <Columns>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:CheckBox ID="CheckBoxs" runat="server" AutoPostBack="true" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                             <asp:BoundField DataField="UserName" HeaderText="UserName" />
                             <asp:BoundField DataField="KnowledgeID" HeaderText="KnowledgeID" />
                             <asp:BoundField DataField="PetCategoryName" HeaderText="PetCategoryName" />
@@ -149,7 +154,38 @@
         </tr>
 
     </table>
-
+    <table>
+       <tr>
+             <td> 
+                 <asp:CheckBox ID="cb_SelectAll" Text="全选" runat="server" 
+                     oncheckedchanged="cb_SelectAll_CheckedChanged" /> </td>
+             <td> 
+                 <asp:Button ID="BtnDelete" runat="server" Text="删除" onclick="BtnDelete_Click" /> </td>
+             <td> 
+                 <asp:Button ID="BtnEdit" runat="server" Text="编辑" onclick="BtnEdit_Click" /> </td>
+             </tr>
+                          <tr>
+             <td>KnowledgeID<asp:TextBox ID="TextBox_KnowledgeID" runat="server"></asp:TextBox> </td>
+             <td>UserID<asp:TextBox ID="TextBox_UserID" runat="server"></asp:TextBox> </td>
+             <td>AddressID<asp:TextBox ID="TextBox_AddressID" runat="server"></asp:TextBox></td>
+             <td>PetCategoryID<asp:TextBox ID="TextBox_PetCategoryID" runat="server"></asp:TextBox></td>
+             <td>WeiBoID<asp:TextBox ID="TextBox_WeiBoID" runat="server"></asp:TextBox></td>
+             
+             </tr>
+             <tr>
+             <td>KnowledgeTitle<asp:TextBox ID="TextBox_KnowledgeTitle" runat="server"></asp:TextBox> </td>
+             <td>KnowledgeTime<asp:TextBox ID="TextBox_KnowledgeTime" runat="server"></asp:TextBox> </td>
+             <td> IP<asp:TextBox ID="TextBox_IP" runat="server"></asp:TextBox> </td>
+             <td> PriorityScore<asp:TextBox ID="TextBox_PriorityScore" runat="server"></asp:TextBox> </td>
+             <td> FocusNum<asp:TextBox ID="TextBox_FocusNum" runat="server"></asp:TextBox> </td>
+             <td>  
+                 <asp:CheckBox ID="cb_IsVisible" Text="IsVisible" runat="server" /></td>
+             </tr>
+             <tr>
+             <td colspan='6'>MissIDInfo<asp:TextBox ID="TextBox_MissIDInfo" runat="server" Width="563px"></asp:TextBox> 
+                 <asp:Button ID="Btn_Save" runat="server" Text="Save" onclick="Btn_Save_Click" /></td>
+             </tr>
+    </table>
     </div>
     </form>
 </body>

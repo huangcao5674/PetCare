@@ -28,7 +28,7 @@ namespace PetCare.Model
             KnowledgeID = knowledgeid;
             UserID = userID;
             AddressID = addressID;
-            PetCaretegoryID = petCategoryID;
+            PetCategoryID = petCategoryID;
             WeiBoID = weiboID;
             KnowledgeTime = KnowledgeTime;
             KnowledgeInfo = knowledgeInfo;
@@ -44,7 +44,7 @@ namespace PetCare.Model
         public string KnowledgeID{get;set;}
         public string UserID{ get; set; }
         public string AddressID{  get; set; }
-        public string PetCaretegoryID{ get; set; }
+        public string PetCategoryID{ get; set; }
         public string WeiBoID{ get; set; }
         public string KnowledgeTitle{ get; set;  }
         public  string  KnowledgeTime{get;set;}

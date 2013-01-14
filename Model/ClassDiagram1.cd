@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PetCare.Model.CTAddress" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAEAAIAAAAAAAAAAAAAAAIAAAAAgAAAAA=</HashCode>
+      <FileName>CTAddress.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTAdoptPet" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAICBEAAAgAAAAAgAICAAACACgAAAAAAAAAA=</HashCode>
+      <FileName>CTAdoptPet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CVAdoptPet" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEQACAAAAIgAAAAAAQICAACCIGgQAAEgAAEAQ=</HashCode>
+      <FileName>CTAdoptPet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CVAdoptPetComment" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIEQiCAEAAIgAAIAAAAICQgCCImgRIAGwAAEAQ=</HashCode>
+      <FileName>CTAdoptPet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTAdoptPetComment" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAgAAAAAgAIAAgAAAgAAAAAQAAAAA=</HashCode>
+      <FileName>CTAdoptPetComment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTKnowledgePet" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAEQAgAAAICCEABAAAAAAAgAIAAAAAAAggAAAAAAAAA=</HashCode>
+      <FileName>CTKnowledgePet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CVKnowledgePet" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAgAEQACCAAAIAAAAAAAQIAAACAIEgwAAEgAAEAQ=</HashCode>
+      <FileName>CTKnowledgePet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CVKnowledgePetComment" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAgIEQiCCEAAIAAAYAAAAIAQgCAIkgxIAGwAAEAQ=</HashCode>
+      <FileName>CTKnowledgePet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTKnowledgePetComment" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAEAAAAAAAAAgAIAAgAAAgAAAAAQAAAAA=</HashCode>
+      <FileName>CTKnowledgePetComment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTLoginLog" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAEAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CTLoginLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTMissedPetInfo" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAEQICBEAAAABAAAAgAIAAAKAIAgAAAAAAAEAA=</HashCode>
+      <FileName>CTMissedPetInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CVMissedPetInfo" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAEQACAAAAIABAAAAAQIAAAKAIEgQAAEgAAEAQ=</HashCode>
+      <FileName>CTMissedPetInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CVMissedPetComment" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgIEQiCAEAAIABAYAAAAIAQgKAIkgRIAGwAAEAQ=</HashCode>
+      <FileName>CTMissedPetInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTMissedPetInfoComment" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAEAAAABAAAAgAIAAgAAAgAAAAAQAAAAA=</HashCode>
+      <FileName>CTMissedPetInfoComment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTPetCategory" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAEAAEAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>CTPetCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTPetDetail" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>CTPetDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTPetInfo" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAQAAAAIAAAAYAAAAAAAA=</HashCode>
+      <FileName>CTPetInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTUserFocus" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAEAgAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>CTUserFocus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CTUserInfo" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAiCIAAgAAAAIAEgAgA9AABAAAQAAGAAAAAQ=</HashCode>
+      <FileName>CTUserInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.CUserFocusArticle" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAACAAAAQAACACAAAAEAAAAAAEAAAA=</HashCode>
+      <FileName>CUserFocusArticle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.PagingModel&lt;T&gt;" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAACAAAAA=</HashCode>
+      <FileName>Paging.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.HashElement" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>UserLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.UserLogin" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAEAAAAAAAAAAAAIAAAAAAAQAAAAAAIACAEAAAAA=</HashCode>
+      <FileName>UserLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetCare.Model.WebCommonModel" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAgEAAAAAAABIAAAAAAABAAAAAAAEAAAI=</HashCode>
+      <FileName>WebCommonModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="宋体" Size="9" />
+</ClassDiagram>

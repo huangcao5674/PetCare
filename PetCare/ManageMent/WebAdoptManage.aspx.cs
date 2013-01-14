@@ -133,6 +133,7 @@ namespace PetCare.ManageMent
             int howmany = 0;
 
             GridView1.DataSource = adopt.GetPetAdoptPerPageList(pageNumber, perPage, out howmany);
+            GridView1.DataKeyNames = new string[] { "AdoptID"};
             int howmanyPages = 0;
 
             howmanyPages = int.Parse(Math.Ceiling((double)howmany / (double)perPage).ToString());
@@ -190,6 +191,8 @@ namespace PetCare.ManageMent
             ddlAddressAdd.DataValueField = "AddressID";
             ddlAddressAdd.DataBind();
         }
+
+
         private void LoadAdopt()
         {
             List<CTAdoptPet> LIST = new List<CTAdoptPet>();
@@ -235,6 +238,7 @@ namespace PetCare.ManageMent
             List<CVAdoptPet>list=new List<CVAdoptPet>();
             list=adoptpet.GetPetAdoptPetListByAddressID(isAdopt,address,petcategory, pageNumb, perPageNumb, out howmanyPages);
             GridView1.DataSource = list;
+            GridView1.DataKeyNames = new string[] { "AdoptID"};
             GridView1.DataBind();
         }
 
@@ -250,6 +254,105 @@ namespace PetCare.ManageMent
         {
             int value = int.Parse(ddPages.SelectedValue.ToString());
             BindGridNew(value);
+        }
+
+        protected void cb_SelectAll_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
+            {
+                CheckBox cbox = (CheckBox)GridView1.Rows[i].FindControl("CheckBoxs");
+                if (cb_SelectAll.Checked==true)
+                {
+                    cbox.Checked = true;
+                }
+                else
+                {
+                    cbox.Checked = false;
+                }
+            }
+        }
+
+        protected void BtnDelete_Click(object sender, EventArgs e)
+        {
+            AdoptPet adoptPet = new AdoptPet();
+            for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
+            {
+                CheckBox cbox = (CheckBox)GridView1.Rows[i].FindControl("CheckBoxs");
+                if (cbox.Checked == true)
+                {
+                    string sqlstr = GridView1.DataKeys[i].Value.ToString();
+                    adoptPet.DeleteAdoptPet(sqlstr);
+                }
+            }
+            BindGridNew(1);
+        }
+
+        protected void BtnEdit_Click(object sender, EventArgs e)
+        {
+            string sqlstr=string.Empty;
+            int checkNumber = 0;
+            for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
+            {
+                CheckBox cbox = (CheckBox)GridView1.Rows[i].FindControl("CheckBoxs");
+                if (cbox.Checked == true)
+                {
+                    sqlstr = GridView1.DataKeys[i].Value.ToString();
+                    checkNumber++;
+                    break;
+                }
+            }
+            if (checkNumber > 1 || checkNumber < 1)
+            {
+                Response.Write("<script>alert('请选择一个!')</script>");
+            }
+            else
+            {
+
+
+
+                AdoptPet adoptPet = new AdoptPet();
+                CTAdoptPet ctadopt = new CTAdoptPet();
+                ctadopt = adoptPet.GetPetAdoptPetByAdoptID(sqlstr);
+                TextBox_AdoptID.Text = ctadopt.AdoptID;
+                TextBox_AdoptInfo.Text = ctadopt.AdoptInfo;
+                TextBox_AddressID.Text = ctadopt.AddressID;
+                TextBox_AdoptTime.Text = ctadopt.AdoptTime.ToString();
+                TextBox_AdoptTitle.Text = ctadopt.AdoptTitle.ToString();
+                TextBox_FocusNum.Text = ctadopt.FocusNum.ToString();
+                TextBox_IP.Text = ctadopt.IP.ToString();
+                TextBox_PetCategoryID.Text = ctadopt.PetCategoryID.ToString();
+                TextBox_PriorityScore.Text = ctadopt.PriorityScore.ToString();
+                TextBox_UserID.Text = ctadopt.UserID.ToString();
+                TextBox_WeiBoID.Text = ctadopt.WeiBoID.ToString();
+            }
+        }
+
+        protected void Btn_Save_Click(object sender, EventArgs e)
+        {
+            CTAdoptPet ctadopt = new CTAdoptPet();
+            ctadopt.AdoptID = TextBox_AdoptID.Text;
+            ctadopt.AdoptInfo = TextBox_AdoptInfo.Text;
+            ctadopt.AddressID = TextBox_AddressID.Text;
+            ctadopt.AdoptTime = TextBox_AdoptTime.Text.ToString();
+            ctadopt.AdoptTitle = TextBox_AdoptTitle.Text.ToString();
+            ctadopt.FocusNum =int.Parse(TextBox_FocusNum.Text.ToString());
+            ctadopt.IP = TextBox_IP.Text.ToString();
+            ctadopt.PetCategoryID = TextBox_PetCategoryID.Text.ToString();
+            ctadopt.PriorityScore = int.Parse(TextBox_PriorityScore.Text.ToString());
+            ctadopt.UserID = TextBox_UserID.Text.ToString();
+            ctadopt.WeiBoID = TextBox_WeiBoID.Text.ToString();
+            ctadopt.LastEditTime = DateTime.Now.ToShortDateString();
+            AdoptPet adoptPet = new AdoptPet();
+            int editStatus = 0;
+            editStatus=adoptPet.EditAdoptInfo(ctadopt);
+            if (editStatus == 1)
+            {
+                Response.Write("<script>alert('Edit成功!')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Edit失败!')</script>");
+            }
         }
     }
 }

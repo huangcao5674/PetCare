@@ -11,6 +11,9 @@ namespace PetCare.IDAL
         //获取所有的领养宠物的文章信息
         List<CTAdoptPet> GetAllAdoptPetList();
 
+        //根据adoptID获取其信息
+        CTAdoptPet GetAdoptInfoByAdoptID(string adoptID);
+
         //获取所有的领养宠物的文章列表，返回信息列表，分页的方式
         List<CVAdoptPet> GetAllAdoptPetListPerPage(int pageNumber, int NumberPerPage, out int howmanyPages);
 
@@ -31,6 +34,7 @@ namespace PetCare.IDAL
 
         //更新领养的信息
         int UpdateAdoptPet(CTAdoptPet AdoptPetInfo);
+
 
 
 

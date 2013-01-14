@@ -35,6 +35,10 @@
             font-size: 18pt;
             color: #333399;
         }
+        .style7
+        {
+            width: 103px;
+        }
         </style>
  
 </head>
@@ -98,7 +102,7 @@
         &nbsp;</td>
     </tr>
     <tr>
-    <td style="border: thin groove #008080"> 
+    <td style="border: thin groove #008080" class="style7"> 
         Address 
         <asp:DropDownList ID="ddlAddress" runat="server" AutoPostBack="True">
         </asp:DropDownList>  
@@ -121,7 +125,7 @@
              >            <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:CheckBox ID="CheckBox2" runat="server" />
+                        <asp:CheckBox ID="CheckBoxs" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="AdoptID" HeaderText="AdoptID" />
@@ -142,7 +146,9 @@
         </asp:GridView>
     </td>
     </tr>
-    <tr> <td>
+    </table>
+    <table>
+    <tr> <td >
             第<asp:DropDownList ID="ddPages" runat="server" AutoPostBack="True">
             </asp:DropDownList> 页</td> 
              <td>
@@ -152,6 +158,36 @@
                <td>
            <asp:Button ID="BtnNull" runat="server" Text="清空数据信息" onclick="BtnNull_Click" /> 
                </td>
+             </tr>
+             <tr>
+             <td> 
+                 <asp:CheckBox ID="cb_SelectAll" Text="全选" runat="server" 
+                     oncheckedchanged="cb_SelectAll_CheckedChanged" /> </td>
+             <td> 
+                 <asp:Button ID="BtnDelete" runat="server" Text="删除" onclick="BtnDelete_Click" /> </td>
+             <td> 
+                 <asp:Button ID="BtnEdit" runat="server" Text="编辑" onclick="BtnEdit_Click" /> </td>
+             </tr>
+             <tr>
+             <td>AdoptID<asp:TextBox ID="TextBox_AdoptID" runat="server"></asp:TextBox> </td>
+             <td>UserID<asp:TextBox ID="TextBox_UserID" runat="server"></asp:TextBox> </td>
+             <td>AddressID<asp:TextBox ID="TextBox_AddressID" runat="server"></asp:TextBox></td>
+             <td>PetCategoryID<asp:TextBox ID="TextBox_PetCategoryID" runat="server"></asp:TextBox></td>
+             <td>WeiBoID<asp:TextBox ID="TextBox_WeiBoID" runat="server"></asp:TextBox></td>
+             
+             </tr>
+             <tr>
+             <td>AdoptTitle<asp:TextBox ID="TextBox_AdoptTitle" runat="server"></asp:TextBox> </td>
+             <td>AdoptTime<asp:TextBox ID="TextBox_AdoptTime" runat="server"></asp:TextBox> </td>
+             <td> IP<asp:TextBox ID="TextBox_IP" runat="server"></asp:TextBox> </td>
+             <td> PriorityScore<asp:TextBox ID="TextBox_PriorityScore" runat="server"></asp:TextBox> </td>
+             <td> FocusNum<asp:TextBox ID="TextBox_FocusNum" runat="server"></asp:TextBox> </td>
+             <td>  
+                 <asp:CheckBox ID="cb_IsVisible" Text="IsVisible" runat="server" /></td>
+             </tr>
+             <tr>
+             <td colspan='6'>AdoptInfo<asp:TextBox ID="TextBox_AdoptInfo" runat="server" Width="563px"></asp:TextBox> 
+                 <asp:Button ID="Btn_Save" runat="server" Text="Save" onclick="Btn_Save_Click" /></td>
              </tr>
     </table>
 

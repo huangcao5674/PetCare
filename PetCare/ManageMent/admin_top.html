@@ -1,14 +1,14 @@
 <html>
 <head>
 <title><%= title %> - 管理页面</title>
-<script language=JavaScript>
+<script language="javascript">
 function logout(){
 	if (confirm("您确定要退出控制面板吗？"))
 	top.location = "out.asp";
 	return false;
 }
 </script>
-<script language=JavaScript1.2>
+<script language="JavaScript1.2">
 function showsubmenu(sid) {
 	var whichEl = eval("submenu" + sid);
 	var menuTitle = eval("menuTitle" + sid);
@@ -19,9 +19,9 @@ function showsubmenu(sid) {
 	}
 }
 </script>
-<meta http-equiv="Content-Type" content="text/html";charset=gb2312>
-<meta http-equiv="refresh" content="60">
-<script language=JavaScript1.2>
+<meta http-equiv="Content-Type" content="text/html";/>
+<meta http-equiv="refresh" content="60" />
+<script language="javascript">
 function showsubmenu(sid) {
 	var whichEl = eval("submenu" + sid);
 	var menuTitle = eval("menuTitle" + sid);
@@ -41,7 +41,7 @@ function showsubmenu(sid) {
     <td width="61%" height="64"><img src="../Images/ManageImages/logo.gif" width="262" height="64"></td>
     <td width="39%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="74%" height="38" class="admin_txt">管理员：<b><%=session("UserName")%></b> 您好,感谢登陆使用！</td>
+        <td width="74%" height="38" class="admin_txt">管理员：<b><%=HttpContext.Current.Session["UserName"]%></b> 您好,感谢登陆使用！</td>
         <td width="22%"><a href="#" target="_self" onClick="logout();"><img src="../Images/ManageImages/out.gif" alt="安全退出" width="46" height="20" border="0"></a></td>
         <td width="4%">&nbsp;</td>
       </tr>

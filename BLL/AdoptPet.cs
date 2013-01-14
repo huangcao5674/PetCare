@@ -19,6 +19,18 @@ namespace PetCare.BLL
             return dal.GetAllAdoptPetList();
         }
 
+        //根据adoptID返回具体的信息
+        public CTAdoptPet GetPetAdoptPetByAdoptID(string adoptID)
+        {
+            return dal.GetAdoptInfoByAdoptID(adoptID);
+        }
+
+        public int EditAdoptInfo(CTAdoptPet adoptPet)
+        {
+            return dal.UpdateAdoptPet(adoptPet);
+        }
+
+
         //获取所有的领养宠物的文章列表，返回信息列表，分页的方式
         public List<CVAdoptPet> GetPetAdoptPerPageList(int pageNumber,int perPage,out int howmanyPages)
         {

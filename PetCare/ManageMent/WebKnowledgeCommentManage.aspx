@@ -62,7 +62,7 @@
         <asp:TextBox ID="tbComment" runat="server"></asp:TextBox> </td>
         <td>
             <asp:Button ID="BtnAddComment" runat="server" Text="添加评论" 
-                onclick="BtnAddComment_Click" /> </td>
+                onclick="BtnAddComment_Click" style="height: 21px" /> </td>
     </tr>
     </tr>
 

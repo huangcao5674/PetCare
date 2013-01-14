@@ -74,6 +74,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\AddNewAdopt.aspx.cs">
+      <DependentUpon>AddNewAdopt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\AddNewAdopt.aspx.designer.cs">
+      <DependentUpon>AddNewAdopt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\KnowledgeInfo.aspx.cs">
       <DependentUpon>KnowledgeInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,6 +158,13 @@
     <Compile Include="ManageMent\WebAdoptManage.aspx.designer.cs">
       <DependentUpon>WebAdoptManage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageMent\WebFormUpLoad.aspx.cs">
+      <DependentUpon>WebFormUpLoad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMent\WebFormUpLoad.aspx.designer.cs">
+      <DependentUpon>WebFormUpLoad.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageMent\WebKnowledgeCommentManage.aspx.cs">
       <DependentUpon>WebKnowledgeCommentManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,7 +212,6 @@
   <ItemGroup>
     <Content Include="css\GlobalStyle.css" />
     <Content Include="css\Paging.css" />
-    <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="html\index.html" />
@@ -206,25 +219,6 @@
     <Content Include="html\js\init_userHome.js" />
     <Content Include="html\simple.html" />
     <Content Include="html\UserHome.html" />
-    <Content Include="html\[Draft]Index.html" />
-    <Content Include="html\[Draft]Login.html" />
-    <Content Include="html\[Draft]SecondPage.html" />
-    <Content Include="html\[Draft]SignUp.html" />
-    <Content Include="html\[Draft]simple.html" />
-    <Content Include="html\[Draft]UserHome.html" />
-    <Content Include="Images\01.gif" />
-    <Content Include="Images\02.gif" />
-    <Content Include="Images\03.gif" />
-    <Content Include="Images\04.gif" />
-    <Content Include="Images\1.png" />
-    <Content Include="Images\2.png" />
-    <Content Include="Images\3.png" />
-    <Content Include="Images\4.png" />
-    <Content Include="Images\5.png" />
-    <Content Include="Images\6.png" />
-    <Content Include="Images\bigbox_h3_spa.gif" />
-    <Content Include="Images\center.gif" />
-    <Content Include="Images\center0.gif" />
     <Content Include="Images\DefaultUserThumb.PNG" />
     <Content Include="Images\header01.gif" />
     <Content Include="Images\header_bei.gif" />
@@ -236,9 +230,6 @@
     <Content Include="Images\left02_left.gif" />
     <Content Include="Images\left02_right.gif" />
     <Content Include="Images\li.gif" />
-    <Content Include="Images\Logo-L.png" />
-    <Content Include="Images\Logo-M.png" />
-    <Content Include="Images\Logo-S.png" />
     <Content Include="Images\ManageImages\!.gif" />
     <Content Include="Images\ManageImages\ad.gif" />
     <Content Include="Images\ManageImages\add.gif" />
@@ -372,7 +363,6 @@
     <Content Include="Images\ManageImages\X.gif" />
     <Content Include="Images\ManageImages\yc.gif" />
     <Content Include="Images\ManageImages\yx.gif" />
-    <Content Include="Images\pov-01.jpg" />
     <Content Include="Images\searchBtn.PNG" />
     <Content Include="js\tiny_mce\langs\en.js" />
     <Content Include="js\tiny_mce\langs\zh-cn.js" />
@@ -662,6 +652,7 @@
     <Content Include="js\tiny_mce\utils\form_utils.js" />
     <Content Include="js\tiny_mce\utils\mctabs.js" />
     <Content Include="js\tiny_mce\utils\validate.js" />
+    <Content Include="ManageMent\AddNewAdopt.aspx" />
     <Content Include="ManageMent\KnowledgeInfo.aspx" />
     <Content Include="Interface\Register.aspx" />
     <Content Include="js\backbone.js" />
@@ -687,6 +678,7 @@
     <Content Include="ManageMent\right.html" />
     <Content Include="ManageMent\WebAdoptCommentManage.aspx" />
     <Content Include="ManageMent\WebAdoptManage.aspx" />
+    <Content Include="ManageMent\WebFormUpLoad.aspx" />
     <Content Include="ManageMent\WebKnowledgeCommentManage.aspx" />
     <Content Include="ManageMent\WebKnowledgeManage.aspx" />
     <Content Include="ManageMent\WebMissedPetCommentManage.aspx" />

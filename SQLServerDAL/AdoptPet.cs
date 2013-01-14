@@ -15,7 +15,13 @@ namespace PetCare.SQLServerDAL
     {
         private const string SQL_SELECT_ADOPTPET = "SELECT   [AdoptID],[UserID],[AddressID],[PetCategoryID],[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime]"
             + ",[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible],[IsAdopt] FROM [PETCAREDB].[dbo].[DB_AdoptPet] WHERE [IsVisible]=1 AND [IsAdopt]=1";
-        
+
+
+        private const string SQL_SELECT_ADOPTPET_BY_ADIPTID = "SELECT   [AdoptID],[UserID],[AddressID],[PetCategoryID],[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime]"
+            + ",[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible],[IsAdopt] FROM [PETCAREDB].[dbo].[DB_AdoptPet] WHERE  AdoptID=@AdoptID";
+
+
+
         private const string SQL_SELECT_ADOPTPET_BY_USERID = "SELECT   [AdoptID],[UserID],[AddressID],[PetCategoryID],[WeiBoID],[AdoptTitle],[AdoptTime],[LastEditTime]"
             + ",[AdoptInfo],[IP],[PriorityScore],[FocusNum],[IsVisible] FROM [PETCAREDB].[dbo].[DB_AdoptPet] WHERE UserID=@UserId";
 
@@ -35,7 +41,7 @@ namespace PetCare.SQLServerDAL
         private const string SQL_DELETE_ADOPTPET = "UPDATE [PETCAREDB].[dbo].[DB_AdoptPet] SET [IsVisible] = false WHERE AdoptID=@AdoptID,[LastEditTime]=@LastEditTime,"
             + "[AdoptInfo]=@AdoptInfo,[IP]=@IP WHERE [AdoptID]=@AdoptID";
 
-        private const string SQL_UPDATE_ADOPTPET = "UPDATE [PETCAREDB].[dbo].[DB_AdoptPet] SET [AdoptTitle]=@AdoptTitle,";
+        private const string SQL_UPDATE_ADOPTPET = "UPDATE [PETCAREDB].[dbo].[DB_AdoptPet] SET LastEditTime=@LastEditTime, PetCategoryID=@PetCategoryID, [AdoptTitle]=@AdoptTitle,[AdoptInfo]=@AdoptInfo,AddressID=@AddressID,IP=@IP WHERE [AdoptID]=@AdoptID";
 
         private const string PARM_USER_ID = "@UserId";
 
@@ -89,6 +95,55 @@ namespace PetCare.SQLServerDAL
 
             return AdoptPetList;
         }
+
+        //根据adoptID 获取对应的信息
+        public CTAdoptPet GetAdoptInfoByAdoptID(string adoptID)
+        {
+            CTAdoptPet adoptInfo = new CTAdoptPet();
+            SqlParameter parm = new SqlParameter();
+            parm.ParameterName = PARM_ADOPT_ID;
+            parm.Value = adoptID;
+            try
+            {
+                using (SqlDataReader reader = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, SQL_SELECT_ADOPTPET_BY_ADIPTID, parm))
+                {
+                    while (reader.Read())
+                    {
+                        CTAdoptPet adoptPet = new CTAdoptPet();
+                        adoptPet.AdoptID = reader["AdoptID"].ToString();
+                        adoptPet.UserID = reader["UserID"].ToString();
+                        adoptPet.AddressID = reader["AddressID"].ToString();
+                        adoptPet.AdoptInfo = reader["AdoptInfo"].ToString();
+                        adoptPet.AdoptTitle = reader["AdoptTitle"].ToString();
+                        adoptPet.PetCategoryID = reader["PetCategoryID"].ToString();
+                        adoptPet.PriorityScore = int.Parse(reader["PriorityScore"].ToString());
+                        adoptPet.WeiBoID = reader["WeiBoID"].ToString();
+                        bool tempIsAdopt = true;
+                        adoptPet.IsAdopt = bool.TryParse(reader["IsAdopt"].ToString(), out tempIsAdopt) ? tempIsAdopt : true;
+
+                        DateTime tempLastEditTime = DateTime.Now;
+                        tempLastEditTime = DateTime.TryParse(reader["LastEditTime"].ToString(), out tempLastEditTime) ? tempLastEditTime : DateTime.Now;
+                        adoptPet.LastEditTime = tempLastEditTime.ToString("yyyy/MM/dd hh:mm:ss");
+
+                        DateTime tempAdoptTime = DateTime.Now;
+                        tempAdoptTime = DateTime.TryParse(reader["AdoptTime"].ToString(), out tempAdoptTime) ? tempAdoptTime : DateTime.Now;
+                        adoptPet.AdoptTime = tempAdoptTime.ToString("yyyy/MM/dd hh:mm:ss");
+
+                        adoptPet.IsVisible = bool.Parse(reader["IsVisible"].ToString());
+                        adoptPet.IP = reader["IP"].ToString();
+                        int tempFocusNum = 0;
+                        adoptPet.FocusNum = int.TryParse(reader["FocusNum"].ToString(), out tempFocusNum) ? tempFocusNum : 0;
+                        adoptInfo=adoptPet;
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return adoptInfo;
+        }
+            
 
 
         //获取所有的领养宠物的文章列表，返回信息列表，分页的方式
@@ -454,6 +509,39 @@ namespace PetCare.SQLServerDAL
         public int UpdateAdoptPet(CTAdoptPet AdoptPetInfo)
         {
             int updateStatus = 0;
+
+            //得到所有的参数数组
+            SqlParameter[] adoptPetParams = null;
+            adoptPetParams = new SqlParameter[]
+                            {
+                                new SqlParameter("@AdoptID",SqlDbType.NVarChar,32),
+                                new SqlParameter("@AddressID",SqlDbType.NVarChar,20),
+                                new SqlParameter("@PetCategoryID",SqlDbType.NVarChar,20),
+                                new SqlParameter("@AdoptTitle",SqlDbType.NVarChar,20),
+                                new SqlParameter("@LastEditTime",SqlDbType.DateTime ),
+                                new SqlParameter("@AdoptInfo",SqlDbType.NVarChar),
+                                new SqlParameter("@IP",SqlDbType.NVarChar,20),
+                            };
+            adoptPetParams[0].Value = AdoptPetInfo.AdoptID;
+            adoptPetParams[1].Value = AdoptPetInfo.AddressID;
+            adoptPetParams[2].Value = AdoptPetInfo.PetCategoryID;
+            adoptPetParams[3].Value = AdoptPetInfo.AdoptTitle;
+            adoptPetParams[4].Value = Convert.ToDateTime(AdoptPetInfo.LastEditTime);
+            adoptPetParams[5].Value = AdoptPetInfo.AdoptInfo;
+            adoptPetParams[6].Value = AdoptPetInfo.IP;
+
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringOrderDistributedTransaction))
+                {
+                    updateStatus = SqlHelper.ExecuteNonQuery(conn, CommandType.Text, SQL_UPDATE_ADOPTPET, adoptPetParams);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
             return updateStatus;
         }
             

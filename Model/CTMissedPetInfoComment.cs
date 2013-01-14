@@ -13,6 +13,7 @@ namespace PetCare.Model
         public  string  CommentTime { get; set; }
         public string IP { get; set; }
         public string CommentContent { get; set; }
+        public string MissID { get; set; }
         public bool IsVisible { get; set; }
     }
 }

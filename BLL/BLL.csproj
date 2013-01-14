@@ -46,6 +46,7 @@
     <Compile Include="KnowledgePet.cs" />
     <Compile Include="KnowledgePetComment.cs" />
     <Compile Include="LoginLog.cs" />
+    <Compile Include="MissedPetComment.cs" />
     <Compile Include="MissedPetInfo.cs" />
     <Compile Include="PetCategory.cs" />
     <Compile Include="User.cs" />
