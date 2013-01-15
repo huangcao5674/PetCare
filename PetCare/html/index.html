@@ -4,44 +4,65 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>宠物网-帮你寻找最喜爱的宠物</title>
     <link href="../css/GlobalStyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap-responsive.css" type="text/css" />
 </head>
 <body>
-	<div id="header">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner" id="header">
+            <div class="container">
+                <div id="logo">宠物网</div>
+                <div id="location">上海</div>
+                <div id="globalNav">
+                    <a href="#" class="highlight" >首页</a>
+                    <a href="./UserHome.html?code=1" target="_blank">领养宠物</a>
+                    <a href="#">寻找宠物</a>
+                    <a href="./UserHome.html?code=3" target="_blank">宠物百科</a>    
+                </div>
+                <div class="loginArea">
+                    <a href="#" class="highlight">登陆</a><span>|</span>
+                    <a href="#">注册</a>   
+                </div>
+            </div>
+        </div>
+    </div>
+	<!--<div id="header"-->
     <!--Html5预留标签，未经测试-->
     <!--<header>-->
-        <div id="top">
-            <div id="logo">宠物网</div>
-            <div id="location">上海</div>
-            <div id="globalNav">
-                <a href="#" class="highlight" >首页</a>
-                <a href="./UserHome.html?code=1" target="_blank">领养宠物</a>
-                <a href="#">寻找宠物</a>
-                <a href="./UserHome.html?code=3" target="_blank">宠物百科</a>    
-            </div>
-            <div class="loginArea">
-                <a href="#" class="highlight">登陆</a><span>|</span>
-                <a href="#">注册</a>   
-            </div>
-        </div>
-        <div class="clear"></div>
     <!--</header>--> 	
-	</div>
-    <div id="wrapper">
-        <div id="pov">
-            <!--JS调用图片，换图控件-->
-            <img src="../Images/pov-01.jpg" alt="展示图片1" />
+	<!--</div>-->
+    <div class="container">
+        <div class="hero-unit" id="wrapper">
+                <div id="myCarousel" class="carousel">
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="active item">
+                        <img alt="展示图片1" src="../Images/pov-01.jpg" />
+                        <div class="carousel-caption">
+                            <p>这是图片1</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img alt="展示图片1" src="../Images/pov-01.jpg" />
+                        <div class="carousel-caption">
+                            <p>这是图片图片2</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img alt="展示图片1" src="../Images/pov-01.jpg" />
+                        <div class="carousel-caption">
+                            <p>这是图片图片图片3</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel nav -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div>
         </div>
-        <div id="adoptArea">
-        	<h3>等待被领养</h3>
-            <div class="listStyle1">
-            	<a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
+        <div class="row">
+            <h3>等待被领养</h3>
+            <div class="span3 listStyle1">
                 <a href="#">
                     <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
                     <p>
@@ -50,69 +71,8 @@
                         <span class="listLocation">浦东新区</span>
                     </p>
                 </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-            	<div class="clear"></div>
             </div>
-			<div class="clear"></div>
-        </div>
-        <div id="findArea">
-        	<h3>努力寻找中……</h3>
-            <div class="listStyle1">
-            	<a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
+            <div class="span3 listStyle1">
                 <a href="#">
                     <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
                     <p>
@@ -121,71 +81,172 @@
                         <span class="listLocation">浦东新区</span>
                     </p>
                 </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-                <a href="#">
-                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
-                    <p>
-                        <span class="listTitle">大毛</span>
-                        <span class="listSpecies">苏格兰牧羊犬</span>
-                        <span class="listLocation">浦东新区</span>
-                    </p>
-                </a>
-            	<div class="clear"></div>
             </div>
-            <div class="clear"></div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
         </div>
-        <div id="petsWiki">
-        	<!--stand by-->
-        </div> 
-        <div class="clear"></div>
-     </div>
-     <div id="footer">
-     	<p>
-        	<a href="#">关于我们</a>
-            <a href="#">隐私策略</a>
-            <a href="#">服务条款</a>
-            <a href="#">如何使用</a>
+        <div class="row">
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <h3>努力寻找中……</h3>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+            <div class="span3 listStyle1">
+                <a href="#">
+                    <img alt="宠物缩略图" title="宠物缩略图" src="../Images/DefaultUserThumb.PNG" />
+                    <p>
+                        <span class="listTitle">大毛</span>
+                        <span class="listSpecies">苏格兰牧羊犬</span>
+                        <span class="listLocation">浦东新区</span>
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div id="footer">
+        <p>
+        <a href="#">关于我们</a>
+        <a href="#">隐私策略</a>
+        <a href="#">服务条款</a>
+        <a href="#">如何使用</a>
         </p>
-		<span id="copyright">&copy;宠物网2012~2013</span>
-     </div>       
+        <span id="copyright">©宠物网2012~2013</span>
+        </div>
+    </div>
+     <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+     <script type="text/javascript" src="../js/bootstrap/js/bootstrap.js"></script>
+     <script type="text/javascript" src="../js/bootstrap/js/bootstrap-carousel.js"></script>
+     <script type="text/javascript">
+        $('#myCarousel').carousel({
+                interval: 2000
+            });
+     </script>
 </body>
 </html>
