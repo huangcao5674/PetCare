@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>宠物网-帮你寻找最喜爱的宠物</title>
+    <link href="../css/GlobalStyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="header">
+    <!--Html5预留标签，未经测试-->
+    <!--<header>-->
+        <div id="top">
+            <div id="logo">宠物网</div>
+            <div id="location">上海</div>
+            <div id="globalNav">
+                <a href="#">首页</a>
+                <a href="#" class="highlight">领养宠物</a>
+                <a href="#">寻找宠物</a>
+                <a href="#">宠物百科</a>    
+            </div>
+            <div class="loginArea">
+                <a href="#" class="highlight">登陆</a><span>|</span>
+                <a href="#">注册</a>   
+            </div>
+        </div>
+        <div class="clear"></div>
+    <!--</header>--> 	
+	</div>
+    <div id="wrapper">
+    	<div id="secTitleArea">
+        	<span class="secTitle">我要发布</span>
+            <div class="clear"></div>
+		</div>
+        <div id="publishArea">
+        	<ul class="publishInfo">
+            	<li>
+                	<span>类型:</span>
+                    <input type="radio" name="posttype" value="findPets" tabindex="1" />寻找宠物
+                    <input type="radio" name="posttype" value="adoptPets" tabindex="2" />领养宠物
+                    <input type="radio" name="posttype" value="petsWiki" tabindex="3" />宠物百科
+                </li>
+                <li>
+                	<span>城市:</span>
+                    <select id="city" tabindex="4">
+                    	<option>请选择</option>
+                    	<option>上海</option>
+                        <option>北京</option>
+                        <option>深圳</option>
+                        <option>呼和浩特</option>
+                    </select>
+                    <select id="area" tabindex="5">
+                    	<option>请选择</option>
+                    	<option>浦东新区</option>
+                        <option>闸北区</option>
+                        <option>虹口区</option>
+                    </select>
+                    <select id="sector" tabindex="6">
+                    	<option>请选择</option>
+                    	<option>张江</option>
+                        <option>北蔡</option>
+                        <option>金桥</option>
+                    </select>
+                </li>
+                <li>
+                	<span>种类:</span>
+                    <select id="petstype" tabindex="7">
+                    	<option>请选择</option>
+                    	<option>宠物狗</option>
+                        <option>宠物猫</option>
+                        <option>其他宠物</option>
+                    </select>
+                    <select id="petstype" tabindex="8">
+                    	<option>请选择</option>
+                    	<option>宠物狗</option>
+                        <option>宠物猫</option>
+                        <option>其他宠物</option>
+                    </select>
+                </li>
+                <li>
+                	<span>标题:</span>
+                    <input type="text" class="inputTitle" value="请输入标题" tabindex="9" />
+                </li>
+            </ul>
+            <textarea class="publishContent" tabindex="10"></textarea>
+            <input type="button" class="greenButton publish" value="发  布" tabindex="11" />
+            <input type="button" value="取  消" class="cancelBtn" />
+        </div>
+    </div>
+</body>
+</html>
